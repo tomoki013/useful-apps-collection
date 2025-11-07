@@ -21,18 +21,26 @@
   - `localStorage` を利用して状態を永続化するための `useLocalStorage` カスタムフックを `src/hooks` に作成。
   - `src/components/organisms/Sidebar.tsx` を作成し、`Accordion` コンポーネントを導入。
   - `src/app/[lang]/layout.tsx` を更新し、デスクトップでは2カラム（サイドバー＋メインコンテンツ）、モバイルではハンバーガーメニューで開閉するサイドバーレイアウトを実装した。
+- **BMI計算機機能の実装**
+  - 計算ロジックを `src/lib/calculators/bmi.ts` に分離して実装。メートル法とヤード・ポンド法の両方に対応。
+  - `src/components/organisms/calculators/BmiCalculator.tsx` にUIコンポーネントを作成。`useLocalStorage` を利用して入力値を永続化し、`framer-motion` で結果をアニメーション表示。
+  - `src/app/[lang]/(calculators)/bmi-calculator/page.tsx` を作成し、新しい計算機ページをアプリケーションに追加。
+  - `src/components/organisms/Sidebar.tsx` を更新し、「健康」カテゴリとBMI計算機へのリンクを追加。
 
 ### 発生した問題・課題
 - shadcn/uiの `Select` コンポーネントがプロジェクトに存在しなかったため、`Sidebar` の `Accordion` と同様に手動で追加する必要があった。
 - 当初の実装では、Task 2とTask 3が漏れていたため、コードレビューで指摘を受け、追加実装を行った。
+- `mkdir` コマンドでNext.jsのルートグループ `(calculators)` を含むディレクトリを作成しようとした際に、シェルの特殊文字として解釈されエラーが発生した。
 
 ### 解決策
 - shadcn/uiのドキュメントを参考に、`Select` と `Accordion` コンポーネントのソースコードを `src/components/ui` ディレクトリに手動で追加した。
 - レビューフィードバックに基づき、`framer-motion` のインストール、`useLocalStorage` フックの実装、サイドバーレイアウトの作成、開発ログの更新を完了させた。
+- `mkdir` コマンドのパス引数をシングルクォートで囲むことで、特殊文字のエラーを回避した。
 
 ### 得られた知見・次のアクション
 - shadcn/uiのコンポーネントは、CLIで追加するのが基本だが、手動での追加方法も理解しておくことで、柔軟な対応が可能になる。
 - 大規模なタスクに取り組む際は、要件を細分化し、各タスクが完了しているかをセルフチェックするプロセスを強化する必要がある。
+- シェルで特殊文字（`()` など）を含むパスを扱う際は、クォーテーションで適切にエスケープすることが重要である。
 
 ---
 
