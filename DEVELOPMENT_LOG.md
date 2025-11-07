@@ -4,6 +4,29 @@
 
 ---
 
+## 2025-11-07
+
+### 担当者
+- Jules
+
+### 実装内容
+- **BMR（基礎代謝量）計算機機能の実装**
+  - **計算ロジックの追加:** `src/lib/calculators/bmr.ts` を新規作成し、ミフリン・セントジョー方程式に基づいたBMR計算ロジック `calculateBmrMifflin` を実装。
+  - **UIコンポーネントの作成:** `src/components/organisms/calculators/BmrCalculator.tsx` を新規作成。`BmiCalculator` を参考に、`Card`、`RadioGroup`、`Input` を使用してUIを構築。`useLocalStorage` フックで入力値を永続化し、`framer-motion` で結果をアニメーション表示するようにした。
+  - **ページの追加とルーティング:** `src/app/[lang]/(calculators)/bmr-calculator/page.tsx` を作成し、BMR計算機ページをアプリケーションに追加。
+  - **サイドバーの更新:** `src/components/organisms/Sidebar.tsx` を修正し、「健康」カテゴリ内にBMR計算機へのナビゲーションリンクを追加。国際化対応も行った。
+
+### 発生した問題・課題
+- `ls` コマンドでNext.jsのルートグループ `(calculators)` を含むディレクトリをリストしようとした際に、シェルの特殊文字として解釈されエラーが複数回発生した。
+
+### 解決策
+- `ls` コマンドのパス引数をシングルクォートで囲むことで、特殊文字のエラーを回避した。
+
+### 得られた知見・次のアクション
+- シェルで特殊文字（`()` など）を含むパスを扱う際は、クォーテーションで適切にエスケープすることの重要性を再認識した。コマンド実行前に入念な確認を行う。
+
+---
+
 ## 2025-11-06
 
 ### 担当者

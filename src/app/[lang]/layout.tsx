@@ -8,10 +8,8 @@ import { Menu, X } from 'lucide-react';
 
 export default function LangLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: { lang: string };
 }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
