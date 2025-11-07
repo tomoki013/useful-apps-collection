@@ -5,11 +5,14 @@ import * as Layouts from '@/app/components/layouts/index';
 import { Sidebar } from '@/components/organisms';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import { I18nProviderClient } from '@/i18n/client';
 
 export default function LangLayout({
   children,
+  params: { lang },
 }: {
   children: React.ReactNode;
+  params: { lang: string };
 }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -18,7 +21,7 @@ export default function LangLayout({
   };
 
   return (
-    <>
+    <I18nProviderClient locale={lang}>
       <Layouts.Header />
       <div className="flex">
         {/* Sidebar for desktop */}
@@ -49,6 +52,6 @@ export default function LangLayout({
         </div>
       </div>
       <Layouts.Footer />
-    </>
+    </I18nProviderClient>
   );
 }

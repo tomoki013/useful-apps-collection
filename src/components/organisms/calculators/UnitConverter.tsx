@@ -8,8 +8,10 @@ import { Label } from "@/components/ui/label";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { unitConverterConfig, convert } from "@/lib/calculators/unitConverter";
 import { motion } from "framer-motion";
+import { useScopedI18n } from "@/i18n/client";
 
 const UnitConverter = () => {
+  const t = useScopedI18n('calculators.unit_converter');
   const [category, setCategory] = useLocalStorage("unit-category", "length");
   const [fromUnit, setFromUnit] = useLocalStorage("unit-from", "m");
   const [toUnit, setToUnit] = useLocalStorage("unit-to", "ft");
@@ -50,15 +52,15 @@ const UnitConverter = () => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Unit Converter</CardTitle>
+        <CardTitle>{t('title')}</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <div className="flex flex-col gap-2">
-            <Label>Category</Label>
+            <Label>{t('category')}</Label>
             <Select value={category} onValueChange={setCategory}>
               <SelectTrigger>
-                <SelectValue placeholder="Select category" />
+                <SelectValue placeholder={t('select_category')} />
               </SelectTrigger>
               <SelectContent>
                 {categories.map((cat) => (
@@ -70,10 +72,10 @@ const UnitConverter = () => {
             </Select>
           </div>
           <div className="flex flex-col gap-2">
-            <Label>From</Label>
+            <Label>{t('from')}</Label>
             <Select value={fromUnit} onValueChange={setFromUnit}>
               <SelectTrigger>
-                <SelectValue placeholder="Select unit" />
+                <SelectValue placeholder={t('select_unit')} />
               </SelectTrigger>
               <SelectContent>
                 {Object.entries(units).map(([key, unit]) => (
@@ -87,14 +89,14 @@ const UnitConverter = () => {
               type="number"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              placeholder="Enter value"
+              placeholder={t('enter_value')}
             />
           </div>
           <div className="flex flex-col gap-2">
-            <Label>To</Label>
+            <Label>{t('to')}</Label>
             <Select value={toUnit} onValueChange={setToUnit}>
               <SelectTrigger>
-                <SelectValue placeholder="Select unit" />
+                <SelectValue placeholder={t('select_unit')} />
               </SelectTrigger>
               <SelectContent>
                 {Object.entries(units).map(([key, unit]) => (
@@ -113,7 +115,7 @@ const UnitConverter = () => {
               <Input
                 value={outputValue}
                 readOnly
-                placeholder="Result"
+                placeholder={t('result')}
                 className="font-bold"
               />
             </motion.div>

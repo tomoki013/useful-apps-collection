@@ -1,0 +1,270 @@
+{
+  "header": {
+    "nav": {
+      "home": "Home",
+      "apps": "Apps",
+      "contact": "Contact"
+    },
+    "title": "Useful Apps",
+    "sr": {
+      "switch_language": "Switch Language",
+      "toggle_theme": "Toggle Theme",
+      "open_menu": "Open Menu"
+    },
+    "language": {
+      "ja": "日本語",
+      "en": "English"
+    }
+  },
+  "footer": {
+    "title": "Useful Apps",
+    "description": "We provide useful tools for free that are helpful in daily life and work. All apps run on your browser and can be used without installation.",
+    "copyright": "&copy; {year} Useful Apps. All rights reserved.",
+    "sections": {
+      "service": {
+        "title": "Services",
+        "links": {
+          "apps": "Apps",
+          "calculator": "Calculators",
+          "timer": "Timers",
+          "text_converter": "Text Converters"
+        }
+      },
+      "company": {
+        "title": "Company",
+        "links": {
+          "about": "About Us",
+          "privacy": "Privacy Policy",
+          "terms": "Terms of Service",
+          "contact": "Contact Us"
+        }
+      },
+      "support": {
+        "title": "Support",
+        "links": {
+          "help": "Help Center",
+          "faq": "FAQ",
+          "guide": "User Guide",
+          "feedback": "Feedback"
+        }
+      }
+    },
+    "contact": {
+      "email": "contact@example.com",
+      "phone": "03-1234-5678",
+      "address": "Shibuya, Tokyo"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Make Your Everyday ",
+      "title_highlight": "Convenient",
+      "description": "Calculators, timers, text converters, and more. We offer a variety of useful applications for free that can help you in your daily life and work. All tools run on your browser and require no installation.",
+      "cta_primary": "See Apps",
+      "cta_secondary": "How to Use"
+    },
+    "stats": {
+      "tools": "Useful Tools",
+      "free": "Free",
+      "available": "Available"
+    },
+    "features": {
+      "title": "Why Choose Us?",
+      "description": "We provide high-quality, simple, and easy-to-use utility tools.",
+      "items": {
+        "fast": {
+          "title": "Fast & Lightweight",
+          "description": "A fast and lightweight application built with modern technology."
+        },
+        "secure": {
+          "title": "Safe & Secure",
+          "description": "Designed with a focus on security, so you can use it with peace of mind."
+        },
+        "responsive": {
+          "title": "Responsive Design",
+          "description": "Optimized for all devices, including PCs, tablets, and smartphones."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to get started?",
+      "description": "All tools are free and no account is required.",
+      "button": "See App List"
+    }
+  },
+  "apps_page": {
+    "title": "Useful App List",
+    "description": "We've gathered a variety of tools to help you in your daily life. All are free to use.",
+    "search_placeholder": "Search for apps...",
+    "categories": {
+      "all": "All",
+      "health": "Health",
+      "money": "Money",
+      "tools": "Tools"
+    },
+    "no_results": {
+      "title": "No apps found",
+      "description": "Try changing your search criteria."
+    },
+    "coming_soon": {
+      "title": "More apps are on the way",
+      "description": "We are currently developing more useful tools. New apps will be added soon.",
+      "badge": "In Development"
+    },
+    "app_cards": {
+      "bmi": {
+        "name": "BMI Calculator",
+        "description": "Check your obesity level"
+      },
+      "bmr": {
+        "name": "BMR Calculator",
+        "description": "Calculate the energy needed to maintain life"
+      },
+      "loan": {
+        "name": "Loan Simulator",
+        "description": "Compare equal payment and equal principal payments"
+      },
+      "unit_converter": {
+        "name": "Unit Converter",
+        "description": "Convert various units such as length, weight, and temperature"
+      },
+      "coming_soon": "Coming Soon"
+    }
+  },
+  "contact_page": {
+    "title": "Contact Us",
+    "description": "If you have any questions or requests, please feel free to contact us. Our professional staff will provide prompt support.",
+    "form": {
+      "title": "Contact Form",
+      "description": "Please fill out the form below and press the submit button.",
+      "name": "Name",
+      "name_placeholder": "John Doe",
+      "email": "Email Address",
+      "email_placeholder": "example@email.com",
+      "subject": "Subject",
+      "subject_placeholder": "Please enter the subject of your inquiry",
+      "message": "Message",
+      "message_placeholder": "Please enter the details of your inquiry",
+      "submit": "Submit",
+      "submitting": "Submitting...",
+      "success_message": "Thank you for your inquiry. We will reply within 3 business days."
+    },
+    "info": {
+      "title": "Contact Information",
+      "description": "Other ways to contact us",
+      "email": {
+        "title": "Email Address",
+        "content": "contact@example.com",
+        "description": "Available 24/7"
+      },
+      "phone": {
+        "title": "Phone Number",
+        "content": "03-1234-5678",
+        "description": "Weekdays 9:00-18:00"
+      },
+      "address": {
+        "title": "Location",
+        "content": "Shibuya, Tokyo",
+        "description": "Postal Code: 150-0000"
+      }
+    },
+    "response_time": {
+      "title": "Response Time",
+      "description": "We will typically reply to your inquiry within 3 business days.",
+      "badge": "Prompt Support"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": {
+        "q1": {
+          "question": "Are the apps free to use?",
+          "answer": "Yes, all apps are available for free."
+        },
+        "q2": {
+          "question": "Do I need to register an account?",
+          "answer": "No, you can use the apps without registering an account."
+        },
+        "q3": {
+          "question": "Can I use the apps on my smartphone?",
+          "answer": "Yes, all apps are compatible with all devices."
+        }
+      }
+    }
+  },
+	"calculators": {
+		"bmi": {
+			"title": "BMI Calculator",
+			"unit": "Unit System",
+			"metric": "Metric (cm, kg)",
+			"imperial": "Imperial (ft, in, lbs)",
+			"height": "Height",
+			"height_cm": "Height (cm)",
+			"height_ft": "Height (ft)",
+			"height_in": "Height (in)",
+			"weight": "Weight",
+			"weight_kg": "Weight (kg)",
+			"weight_lbs": "Weight (lbs)",
+			"calculate": "Calculate",
+			"result_title": "Result",
+			"bmi": "Your BMI",
+			"category": "Category",
+			"ideal_weight": "Ideal Weight",
+			"categories": {
+				"Underweight": "Underweight",
+				"Normal": "Normal",
+				"Overweight": "Overweight",
+				"Obese": "Obese"
+			}
+		},
+		"bmr": {
+			"title": "Basal Metabolic Rate (BMR) Calculator",
+			"gender": "Gender",
+			"male": "Male",
+			"female": "Female",
+			"age": "Age",
+			"height": "Height (cm)",
+			"weight": "Weight (kg)",
+			"calculate": "Calculate",
+			"result_title": "Result",
+			"bmr": "Your Basal Metabolic Rate",
+			"unit": "kcal/day",
+			"formula": "Formula: Based on the Mifflin-St Jeor equation."
+		},
+		"loan": {
+			"title": "Loan Simulator",
+			"amount": "Amount",
+			"annual_rate": "Annual Rate (%)",
+			"period": "Period (years)",
+			"repayment_method": "Repayment Method",
+			"equal_payment": "Equal Payment",
+			"equal_principal": "Equal Principal",
+			"calculate": "Calculate",
+			"result_title": "Calculation Result",
+			"monthly_payment": "Monthly Payment",
+			"first_month_payment": "First Month Payment",
+			"last_month_payment": "Last Month Payment",
+			"total_repayment": "Total Repayment",
+			"total_interest": "Total Interest",
+			"currency_unit": "yen"
+		},
+		"unit_converter": {
+			"title": "Unit Converter",
+			"category": "Category",
+			"from": "From",
+			"to": "To",
+			"select_category": "Select category",
+			"select_unit": "Select unit",
+			"enter_value": "Enter value",
+			"result": "Result"
+		}
+	},
+	"sidebar": {
+		"title": "Toolbox",
+		"health": "Health",
+		"money": "Money",
+		"everyday_life": "Everyday Life",
+		"calculators": "Calculators",
+		"converters": "Converters",
+		"coming_soon": "Coming soon..."
+	}
+}

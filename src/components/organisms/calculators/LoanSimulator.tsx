@@ -9,6 +9,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { calculateEqualPayment, calculateEqualPrincipalPayment, LoanCalculationResult } from "@/lib/calculators/loan";
+import { useScopedI18n } from "@/i18n/client";
 
 type RepaymentMethod = "equal-payment" | "equal-principal";
 
@@ -18,6 +19,7 @@ type LoanResult = LoanCalculationResult & {
 };
 
 const LoanSimulator = () => {
+  const t = useScopedI18n('calculators.loan');
   const [amount, setAmount] = useLocalStorage("loan-amount", "1000000");
   const [annualRate, setAnnualRate] = useLocalStorage("loan-rate", "1.5");
   const [period, setPeriod] = useLocalStorage("loan-period", "10");
@@ -50,38 +52,38 @@ const LoanSimulator = () => {
   return (
     <Card>
       <CardHeader>
-        <h2 className="text-2xl font-bold">Loan Simulator</h2>
+        <h2 className="text-2xl font-bold">{t('title')}</h2>
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <div>
-            <Label htmlFor="amount">Amount</Label>
+            <Label htmlFor="amount">{t('amount')}</Label>
             <Input id="amount" value={amount} onChange={(e) => setAmount(e.target.value)} />
           </div>
           <div>
-            <Label htmlFor="annualRate">Annual Rate (%)</Label>
+            <Label htmlFor="annualRate">{t('annual_rate')}</Label>
             <Input id="annualRate" value={annualRate} onChange={(e) => setAnnualRate(e.target.value)} />
           </div>
           <div>
-            <Label htmlFor="period">Period (years)</Label>
+            <Label htmlFor="period">{t('period')}</Label>
             <Input id="period" value={period} onChange={(e) => setPeriod(e.target.value)} />
           </div>
           <div>
-            <Label>Repayment Method</Label>
+            <Label>{t('repayment_method')}</Label>
             <RadioGroup value={repaymentMethod} onValueChange={(value) => setRepaymentMethod(value as RepaymentMethod)}>
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="equal-payment" id="equal-payment" />
-                <Label htmlFor="equal-payment">Equal Payment</Label>
+                <Label htmlFor="equal-payment">{t('equal_payment')}</Label>
               </div>
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="equal-principal" id="equal-principal" />
-                <Label htmlFor="equal-principal">Equal Principal</Label>
+                <Label htmlFor="equal-principal">{t('equal_principal')}</Label>
               </div>
             </RadioGroup>
           </div>
         </div>
         <Button onClick={handleCalculate} className="mt-6">
-          Calculate
+          {t('calculate')}
         </Button>
 
         {result && (
@@ -91,25 +93,25 @@ const LoanSimulator = () => {
             transition={{ duration: 0.5 }}
             className="mt-6"
           >
-            <h3 className="text-xl font-bold">Calculation Result</h3>
+            <h3 className="text-xl font-bold">{t('result_title')}</h3>
             <div className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-3">
               <div>
-                <Label>{repaymentMethod === 'equal-payment' ? 'Monthly Payment' : 'First Month Payment'}</Label>
-                <p className="text-2xl font-bold">{result.monthlyPayment.toLocaleString()} yen</p>
+                <Label>{repaymentMethod === 'equal-payment' ? t('monthly_payment') : t('first_month_payment')}</Label>
+                <p className="text-2xl font-bold">{result.monthlyPayment.toLocaleString()} {t('currency_unit')}</p>
               </div>
               {repaymentMethod === 'equal-principal' && result.lastMonthPayment && (
                 <div>
-                  <Label>Last Month Payment</Label>
-                  <p className="text-2xl font-bold">{result.lastMonthPayment.toLocaleString()} yen</p>
+                  <Label>{t('last_month_payment')}</Label>
+                  <p className="text-2xl font-bold">{result.lastMonthPayment.toLocaleString()} {t('currency_unit')}</p>
                 </div>
               )}
               <div>
-                <Label>Total Repayment</Label>
-                <p className="text-2xl font-bold">{result.totalRepayment.toLocaleString()} yen</p>
+                <Label>{t('total_repayment')}</Label>
+                <p className="text-2xl font-bold">{result.totalRepayment.toLocaleString()} {t('currency_unit')}</p>
               </div>
               <div>
-                <Label>Total Interest</Label>
-                <p className="text-2xl font-bold">{result.totalInterest.toLocaleString()} yen</p>
+                <Label>{t('total_interest')}</Label>
+                <p className="text-2xl font-bold">{result.totalInterest.toLocaleString()} {t('currency_unit')}</p>
               </div>
             </div>
           </motion.div>
