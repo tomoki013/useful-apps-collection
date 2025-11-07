@@ -17,6 +17,8 @@ const translations = {
         health: '健康',
         bmiCalculator: 'BMI計算機',
         bmrCalculator: 'BMR計算機',
+        money: 'お金',
+        loanSimulator: 'ローン返済シミュレーション',
         calculators: '計算機',
         converters: '変換機',
         comingSoon: '近日公開...',
@@ -26,6 +28,8 @@ const translations = {
         health: 'Health',
         bmiCalculator: 'BMI Calculator',
         bmrCalculator: 'BMR Calculator',
+        money: 'Money',
+        loanSimulator: 'Loan Simulator',
         calculators: 'Calculators',
         converters: 'Converters',
         comingSoon: 'Coming soon...',
@@ -59,6 +63,19 @@ const Sidebar = () => {
                                     className="block px-3 py-2 text-sm rounded-md hover:bg-muted transition-colors"
                                 >
                                     {t.bmrCalculator}
+                                </Link>
+                            </nav>
+                        </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-4">
+                        <AccordionTrigger>{t.money}</AccordionTrigger>
+                        <AccordionContent>
+                            <nav className="grid gap-1 px-2">
+                                <Link
+                                    href={`/${lang}/loan-simulator`}
+                                    className="block px-3 py-2 text-sm rounded-md hover:bg-muted transition-colors"
+                                >
+                                    {t.loanSimulator}
                                 </Link>
                             </nav>
                         </AccordionContent>

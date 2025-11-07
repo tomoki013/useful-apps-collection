@@ -1,0 +1,113 @@
+"use client";
+
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Card, CardHeader, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { calculateEqualPayment, calculateEqualPrincipalPayment, LoanCalculationResult } from "@/lib/calculators/loan";
+
+type RepaymentMethod = "equal-payment" | "equal-principal";
+
+type LoanResult = LoanCalculationResult & {
+  firstMonthPayment?: number;
+  lastMonthPayment?: number;
+};
+
+const LoanSimulator = () => {
+  const [amount, setAmount] = useLocalStorage("loan-amount", "1000000");
+  const [annualRate, setAnnualRate] = useLocalStorage("loan-rate", "1.5");
+  const [period, setPeriod] = useLocalStorage("loan-period", "10");
+  const [repaymentMethod, setRepaymentMethod] = useLocalStorage<RepaymentMethod>("loan-method", "equal-payment");
+  const [result, setResult] = useState<LoanResult | null>(null);
+
+  const handleCalculate = () => {
+    const loanArgs = {
+      amount: Number(amount),
+      annualRate: Number(annualRate),
+      period: Number(period),
+    };
+
+    if (repaymentMethod === "equal-payment") {
+      setResult(calculateEqualPayment(loanArgs));
+    } else {
+      setResult(calculateEqualPrincipalPayment(loanArgs));
+    }
+  };
+
+  return (
+    <Card>
+      <CardHeader>
+        <h2 className="text-2xl font-bold">Loan Simulator</h2>
+      </CardHeader>
+      <CardContent>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div>
+            <Label htmlFor="amount">Amount</Label>
+            <Input id="amount" value={amount} onChange={(e) => setAmount(e.target.value)} />
+          </div>
+          <div>
+            <Label htmlFor="annualRate">Annual Rate (%)</Label>
+            <Input id="annualRate" value={annualRate} onChange={(e) => setAnnualRate(e.target.value)} />
+          </div>
+          <div>
+            <Label htmlFor="period">Period (years)</Label>
+            <Input id="period" value={period} onChange={(e) => setPeriod(e.target.value)} />
+          </div>
+          <div>
+            <Label>Repayment Method</Label>
+            <RadioGroup value={repaymentMethod} onValueChange={(value) => setRepaymentMethod(value as RepaymentMethod)}>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="equal-payment" id="equal-payment" />
+                <Label htmlFor="equal-payment">Equal Payment</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="equal-principal" id="equal-principal" />
+                <Label htmlFor="equal-principal">Equal Principal</Label>
+              </div>
+            </RadioGroup>
+          </div>
+        </div>
+        <Button onClick={handleCalculate} className="mt-6">
+          Calculate
+        </Button>
+
+        {result && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mt-6"
+          >
+            <h3 className="text-xl font-bold">Calculation Result</h3>
+            <div className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-3">
+              <div>
+                <Label>{repaymentMethod === 'equal-payment' ? 'Monthly Payment' : 'First Month Payment'}</Label>
+                <p className="text-2xl font-bold">{result.monthlyPayment.toLocaleString()} yen</p>
+              </div>
+              {repaymentMethod === 'equal-principal' && result.lastMonthPayment && (
+                <div>
+                  <Label>Last Month Payment</Label>
+                  <p className="text-2xl font-bold">{result.lastMonthPayment.toLocaleString()} yen</p>
+                </div>
+              )}
+              <div>
+                <Label>Total Repayment</Label>
+                <p className="text-2xl font-bold">{result.totalRepayment.toLocaleString()} yen</p>
+              </div>
+              <div>
+                <Label>Total Interest</Label>
+                <p className="text-2xl font-bold">{result.totalInterest.toLocaleString()} yen</p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </CardContent>
+    </Card>
+  );
+};
+
+export default LoanSimulator;

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Search, Filter, Grid3X3, Calculator, Clock, Type, PaletteIcon, QrCode, Download } from 'lucide-react';
+import { Search, Filter, Grid3X3, HeartPulse, Dumbbell, Landmark, Recycle } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -13,62 +13,41 @@ const AppListPage = () => {
 
     const apps = [
         {
-            name: '計算機',
-            description: '基本的な四則演算から関数計算まで対応した高機能計算機',
-            icon: Calculator,
+            name: 'BMI計算機',
+            description: 'あなたの肥満度をチェック',
+            icon: <HeartPulse />,
+            category: '健康',
+            href: '/bmi-calculator',
+            color: '#10B981',
+        },
+        {
+            name: '基礎代謝(BMR)計算機',
+            description: '生命維持に必要なエネルギー量を計算',
+            icon: <Dumbbell />,
+            category: '健康',
+            href: '/bmr-calculator',
+            color: '#3B82F6',
+        },
+        {
+            name: 'ローン返済シミュレーション',
+            description: '元利均等・元金均等の返済額を比較',
+            icon: <Landmark />,
+            category: 'お金',
+            href: '/loan-simulator',
+            color: '#F97316',
+        },
+        {
+            name: '単位変換機',
+            description: '長さ、重さ、温度など様々な単位を変換',
+            icon: <Recycle />,
             category: 'ツール',
-            href: '/apps/calculator',
-            color: 'from-blue-500 to-blue-600',
-            comingSoon: true
+            href: '#',
+            color: '#8B5CF6',
+            comingSoon: true,
         },
-        {
-            name: 'タイマー',
-            description: 'ポモドーロテクニックにも対応したカスタマイズ可能なタイマー',
-            icon: Clock,
-            category: '生産性',
-            href: '/apps/timer',
-            color: 'from-green-500 to-green-600',
-            comingSoon: true
-        },
-        {
-            name: 'テキスト変換',
-            description: '大文字・小文字変換、全角・半角変換など様々なテキスト処理',
-            icon: Type,
-            category: 'ツール',
-            href: '/apps/text-converter',
-            color: 'from-purple-500 to-purple-600',
-            comingSoon: true
-        },
-        {
-            name: 'カラーパレット',
-            description: 'カラーコードの確認やパレット生成ができるデザインツール',
-            icon: PaletteIcon,
-            category: 'デザイン',
-            href: '/apps/color-palette',
-            color: 'from-pink-500 to-pink-600',
-            comingSoon: true
-        },
-        {
-            name: 'QRコード生成',
-            description: 'テキストやURLからQRコードを簡単に生成',
-            icon: QrCode,
-            category: 'ツール',
-            href: '/apps/qr-generator',
-            color: 'from-indigo-500 to-indigo-600',
-            comingSoon: true
-        },
-        {
-            name: 'ファイル変換',
-            description: '画像、PDF、音声ファイルなどの形式変換',
-            icon: Download,
-            category: 'ユーティリティ',
-            href: '/apps/file-converter',
-            color: 'from-orange-500 to-orange-600',
-            comingSoon: true
-        }
     ];
 
-    const categories = ['all', 'ツール', '生産性', 'デザイン', 'ユーティリティ'];
+    const categories = ['all', '健康', 'お金', 'ツール'];
 
     const filteredApps = apps.filter(app => {
         const matchesSearch = app.name.toLowerCase().includes(searchTerm.toLowerCase()) ||

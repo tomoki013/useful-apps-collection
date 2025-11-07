@@ -4,6 +4,33 @@
 
 ---
 
+## 2025-11-08
+
+### 担当者
+- Jules
+
+### 実装内容
+- **ローン返済シミュレーター機能の実装**
+  - **計算ロジックの追加:** `src/lib/calculators/loan.ts` を新規作成。「元利均等返済」と「元金均等返済」の2つの計算ロジックを実装した (`calculateEqualPayment`, `calculateEqualPrincipalPayment`)。
+  - **UIコンポーネントの作成:**
+    - `src/components/organisms/calculators/LoanSimulator.tsx` を新規作成。借入額、利率、期間、返済方式を入力し、計算結果をアニメーション表示するUIを実装。`useLocalStorage` を利用して入力値を永続化。
+    - `src/components/ui/app-card.tsx` を新規作成。アプリ一覧ページで利用する再利用可能なカードコンポーネントとして実装。
+  - **ページの追加とルーティング:** `src/app/[lang]/(calculators)/loan-simulator/page.tsx` を作成し、ローンシミュレーターページをアプリケーションに追加。
+  - **サイドバーとアプリ一覧の更新:**
+    - `src/components/organisms/Sidebar.tsx` を修正し、「お金」カテゴリを新設し、ローンシミュレーターへのリンクを追加。
+    - `src/app/[lang]/apps/page.tsx` をリファクタリングし、`AppCard` コンポーネントを使用するように変更。MVPスコープに合わせて表示するアプリを「BMI計算機」「基礎代謝(BMR)計算機」「ローン返済シミュレーション」に更新した。
+
+### 発生した問題・課題
+- 特になし。過去の経験から、シェルの特殊文字を含むパスの扱いは問題なく行えた。
+
+### 解決策
+- N/A
+
+### 得られた知見・次のアクション
+- コンポーネントの再利用（`AppCard`）とロジックの分離（`loan.ts`）を徹底することで、コードの見通しが良くなり、メンテナンス性が向上することを再確認した。
+
+---
+
 ## 2025-11-07
 
 ### 担当者
