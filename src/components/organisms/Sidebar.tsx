@@ -16,6 +16,7 @@ const translations = {
         sidebarTitle: 'ツールボックス',
         health: '健康',
         bmiCalculator: 'BMI計算機',
+        bmrCalculator: 'BMR計算機',
         calculators: '計算機',
         converters: '変換機',
         comingSoon: '近日公開...',
@@ -24,6 +25,7 @@ const translations = {
         sidebarTitle: 'Toolbox',
         health: 'Health',
         bmiCalculator: 'BMI Calculator',
+        bmrCalculator: 'BMR Calculator',
         calculators: 'Calculators',
         converters: 'Converters',
         comingSoon: 'Coming soon...',
@@ -51,6 +53,12 @@ const Sidebar = () => {
                                     className="block px-3 py-2 text-sm rounded-md hover:bg-muted transition-colors"
                                 >
                                     {t.bmiCalculator}
+                                </Link>
+                                <Link
+                                    href={`/${lang}/bmr-calculator`}
+                                    className="block px-3 py-2 text-sm rounded-md hover:bg-muted transition-colors"
+                                >
+                                    {t.bmrCalculator}
                                 </Link>
                             </nav>
                         </AccordionContent>

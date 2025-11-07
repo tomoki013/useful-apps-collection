@@ -10,7 +10,6 @@ import {
     SelectContent,
     SelectItem,
     SelectTrigger,
-    SelectValue,
 } from "@/components/ui/select"
 import { useLanguage } from '@/contexts/LanguageProvider';
 import { cn } from '@/lib/utils';
@@ -27,10 +26,10 @@ const Header = () => {
 
     useEffect(() => {
         setMounted(true);
-        if (params.lang && typeof params.lang === 'string') {
+        if (params.lang && typeof params.lang === 'string' && lang !== params.lang) {
             setLang(params.lang);
         }
-    }, [params.lang, setLang]);
+    }, [params.lang, lang, setLang]);
 
     const handleLanguageChange = (newLang: string) => {
         setLang(newLang);
