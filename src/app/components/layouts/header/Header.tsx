@@ -3,23 +3,45 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
-import { Menu, X, Sun, Moon, Zap } from 'lucide-react';
+import { Menu, X, Sun, Moon, Zap, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
+import { useLanguage } from '@/contexts/LanguageProvider';
 import { cn } from '@/lib/utils';
+import { useParams, usePathname, useRouter } from 'next/navigation';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [mounted, setMounted] = useState(false);
     const { theme, setTheme } = useTheme();
+    const { lang, setLang } = useLanguage();
+    const router = useRouter();
+    const pathname = usePathname();
+    const params = useParams();
 
     useEffect(() => {
         setMounted(true);
-    }, []);
+        if (params.lang && typeof params.lang === 'string') {
+            setLang(params.lang);
+        }
+    }, [params.lang, setLang]);
+
+    const handleLanguageChange = (newLang: string) => {
+        setLang(newLang);
+        const newPath = pathname.replace(`/${lang}`, `/${newLang}`);
+        router.push(newPath);
+    };
 
     const navigation = [
-        { name: 'ホーム', href: '/' },
-        { name: 'アプリ一覧', href: '/apps' },
-        { name: 'お問い合わせ', href: '/contact' },
+        { name: lang === 'ja' ? 'ホーム' : 'Home', href: `/${lang}` },
+        { name: lang === 'ja' ? 'アプリ一覧' : 'Apps', href: `/${lang}/apps` },
+        { name: lang === 'ja' ? 'お問い合わせ' : 'Contact', href: `/${lang}/contact` },
     ];
 
     const toggleMenu = () => {
@@ -30,17 +52,21 @@ const Header = () => {
         setTheme(theme === 'dark' ? 'light' : 'dark');
     };
 
+    if (!mounted) {
+        return null;
+    }
+
     return (
         <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center space-x-2 group">
+                    <Link href={`/${lang}`} className="flex items-center space-x-2 group">
                         <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform">
                             <Zap className="w-5 h-5 text-white" />
                         </div>
                         <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                            便利アプリ集
+                            {lang === 'ja' ? '便利アプリ集' : 'Useful Apps'}
                         </span>
                     </Link>
 
@@ -58,24 +84,36 @@ const Header = () => {
                         ))}
                     </nav>
                     
-                    {/* Theme Toggle & Mobile Menu Button */}
+                    {/* Language & Theme Toggles & Mobile Menu Button */}
                     <div className="flex items-center space-x-2">
+                        {/* Language Selector */}
+                        <Select onValueChange={handleLanguageChange} defaultValue={lang}>
+                            <SelectTrigger className="w-auto h-9 p-0 border-none bg-transparent hover:bg-accent focus:ring-0">
+                                <Button variant="ghost" size="sm" className="w-9 h-9 p-0">
+                                    <Globe className="w-4 h-4" />
+                                    <span className="sr-only">言語を切り替え</span>
+                                </Button>
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="ja">日本語</SelectItem>
+                                <SelectItem value="en">English</SelectItem>
+                            </SelectContent>
+                        </Select>
+
                         {/* Theme Toggle */}
-                        {mounted && (
-                            <Button
-                                variant="ghost"
-                                size="sm"
-                                onClick={toggleTheme}
-                                className="w-9 h-9 p-0 hover:bg-accent"
-                            >
-                                {theme === 'dark' ? (
-                                    <Sun className="w-4 h-4" />
-                                ) : (
-                                    <Moon className="w-4 h-4" />
-                                )}
-                                <span className="sr-only">テーマを切り替え</span>
-                            </Button>
-                        )}
+                        <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={toggleTheme}
+                            className="w-9 h-9 p-0 hover:bg-accent"
+                        >
+                            {theme === 'dark' ? (
+                                <Sun className="w-4 h-4" />
+                            ) : (
+                                <Moon className="w-4 h-4" />
+                            )}
+                            <span className="sr-only">テーマを切り替え</span>
+                        </Button>
 
                         {/* Mobile Menu Button */}
                         <Button
