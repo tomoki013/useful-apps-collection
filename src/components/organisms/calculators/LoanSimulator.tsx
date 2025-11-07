@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
-import { useLocalStorage } from "@/hooks/useLocalStorage";
+import useLocalStorage from "@/hooks/useLocalStorage";
 import { calculateEqualPayment, calculateEqualPrincipalPayment, LoanCalculationResult } from "@/lib/calculators/loan";
 
 type RepaymentMethod = "equal-payment" | "equal-principal";
@@ -25,10 +25,19 @@ const LoanSimulator = () => {
   const [result, setResult] = useState<LoanResult | null>(null);
 
   const handleCalculate = () => {
+    const numAmount = Number(amount);
+    const numAnnualRate = Number(annualRate);
+    const numPeriod = Number(period);
+
+    if (isNaN(numAmount) || isNaN(numAnnualRate) || isNaN(numPeriod) || numAmount <= 0 || numAnnualRate < 0 || numPeriod <= 0) {
+      setResult(null);
+      return;
+    }
+
     const loanArgs = {
-      amount: Number(amount),
-      annualRate: Number(annualRate),
-      period: Number(period),
+      amount: numAmount,
+      annualRate: numAnnualRate,
+      period: numPeriod,
     };
 
     if (repaymentMethod === "equal-payment") {

@@ -19,6 +19,7 @@ const AppListPage = () => {
             category: '健康',
             href: '/bmi-calculator',
             color: '#10B981',
+            comingSoon: false,
         },
         {
             name: '基礎代謝(BMR)計算機',
@@ -27,6 +28,7 @@ const AppListPage = () => {
             category: '健康',
             href: '/bmr-calculator',
             color: '#3B82F6',
+            comingSoon: false,
         },
         {
             name: 'ローン返済シミュレーション',
@@ -35,13 +37,14 @@ const AppListPage = () => {
             category: 'お金',
             href: '/loan-simulator',
             color: '#F97316',
+            comingSoon: false,
         },
         {
             name: '単位変換機',
             description: '長さ、重さ、温度など様々な単位を変換',
             icon: <Recycle />,
             category: 'ツール',
-            href: '#',
+            href: '/unit-converter',
             color: '#8B5CF6',
             comingSoon: true,
         },

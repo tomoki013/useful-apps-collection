@@ -4,6 +4,35 @@
 
 ---
 
+## 2025-11-09
+
+### 担当者
+- Jules
+
+### 実装内容
+- **ローン返済シミュレーションのバグ修正:**
+  - `src/components/organisms/calculators/LoanSimulator.tsx` にて、計算実行前に入力値のバリデーション（数値チェック、正の値であるか）を追加し、不正な値によるクラッシュを防止。
+- **単位変換機機能の実装:**
+  - **計算ロジックの追加:** `src/lib/calculators/unitConverter.ts` を新規作成。「長さ」「重さ」「面積」「体積」「温度」の5カテゴリに対応した変換ロジックを、拡張性の高いデータ構造で実装。
+  - **UIコンポーネントの作成:** `src/components/organisms/calculators/UnitConverter.tsx` を新規作成。カテゴリ、変換元、変換先を選択する`Select`と入力用の`Input`を配置し、入力値が変更されるたびに即座に結果が表示されるUIを実装。`useLocalStorage`で状態を永続化。
+  - **ページの追加とルーティング:** `src/app/[lang]/(calculators)/unit-converter/page.tsx` を作成し、単位変換機ページをアプリケーションに追加。
+- **共通コンポーネントとUIの改修:**
+  - **サイドバーの更新:** `src/components/organisms/Sidebar.tsx` を修正し、「日常生活」カテゴリを新設。その中に単位変換機へのリンクを追加した。
+  - **AppCardコンポーネントの改修:** `src/components/ui/app-card.tsx` をリファクタリング。`comingSoon` propが`true`の場合に、`Link`ではなく`div`で囲み、クリックできないスタイル（`opacity-50`, `cursor-not-allowed`）を適用するように変更。
+  - **アプリ一覧ページの更新:** `src/app/[lang]/apps/page.tsx` を更新し、「単位変換機」を`comingSoon: true`で追加。他の既存計算機の`comingSoon`フラグを`false`に変更した。
+
+### 発生した問題・課題
+- 特になし。コンポーネントの構造やロジックの分離が適切であったため、スムーズに実装を進めることができた。
+
+### 解決策
+- N/A
+
+### 得られた知見・次のアクション
+- 機能追加の典型的なワークフロー（ロジック実装 → UIコンポーネント作成 → ページ作成 → ナビゲーション更新）を確立できた。
+- `comingSoon`のようなUIの状態をpropsで管理する手法は、機能の段階的なリリースに有効であることを確認した。
+
+---
+
 ## 2025-11-08
 
 ### 担当者

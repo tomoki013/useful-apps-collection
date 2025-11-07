@@ -106,7 +106,7 @@ export const calculateEqualPrincipalPayment = ({
   }
 
   const firstMonthPayment = principalPayment + amount * monthlyRate;
-  const lastMonthPayment = principalPayment + (amount / numberOfPayments) * monthlyRate;
+  const lastMonthPayment = principalPayment + (principalPayment) * monthlyRate;
   const totalRepayment = amount + totalInterest;
 
   return {

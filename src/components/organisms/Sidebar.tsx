@@ -19,6 +19,8 @@ const translations = {
         bmrCalculator: 'BMR計算機',
         money: 'お金',
         loanSimulator: 'ローン返済シミュレーション',
+        everydayLife: '日常生活',
+        unitConverter: '単位変換機',
         calculators: '計算機',
         converters: '変換機',
         comingSoon: '近日公開...',
@@ -30,6 +32,8 @@ const translations = {
         bmrCalculator: 'BMR Calculator',
         money: 'Money',
         loanSimulator: 'Loan Simulator',
+        everydayLife: 'Everyday Life',
+        unitConverter: 'Unit Converter',
         calculators: 'Calculators',
         converters: 'Converters',
         comingSoon: 'Coming soon...',
@@ -87,9 +91,16 @@ const Sidebar = () => {
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-3">
-                        <AccordionTrigger>{t.converters}</AccordionTrigger>
+                        <AccordionTrigger>{t.everydayLife}</AccordionTrigger>
                         <AccordionContent>
-                             <p className="px-4 text-sm text-muted-foreground">{t.comingSoon}</p>
+                            <nav className="grid gap-1 px-2">
+                                <Link
+                                    href={`/${lang}/unit-converter`}
+                                    className="block px-3 py-2 text-sm rounded-md hover:bg-muted transition-colors"
+                                >
+                                    {t.unitConverter}
+                                </Link>
+                            </nav>
                         </AccordionContent>
                     </AccordionItem>
                 </Accordion>
