@@ -2,7 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
-import * as Layouts from '@/app/components/layouts/index';
+import { LanguageProvider } from '@/contexts/LanguageProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,18 +19,16 @@ export default function RootLayout({
   	return (
   	  	<html lang="ja" suppressHydrationWarning>
   	  	  	<body className={inter.className}>
-  	  	  	  	<ThemeProvider
-  	  	  	  	  	attribute="class"
-  	  	  	  	  	defaultTheme="system"
-  	  	  	  	  	enableSystem
-  	  	  	  	  	disableTransitionOnChange
-  	  	  	  	>
-  	  	  	  	  	<Layouts.Header />
-  	  	  	  	  	<main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-  	  	  	  	  	  	{children}
-  	  	  	  	  	</main>
-  	  	  	  	  	<Layouts.Footer />
-  	  	  	  	</ThemeProvider>
+                <LanguageProvider>
+				    <ThemeProvider
+					    attribute="class"
+					    defaultTheme="system"
+					    enableSystem
+					    disableTransitionOnChange
+				    >
+					    {children}
+				    </ThemeProvider>
+                </LanguageProvider>
   	  	  	</body>
   	  	</html>
   	);
