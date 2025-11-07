@@ -2,44 +2,48 @@
 
 import Link from 'next/link';
 import { Mail, Phone, MapPin, Github, Twitter, Linkedin, Zap } from 'lucide-react';
+import { useI18n, useScopedI18n, useCurrentLocale } from '@/i18n/client';
 
 const Footer = () => {
+    const t = useI18n();
+    const ts = useScopedI18n('footer.sections');
+    const lang = useCurrentLocale();
     const currentYear = new Date().getFullYear();
 
     const footerSections = [
         {
-            title: 'サービス',
+            title: ts('service.title'),
             links: [
-                { name: 'アプリ一覧', href: '/apps' },
-                { name: '計算機', href: '/apps/calculator' },
-                { name: 'タイマー', href: '/apps/timer' },
-                { name: 'テキスト変換', href: '/apps/text-converter' },
+                { name: ts('service.links.apps'), href: `/${lang}/apps` },
+                { name: ts('service.links.calculator'), href: `/${lang}/apps` },
+                { name: ts('service.links.timer'), href: `/${lang}/apps` },
+                { name: ts('service.links.text_converter'), href: `/${lang}/apps` },
             ]
         },
         {
-            title: '会社情報',
+            title: ts('company.title'),
             links: [
-                { name: '会社概要', href: '/about' },
-                { name: 'プライバシーポリシー', href: '/privacy' },
-                { name: '利用規約', href: '/terms' },
-                { name: 'お問い合わせ', href: '/contact' },
+                { name: ts('company.links.about'), href: `/${lang}/about` },
+                { name: ts('company.links.privacy'), href: `/${lang}/privacy` },
+                { name: ts('company.links.terms'), href: `/${lang}/terms` },
+                { name: ts('company.links.contact'), href: `/${lang}/contact` },
             ]
         },
         {
-            title: 'サポート',
+            title: ts('support.title'),
             links: [
-                { name: 'ヘルプセンター', href: '/help' },
-                { name: 'よくある質問', href: '/faq' },
-                { name: '使い方ガイド', href: '/guide' },
-                { name: 'フィードバック', href: '/feedback' },
+                { name: ts('support.links.help'), href: `/${lang}/help` },
+                { name: ts('support.links.faq'), href: `/${lang}/faq` },
+                { name: ts('support.links.guide'), href: `/${lang}/guide` },
+                { name: ts('support.links.feedback'), href: `/${lang}/feedback` },
             ]
         }
     ];
 
     const contactInfo = [
-        { icon: Mail, text: 'contact@example.com' },
-        { icon: Phone, text: '03-1234-5678' },
-        { icon: MapPin, text: '東京都渋谷区' },
+        { icon: Mail, text: t('footer.contact.email') },
+        { icon: Phone, text: t('footer.contact.phone') },
+        { icon: MapPin, text: t('footer.contact.address') },
     ];
 
     const socialLinks = [
@@ -54,17 +58,16 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
                     {/* Company Info */}
                     <div className="lg:col-span-2 space-y-4">
-                        <Link href="/" className="flex items-center space-x-2">
+                        <Link href={`/${lang}`} className="flex items-center space-x-2">
                             <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
                                 <Zap className="w-5 h-5 text-white" />
                             </div>
                             <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                                便利アプリ集
+                                {t('footer.title')}
                             </span>
                         </Link>
                         <p className="text-muted-foreground max-w-md">
-                            日常生活や仕事で役立つ便利なツールを無料で提供しています。
-                            すべてのアプリはブラウザ上で動作し、インストール不要でご利用いただけます。
+                            {t('footer.description')}
                         </p>
 
                         {/* Contact Info */}
@@ -103,9 +106,7 @@ const Footer = () => {
                 
                 {/* Bottom Section */}
                 <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                    <p className="text-sm text-muted-foreground">
-                        &copy; {currentYear} 便利アプリ集. All rights reserved.
-                    </p>
+                    <p className="text-sm text-muted-foreground" dangerouslySetInnerHTML={{ __html: t('footer.copyright', { year: currentYear }) }} />
                     
                     {/* Social Links */}
                     <div className="flex items-center space-x-4">

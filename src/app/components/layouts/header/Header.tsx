@@ -11,36 +11,26 @@ import {
     SelectItem,
     SelectTrigger,
 } from "@/components/ui/select"
-import { useLanguage } from '@/contexts/LanguageProvider';
+import { useI18n, useScopedI18n, useChangeLocale, useCurrentLocale } from '@/i18n/client';
 import { cn } from '@/lib/utils';
-import { useParams, usePathname, useRouter } from 'next/navigation';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [mounted, setMounted] = useState(false);
     const { theme, setTheme } = useTheme();
-    const { lang, setLang } = useLanguage();
-    const router = useRouter();
-    const pathname = usePathname();
-    const params = useParams();
+    const t = useI18n();
+    const ts = useScopedI18n('header.sr');
+    const changeLocale = useChangeLocale();
+    const lang = useCurrentLocale();
 
     useEffect(() => {
         setMounted(true);
-        if (params.lang && typeof params.lang === 'string' && lang !== params.lang) {
-            setLang(params.lang);
-        }
-    }, [params.lang, lang, setLang]);
-
-    const handleLanguageChange = (newLang: string) => {
-        setLang(newLang);
-        const newPath = pathname.replace(`/${lang}`, `/${newLang}`);
-        router.push(newPath);
-    };
+    }, []);
 
     const navigation = [
-        { name: lang === 'ja' ? 'ホーム' : 'Home', href: `/${lang}` },
-        { name: lang === 'ja' ? 'アプリ一覧' : 'Apps', href: `/${lang}/apps` },
-        { name: lang === 'ja' ? 'お問い合わせ' : 'Contact', href: `/${lang}/contact` },
+        { name: t('header.nav.home'), href: `/${lang}` },
+        { name: t('header.nav.apps'), href: `/${lang}/apps` },
+        { name: t('header.nav.contact'), href: `/${lang}/contact` },
     ];
 
     const toggleMenu = () => {
@@ -65,7 +55,7 @@ const Header = () => {
                             <Zap className="w-5 h-5 text-white" />
                         </div>
                         <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                            {lang === 'ja' ? '便利アプリ集' : 'Useful Apps'}
+                            {t('header.title')}
                         </span>
                     </Link>
 
@@ -86,16 +76,16 @@ const Header = () => {
                     {/* Language & Theme Toggles & Mobile Menu Button */}
                     <div className="flex items-center space-x-2">
                         {/* Language Selector */}
-                        <Select onValueChange={handleLanguageChange} defaultValue={lang}>
+                        <Select onValueChange={(newLang) => changeLocale(newLang as 'ja' | 'en')} defaultValue={lang}>
                             <SelectTrigger className="w-auto h-9 p-0 border-none bg-transparent hover:bg-accent focus:ring-0">
                                 <Button variant="ghost" size="sm" className="w-9 h-9 p-0">
                                     <Globe className="w-4 h-4" />
-                                    <span className="sr-only">言語を切り替え</span>
+                                    <span className="sr-only">{ts('switch_language')}</span>
                                 </Button>
                             </SelectTrigger>
                             <SelectContent>
-                                <SelectItem value="ja">日本語</SelectItem>
-                                <SelectItem value="en">English</SelectItem>
+                                <SelectItem value="ja">{t('header.language.ja')}</SelectItem>
+                                <SelectItem value="en">{t('header.language.en')}</SelectItem>
                             </SelectContent>
                         </Select>
 
@@ -111,7 +101,7 @@ const Header = () => {
                             ) : (
                                 <Moon className="w-4 h-4" />
                             )}
-                            <span className="sr-only">テーマを切り替え</span>
+                            <span className="sr-only">{ts('toggle_theme')}</span>
                         </Button>
 
                         {/* Mobile Menu Button */}
@@ -126,7 +116,7 @@ const Header = () => {
                             ) : (
                                 <Menu className="w-4 h-4" />
                             )}
-                            <span className="sr-only">メニューを開く</span>
+                            <span className="sr-only">{ts('open_menu')}</span>
                         </Button>
                     </div>
                 </div>

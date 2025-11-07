@@ -2,30 +2,36 @@ import Link from 'next/link';
 import { ArrowRight, Zap, Shield, Smartphone, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { getScopedI18n } from '@/i18n/server';
 
-export default function Home() {
+export default async function Home() {
+	const th = await getScopedI18n('home.hero');
+	const ts = await getScopedI18n('home.stats');
+	const tf = await getScopedI18n('home.features');
+	const tc = await getScopedI18n('home.cta');
+
   	const features = [
   	  	{
   	  	  	icon: Zap,
-  	  	  	title: '高速・軽量',
-  	  	  	description: 'モダンな技術で構築された高速で軽量なアプリケーション'
+			title: tf('items.fast.title'),
+			description: tf('items.fast.description')
   	  	},
   	  	{
   	  	  	icon: Shield,
-  	  	  	title: '安全・安心',
-  	  	  	description: 'セキュリティを重視した設計で、安心してご利用いただけます'
+			title: tf('items.secure.title'),
+			description: tf('items.secure.description')
   	  	},
   	  	{
   	  	  	icon: Smartphone,
-  	  	  	title: 'レスポンシブ対応',
-  	  	  	description: 'PC、タブレット、スマートフォンすべてのデバイスで最適化'
+			title: tf('items.responsive.title'),
+			description: tf('items.responsive.description')
   	  	}
   	];
 
   	const stats = [
-  	  	{ number: '20+', label: '便利ツール' },
-  	  	{ number: '100%', label: '無料' },
-  	  	{ number: '24/7', label: '利用可能' }
+		{ number: '20+', label: ts('tools') },
+		{ number: '100%', label: ts('free') },
+		{ number: '24/7', label: ts('available') }
   	];
 
   	return (
@@ -37,26 +43,25 @@ export default function Home() {
   	  	  	  	  	<div className="text-center space-y-8">
   	  	  	  	  	  	<div className="space-y-4">
   	  	  	  	  	  	  	<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-  	  	  	  	  	  	  	  	日常を便利にする
+								{th('title')}
   	  	  	  	  	  	  	  	<span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent block">
-  	  	  	  	  	  	  	  	  	ツール集
+									{th('title_highlight')}
   	  	  	  	  	  	  	  	</span>
   	  	  	  	  	  	  	</h1>
   	  	  	  	  	  	  	<p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-  	  	  	  	  	  	  	  	計算機、タイマー、テキスト変換など、日常生活や仕事で役立つ便利なアプリケーションを無料でご利用いただけます。
-  	  	  	  	  	  	  	  	すべてのツールはブラウザ上で動作し、インストール不要です。
+								{th('description')}
   	  	  	  	  	  	  	</p>
   	  	  	  	  	  	</div>
 
   	  	  	  	  	  	<div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
   	  	  	  	  	  	  	<Link href="/apps">
   	  	  	  	  	  	  	  	<Button size="lg" className="text-lg px-8 py-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 group">
-  	  	  	  	  	  	  	  	  	アプリを見る
+									{th('cta_primary')}
   	  	  	  	  	  	  	  	  	<ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
   	  	  	  	  	  	  	  	</Button>
   	  	  	  	  	  	  	</Link>
   	  	  	  	  	  	  	<Button variant="outline" size="lg" className="text-lg px-8 py-6">
-  	  	  	  	  	  	  	  	使い方を見る
+								{th('cta_secondary')}
   	  	  	  	  	  	  	</Button>
   	  	  	  	  	  	</div>
 
@@ -78,10 +83,10 @@ export default function Home() {
   	  	  	  	<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
   	  	  	  	  	<div className="text-center space-y-4 mb-16">
   	  	  	  	  	  	<h2 className="text-3xl lg:text-4xl font-bold text-foreground">
-  	  	  	  	  	  	  	なぜ選ばれるのか
+							{tf('title')}
   	  	  	  	  	  	</h2>
   	  	  	  	  	  	<p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-  	  	  	  	  	  	  	シンプルで使いやすい、高品質な便利ツールを提供します
+							{tf('description')}
   	  	  	  	  	  	</p>
   	  	  	  	  	</div>
 
@@ -116,14 +121,14 @@ export default function Home() {
   	  	  	  	  	  	<CardContent className="relative py-16 px-8">
   	  	  	  	  	  	  	<Star className="w-12 h-12 mx-auto mb-6 text-yellow-300" />
   	  	  	  	  	  	  	<h2 className="text-3xl lg:text-4xl font-bold mb-4">
-  	  	  	  	  	  	  	  	今すぐ便利ツールを使ってみませんか？
+								{tc('title')}
   	  	  	  	  	  	  	</h2>
   	  	  	  	  	  	  	<p className="text-xl mb-8 text-blue-100">
-  	  	  	  	  	  	  	  	すべて無料で、アカウント登録も不要です
+								{tc('description')}
   	  	  	  	  	  	  	</p>
   	  	  	  	  	  	  	<Link href="/apps">
   	  	  	  	  	  	  	  	<Button size="lg" variant="secondary" className="text-lg px-8 py-6 bg-white text-gray-900 hover:bg-gray-100">
-  	  	  	  	  	  	  	  	  	アプリ一覧を見る
+									{tc('button')}
   	  	  	  	  	  	  	  	  	<ArrowRight className="ml-2 w-5 h-5" />
   	  	  	  	  	  	  	  	</Button>
   	  	  	  	  	  	  	</Link>

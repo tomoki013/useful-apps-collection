@@ -7,8 +7,10 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { useScopedI18n } from '@/i18n/client';
 
 const ContactPage = () => {
+    const ts = useScopedI18n('contact_page');
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -42,42 +44,42 @@ const ContactPage = () => {
         });
         setIsSubmitting(false);
 
-        alert('お問い合わせありがとうございます。3営業日以内にご返信いたします。');
+        alert(ts('form.success_message'));
     };
 
     const contactInfo = [
         {
             icon: Mail,
-            title: 'メールアドレス',
-            content: 'contact@example.com',
-            description: '24時間受付中'
+            title: ts('info.email.title'),
+            content: ts('info.email.content'),
+            description: ts('info.email.description')
         },
         {
             icon: Phone,
-            title: '電話番号',
-            content: '03-1234-5678',
-            description: '平日 9:00-18:00'
+            title: ts('info.phone.title'),
+            content: ts('info.phone.content'),
+            description: ts('info.phone.description')
         },
         {
             icon: MapPin,
-            title: '所在地',
-            content: '東京都渋谷区',
-            description: '〒150-0000'
+            title: ts('info.address.title'),
+            content: ts('info.address.content'),
+            description: ts('info.address.description')
         }
     ];
 
     const faqItems = [
         {
-            question: 'アプリの利用は無料ですか？',
-            answer: 'はい、すべてのアプリを無料でご利用いただけます。'
+            question: ts('faq.items.q1.question'),
+            answer: ts('faq.items.q1.answer')
         },
         {
-            question: 'アカウント登録は必要ですか？',
-            answer: 'いいえ、アカウント登録なしでご利用いただけます。'
+            question: ts('faq.items.q2.question'),
+            answer: ts('faq.items.q2.answer')
         },
         {
-            question: 'スマートフォンでも使えますか？',
-            answer: 'はい、すべてのデバイスに対応しています。'
+            question: ts('faq.items.q3.question'),
+            answer: ts('faq.items.q3.answer')
         }
     ];
 
@@ -86,11 +88,10 @@ const ContactPage = () => {
             {/* Header */}
             <div className="text-center space-y-4 mb-16">
                 <h1 className="text-3xl lg:text-4xl font-bold text-foreground">
-                    お問い合わせ
+                    {ts('title')}
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                    ご質問やご要望がございましたら、お気軽にお問い合わせください。
-                    専門スタッフが迅速にサポートいたします。
+                    {ts('description')}
                 </p>
             </div>
 
@@ -101,10 +102,10 @@ const ContactPage = () => {
                         <CardHeader>
                             <CardTitle className="flex items-center gap-2 text-2xl">
                                 <MessageSquare className="w-6 h-6 text-primary" />
-                                お問い合わせフォーム
+                                {ts('form.title')}
                             </CardTitle>
                             <CardDescription>
-                                下記フォームにご記入の上、送信ボタンを押してください。
+                                {ts('form.description')}
                             </CardDescription>
                         </CardHeader>
                         <CardContent>
@@ -112,7 +113,7 @@ const ContactPage = () => {
                                 <div className="grid md:grid-cols-2 gap-4">
                                     <div className="space-y-2">
                                         <label htmlFor="name" className="text-sm font-medium text-foreground">
-                                            お名前 <span className="text-destructive">*</span>
+                                            {ts('form.name')} <span className="text-destructive">*</span>
                                         </label>
                                         <Input
                                             id="name"
@@ -121,13 +122,13 @@ const ContactPage = () => {
                                             required
                                             value={formData.name}
                                             onChange={handleInputChange}
-                                            placeholder="山田太郎"
+                                            placeholder={ts('form.name_placeholder')}
                                             className="border-border focus:border-primary focus:ring-primary"
                                         />
                                     </div>
                                     <div className="space-y-2">
                                         <label htmlFor="email" className="text-sm font-medium text-foreground">
-                                            メールアドレス <span className="text-destructive">*</span>
+                                            {ts('form.email')} <span className="text-destructive">*</span>
                                         </label>
                                         <Input
                                             id="email"
@@ -136,7 +137,7 @@ const ContactPage = () => {
                                             required
                                             value={formData.email}
                                             onChange={handleInputChange}
-                                            placeholder="example@email.com"
+                                            placeholder={ts('form.email_placeholder')}
                                             className="border-border focus:border-primary focus:ring-primary"
                                       />
                                     </div>
@@ -144,7 +145,7 @@ const ContactPage = () => {
 
                                 <div className="space-y-2">
                                     <label htmlFor="subject" className="text-sm font-medium text-foreground">
-                                        件名 <span className="text-destructive">*</span>
+                                        {ts('form.subject')} <span className="text-destructive">*</span>
                                     </label>
                                     <Input
                                         id="subject"
@@ -153,14 +154,14 @@ const ContactPage = () => {
                                         required
                                         value={formData.subject}
                                         onChange={handleInputChange}
-                                        placeholder="お問い合わせの件名をご記入ください"
+                                        placeholder={ts('form.subject_placeholder')}
                                         className="border-border focus:border-primary focus:ring-primary"
                                     />
                                 </div>
 
                                 <div className="space-y-2">
                                     <label htmlFor="message" className="text-sm font-medium text-foreground">
-                                        メッセージ <span className="text-destructive">*</span>
+                                        {ts('form.message')} <span className="text-destructive">*</span>
                                     </label>
                                     <Textarea
                                         id="message"
@@ -169,7 +170,7 @@ const ContactPage = () => {
                                         rows={6}
                                         value={formData.message}
                                         onChange={handleInputChange}
-                                        placeholder="お問い合わせ内容を詳しくご記入ください"
+                                        placeholder={ts('form.message_placeholder')}
                                         className="border-border focus:border-primary focus:ring-primary resize-none"
                                     />
                                 </div>
@@ -182,12 +183,12 @@ const ContactPage = () => {
                                     {isSubmitting ? (
                                         <>
                                             <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2" />
-                                            送信中...
+                                            {ts('form.submitting')}
                                         </>
                                     ) : (
                                       <>
                                             <Send className="w-4 h-4 mr-2" />
-                                            送信する
+                                            {ts('form.submit')}
                                       </>
                                     )}
                                 </Button>
@@ -201,9 +202,9 @@ const ContactPage = () => {
                     {/* Contact Information */}
                     <Card className="shadow-lg border-0">
                         <CardHeader>
-                            <CardTitle className="text-xl">連絡先情報</CardTitle>
+                            <CardTitle className="text-xl">{ts('info.title')}</CardTitle>
                             <CardDescription>
-                                その他の連絡方法
+                                {ts('info.description')}
                             </CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-6">
@@ -230,13 +231,13 @@ const ContactPage = () => {
                         <CardContent className="p-6">
                             <div className="flex items-center space-x-3 mb-4">
                                 <Clock className="w-6 h-6 text-primary" />
-                                <h3 className="text-lg font-semibold text-foreground">返信時間</h3>
+                                <h3 className="text-lg font-semibold text-foreground">{ts('response_time.title')}</h3>
                             </div>
                             <p className="text-muted-foreground mb-4">
-                                お問い合わせいただいた内容には、通常3営業日以内にご返信いたします。
+                                {ts('response_time.description')}
                             </p>
                             <Badge variant="outline" className="bg-background/50">
-                                迅速対応
+                                {ts('response_time.badge')}
                             </Badge>
                         </CardContent>
                     </Card>
@@ -244,7 +245,7 @@ const ContactPage = () => {
                     {/* FAQ */}
                     <Card className="shadow-lg border-0">
                         <CardHeader>
-                            <CardTitle className="text-xl">よくある質問</CardTitle>
+                            <CardTitle className="text-xl">{ts('faq.title')}</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-4">
                             {faqItems.map((item, index) => (
