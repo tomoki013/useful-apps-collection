@@ -25,6 +25,10 @@
     *   **グローバル状態:** `React Context API` を使用します（例: `ThemeProvider`）。大規模な状態管理ライブラリ（Reduxなど）は導入しません。
 5.  **コーディング規約:**
     *   **TypeScript:** 静的型付けを最大限に活用し、`any` 型の使用は避けてください。
+    *   **Next.js App Router の props:** `params` のようなサーバーコンポーネントのpropsは、以下のように型付けしてください。
+        ```typescript
+        (props: { params: Promise<{ lang: string }> })
+        ```
     *   **Prettier:** コードフォーマットはPrettierに準拠します。
     *   **ESLint:** 設定済みのESLintルールに従ってください。
 6.  **開発ログの記録:**
