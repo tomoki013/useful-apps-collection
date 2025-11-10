@@ -11,21 +11,19 @@
 
 ### 実装内容
 - **`next-international` の `undefined` ロケールエラーの修正:**
-  - **原因:** `GEMINI.md` に、Next.jsのサーバーコンポーネントで受け取る `params` propsを `Promise` として扱うという誤った記述があった。`src/app/[lang]/page.tsx` が `async` 関数として定義されていたが、`params` を受け取っていなかったため、`getScopedI18n` がロケールを解決できずにいた。
+  - **原因:** `src/app/[lang]/layout.tsx` と `src/app/[lang]/page.tsx` が、Next.jsの動的ルートセグメントから渡される `params` propを正しく受け取っていなかったため、`next-international` が現在のロケールを解決できずにいた。
   - **修正対応:**
-    1. `src/app/[lang]/page.tsx` の `Home` コンポーネントが、propsとして `params: { lang: string }` を受け取るようにシグネチャを修正。
-    2. `GEMINI.md` の誤った記述は今後の混乱を避けるため、チームに報告し修正を依頼。（エージェントはドキュメントを直接編集しない）
+    1. `src/app/[lang]/layout.tsx` の `RootLayout` コンポーネントが、propsとして `params: { lang: string }` を同期的に受け取るようにシグネチャを修正。
+    2. `src/app/[lang]/page.tsx` の `Home` コンポーネントが、同様に `params: { lang: string }` を受け取るようにシグネチャを修正。
 
 ### 発生した問題・課題
-- 開発ガイドライン (`GEMINI.md`) に記載されている情報が、Next.js App Routerの実際の仕様と異なっていたため、問題の特定に時間がかかった。
-- `getScopedI18n` はリクエストからロケールを自動で解決するはずだが、ページのpropsで `lang` を明示的に受け取らない場合に解決が失敗するケースがあることが判明した。
+- 当初、ユーザーの指示と `GEMINI.md` の記述に基づき `params` を `Promise` として扱おうとしたが、これはNext.js App Routerの仕様とは異なり、エラーの原因となっていた。
 
 ### 解決策
-- `page.tsx` が動的ルートセグメント (`[lang]`) の値をpropsとして明示的に受け取るように修正することで、`getScopedI18n` が確実にロケールを特定できるようにした。
+- `layout.tsx` と `page.tsx` が動的ルートセグメント (`[lang]`) の値を同期的なpropsとして明示的に受け取るように修正することで、`getScopedI18n` が確実にロケールを特定できるようにした。
 
 ### 得られた知見・次のアクション
-- プロジェクト固有の開発ガイドラインに記載されている内容であっても、公式ドキュメントやフレームワークのベストプラクティスと照らし合わせて常に妥当性を検証することの重要性を学んだ。
-- Next.jsのサーバーコンポーネントにおいて、`params` のようなpropsは `Promise` ではなく、コンポーネント描画時にすでに解決済みの同期的なオブジェクトとして扱われることを再確認した。
+- Next.jsのサーバーコンポーネントにおいて、`params` のようなpropsは、コンポーネント描画時にすでに解決済みの同期的なオブジェクトとして扱われることを再確認した。ユーザーの指示やドキュメントに不明な点がある場合は、公式ドキュメントと照らし合わせて検証することの重要性を学んだ。
 
 ---
 
@@ -235,7 +233,7 @@
   - アニメーション用のライブラリとして `framer-motion` を導入。
   - `localStorage` を利用して状態を永続化するための `useLocalStorage` カスタムフックを `src/hooks` に作成。
   - `src/components/organisms/Sidebar.tsx` を作成し、`Accordion` コンポーネントを導入。
-  - `src/app/[lang]/layout.tsx` を更新し、デスクトップでは2カラム（サイドバー＋メインコンテンツ）、モバイルではハンバーガーメニューで開閉するサイドバーレイアウトを実装した。
+  - `src/app/[lang]/layout.tsx` を更新し、デスクトップでは2カラム（サイドバー＋メインコンテンツ）、モバイルではハンガーメニューで開閉するサイドバーレイアウトを実装した。
 - **BMI計算機機能の実装**
   - 計算ロジックを `src/lib/calculators/bmi.ts` に分離して実装。メートル法とヤード・ポンド法の両方に対応。
   - `src/components/organisms/calculators/BmiCalculator.tsx` にUIコンポーネントを作成。`useLocalStorage` を利用して入力値を永続化し、`framer-motion` で結果をアニメーション表示。
