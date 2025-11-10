@@ -10,6 +10,34 @@
 - Jules
 
 ### 実装内容
+- **`next-international` のロケールエラー修正:**
+  - **原因:** ルート (`/`) に配置された `src/app/layout.tsx` が `[lang]` パラメータを受け取らないため、`next-international` が現在のロケールを `undefined` と認識し、エラーが発生していた。
+  - **修正対応:**
+    1. `src/app/[lang]/layout.tsx` に `src/app/layout.tsx` の機能（`ThemeProvider`、グローバルなメタデータ、フォント設定など）を全て統合。
+    2. `<html>` タグに `lang={lang}` を正しく渡すように修正。
+    3. 不要になった `src/app/layout.tsx` を削除し、レイアウト定義を `src/app/[lang]/layout.tsx` に一本化。
+    4. `src/middleware.ts` の `createI18nMiddleware` に `urlMappingStrategy: 'redirect'` を追加し、ロケールのないURLからデフォルトロケールへ正しくリダイレクトされるように修正。
+
+### 発生した問題・課題
+- Next.js App Routerのファイルベースルーティングにおいて、`[lang]` のような動的セグメントを持つルートとその親ルートに同時に `layout.tsx` が存在すると、意図しないレンダリングやpropsの欠落が発生する。
+- Playwrightでのテスト時に、`next-international` がリダイレクトループを引き起こし、テストが失敗することがあった。
+
+### 解決策
+- ルーティングの最上位コンポーネントである `src/app/[lang]/layout.tsx` に、アプリケーション全体のレイアウト設定を集約することで、`lang` パラメータが一貫してコンポーネントツリーに渡るようにした。
+- `urlMappingStrategy: 'redirect'` を使用することで、`next-international` のリダイレクト機能を活用し、ロケールプレフィックスのないURLへのアクセスを正しく処理できるようにした。
+
+### 得られた知見・次のアクション
+- App Routerでi18nを実装する際は、ルートレイアウト (`src/app/layout.tsx`) を使わず、動的セグメント (`src/app/[lang]/layout.tsx`) をアプリケーションのエントリーポイントとして設計することが、ロケール関連のエラーを防ぐためのベストプラクティスであることを学んだ。
+- `next-international` を使用する際は、`urlMappingStrategy` の設定が重要であり、特にテスト環境での動作に影響を与える可能性があることを理解した。
+
+---
+
+## 2025-11-09
+
+### 担当者
+- Jules
+
+### 実装内容
 - **i18nミドルウェアの修正とレイアウトのリファクタリング:**
   - **リダイレクト問題の解決:** `src/middleware.ts` の `createI18nMiddleware` の設定に `urlMappingStrategy: 'redirect'` を追加し、ルートURL (`/`) からデフォルトロケール (`/ja`) へのリダイレクトが正しく機能するように修正。
   - **`params.lang` 警告の解消:** `src/app/[lang]/layout.tsx` をリファクタリング。クライアントサイドのロジック（状態管理やUI）を新しい `src/app/components/layouts/MainLayout.tsx` コンポーネントに分離。`src/app/[lang]/layout.tsx` はサーバーコンポーネントに戻し、`I18nProviderClient` で `MainLayout` をラップするだけのシンプルな構成に変更。これにより、クライアントコンポーネント内でのサーバーサイド `params` への直接アクセスがなくなり、警告が解消された。
