@@ -1,15 +1,14 @@
-import { i18n } from "../../i18n-config";
+export const fallbackLng = "ja";
+export const languages = [fallbackLng, "en"];
+export const defaultNS = "common";
 
-export function getOptions(
-  locale: string = "ja",
-  ns: string | string[] = "common"
-) {
+export function getOptions(lang = fallbackLng, ns = defaultNS) {
   return {
-    // debug: true,
-    supportedLngs: i18n.locales,
-    fallbackLng: "ja",
-    lng: locale,
-    ns: Array.isArray(ns) ? ns : [ns],
-    defaultNS: Array.isArray(ns) ? ns[0] : ns,
+    supportedLngs: languages,
+    fallbackLng,
+    lng: lang,
+    fallbackNS: defaultNS,
+    defaultNS,
+    ns,
   };
 }
