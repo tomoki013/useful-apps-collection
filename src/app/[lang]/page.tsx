@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { getScopedI18n } from '@/i18n/server';
 
-export default async function Home({ params: { lang } }: { params: { lang: string } }) {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export default async function Home({ params }: { params: { lang: string } }) {
 	const th = await getScopedI18n('home.hero');
 	const ts = await getScopedI18n('home.stats');
 	const tf = await getScopedI18n('home.features');
