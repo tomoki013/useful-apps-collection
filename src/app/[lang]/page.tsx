@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Zap, Shield, Smartphone, Star } from 'lucide-react';
+import { ArrowRight, Zap, Shield, Smartphone, Star } from 'lucide-react'; // この行は変更しませんが、アイコンコンポーネントの使用方法が変わります
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { getScopedI18n } from '@/i18n/server';
@@ -11,23 +11,23 @@ export default async function Home({ params }: { params: { lang: string } }) {
 	const tf = await getScopedI18n('home.features');
 	const tc = await getScopedI18n('home.cta');
 
-  	const features = [
-  	  	{
-  	  	  	icon: Zap,
+	const features = [
+		{
+			icon: (props: React.ComponentProps<typeof Zap>) => <Zap {...props} />,
 			title: tf('items.fast.title'),
 			description: tf('items.fast.description')
-  	  	},
-  	  	{
-  	  	  	icon: Shield,
+		},
+		{
+			icon: (props: React.ComponentProps<typeof Shield>) => <Shield {...props} />,
 			title: tf('items.secure.title'),
 			description: tf('items.secure.description')
-  	  	},
-  	  	{
-  	  	  	icon: Smartphone,
+		},
+		{
+			icon: (props: React.ComponentProps<typeof Smartphone>) => <Smartphone {...props} />,
 			title: tf('items.responsive.title'),
 			description: tf('items.responsive.description')
-  	  	}
-  	];
+		}
+	];
 
   	const stats = [
 		{ number: '20+', label: ts('tools') },

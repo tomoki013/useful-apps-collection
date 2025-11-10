@@ -1,8 +1,21 @@
-'use client';
+"use client";
 
-import { createI18nClient } from 'next-international/client';
+import i18next from "i18next";
+import { initReactI18next } from "react-i18next";
+import resourcesToBackend from "i18next-resources-to-backend";
+import { getOptions } from "./settings";
 
-export const { useI18n, useScopedI18n, I18nProviderClient, useChangeLocale, useCurrentLocale } = createI18nClient({
-  'en': () => import('./lang/en.json'),
-  'ja': () => import('./lang/ja.json'),
-});
+i18next
+  .use(initReactI18next)
+  .use(
+    resourcesToBackend(
+      (language: string) =>
+        import(`./lang/${language}.json`)
+    )
+  )
+  .init({
+    ...getOptions(),
+    lng: undefined,
+  });
+
+export default i18next;
