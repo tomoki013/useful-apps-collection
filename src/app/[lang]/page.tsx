@@ -2,37 +2,35 @@ import Link from 'next/link';
 import { ArrowRight, Zap, Shield, Smartphone, Star } from 'lucide-react'; // この行は変更しませんが、アイコンコンポーネントの使用方法が変わります
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { getScopedI18n } from '@/i18n/server';
+import { createTranslation } from '@/i18n';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default async function Home({ params }: { params: { lang: string } }) {
-	const th = await getScopedI18n('home.hero');
-	const ts = await getScopedI18n('home.stats');
-	const tf = await getScopedI18n('home.features');
-	const tc = await getScopedI18n('home.cta');
+	const { lang } = params;
+	const { t } = await createTranslation(lang, 'common');
 
 	const features = [
 		{
 			icon: (props: React.ComponentProps<typeof Zap>) => <Zap {...props} />,
-			title: tf('items.fast.title'),
-			description: tf('items.fast.description')
+			title: t('home.features.items.fast.title'),
+			description: t('home.features.items.fast.description')
 		},
 		{
 			icon: (props: React.ComponentProps<typeof Shield>) => <Shield {...props} />,
-			title: tf('items.secure.title'),
-			description: tf('items.secure.description')
+			title: t('home.features.items.secure.title'),
+			description: t('home.features.items.secure.description')
 		},
 		{
 			icon: (props: React.ComponentProps<typeof Smartphone>) => <Smartphone {...props} />,
-			title: tf('items.responsive.title'),
-			description: tf('items.responsive.description')
+			title: t('home.features.items.responsive.title'),
+			description: t('home.features.items.responsive.description')
 		}
 	];
 
   	const stats = [
-		{ number: '20+', label: ts('tools') },
-		{ number: '100%', label: ts('free') },
-		{ number: '24/7', label: ts('available') }
+		{ number: '20+', label: t('home.stats.tools') },
+		{ number: '100%', label: t('home.stats.free') },
+		{ number: '24/7', label: t('home.stats.available') }
   	];
 
   	return (
@@ -44,25 +42,25 @@ export default async function Home({ params }: { params: { lang: string } }) {
   	  	  	  	  	<div className="text-center space-y-8">
   	  	  	  	  	  	<div className="space-y-4">
   	  	  	  	  	  	  	<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-								{th('title')}
+								{t('home.hero.title')}
   	  	  	  	  	  	  	  	<span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent block">
-									{th('title_highlight')}
+									{t('home.hero.title_highlight')}
   	  	  	  	  	  	  	  	</span>
   	  	  	  	  	  	  	</h1>
   	  	  	  	  	  	  	<p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-								{th('description')}
+								{t('home.hero.description')}
   	  	  	  	  	  	  	</p>
   	  	  	  	  	  	</div>
 
   	  	  	  	  	  	<div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
   	  	  	  	  	  	  	<Link href="/apps">
   	  	  	  	  	  	  	  	<Button size="lg" className="text-lg px-8 py-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 group">
-									{th('cta_primary')}
+									{t('home.hero.cta_primary')}
   	  	  	  	  	  	  	  	  	<ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
   	  	  	  	  	  	  	  	</Button>
   	  	  	  	  	  	  	</Link>
   	  	  	  	  	  	  	<Button variant="outline" size="lg" className="text-lg px-8 py-6">
-								{th('cta_secondary')}
+								{t('home.hero.cta_secondary')}
   	  	  	  	  	  	  	</Button>
   	  	  	  	  	  	</div>
 
@@ -84,10 +82,10 @@ export default async function Home({ params }: { params: { lang: string } }) {
   	  	  	  	<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
   	  	  	  	  	<div className="text-center space-y-4 mb-16">
   	  	  	  	  	  	<h2 className="text-3xl lg:text-4xl font-bold text-foreground">
-							{tf('title')}
+							{t('home.features.title')}
   	  	  	  	  	  	</h2>
   	  	  	  	  	  	<p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-							{tf('description')}
+							{t('home.features.description')}
   	  	  	  	  	  	</p>
   	  	  	  	  	</div>
 
@@ -122,14 +120,14 @@ export default async function Home({ params }: { params: { lang: string } }) {
   	  	  	  	  	  	<CardContent className="relative py-16 px-8">
   	  	  	  	  	  	  	<Star className="w-12 h-12 mx-auto mb-6 text-yellow-300" />
   	  	  	  	  	  	  	<h2 className="text-3xl lg:text-4xl font-bold mb-4">
-								{tc('title')}
+								{t('home.cta.title')}
   	  	  	  	  	  	  	</h2>
   	  	  	  	  	  	  	<p className="text-xl mb-8 text-blue-100">
-								{tc('description')}
+								{t('home.cta.description')}
   	  	  	  	  	  	  	</p>
   	  	  	  	  	  	  	<Link href="/apps">
   	  	  	  	  	  	  	  	<Button size="lg" variant="secondary" className="text-lg px-8 py-6 bg-white text-gray-900 hover:bg-gray-100">
-									{tc('button')}
+									{t('home.cta.button')}
   	  	  	  	  	  	  	  	  	<ArrowRight className="ml-2 w-5 h-5" />
   	  	  	  	  	  	  	  	</Button>
   	  	  	  	  	  	  	</Link>
