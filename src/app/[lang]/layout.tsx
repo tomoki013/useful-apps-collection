@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import * as Layouts from '@/app/components/layouts/index';
+import * as Layouts from '@/components/layouts/index';
 import { Sidebar } from '@/components/organisms';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
