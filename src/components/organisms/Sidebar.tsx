@@ -16,46 +16,46 @@ const Sidebar = () => {
             <CardContent>
                 <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
                     <AccordionItem value="item-1">
-                        <AccordionTrigger>{t('health')}</AccordionTrigger>
+                        <AccordionTrigger>{t('categories.health')}</AccordionTrigger>
                         <AccordionContent>
                             <nav className="grid gap-1 px-2">
                                 <Link
                                     href={`/${lang}/bmi-calculator`}
                                     className="block px-3 py-2 text-sm rounded-md hover:bg-muted transition-colors"
                                 >
-                                    {t('bmiCalculator')}
+                                    {t('tools.bmiCalculator')}
                                 </Link>
                                 <Link
                                     href={`/${lang}/bmr-calculator`}
                                     className="block px-3 py-2 text-sm rounded-md hover:bg-muted transition-colors"
                                 >
-                                    {t('bmrCalculator')}
+                                    {t('tools.bmrCalculator')}
                                 </Link>
                             </nav>
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-4">
-                        <AccordionTrigger>{t('money')}</AccordionTrigger>
+                        <AccordionTrigger>{t('categories.money')}</AccordionTrigger>
                         <AccordionContent>
                             <nav className="grid gap-1 px-2">
                                 <Link
                                     href={`/${lang}/loan-simulator`}
                                     className="block px-3 py-2 text-sm rounded-md hover:bg-muted transition-colors"
                                 >
-                                    {t('loanSimulator')}
+                                    {t('tools.loanSimulator')}
                                 </Link>
                             </nav>
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-3">
-                        <AccordionTrigger>{t('everydayLife')}</AccordionTrigger>
+                        <AccordionTrigger>{t('categories.everydayLife')}</AccordionTrigger>
                         <AccordionContent>
                             <nav className="grid gap-1 px-2">
                                 <Link
                                     href={`/${lang}/unit-converter`}
                                     className="block px-3 py-2 text-sm rounded-md hover:bg-muted transition-colors"
                                 >
-                                    {t('unitConverter')}
+                                    {t('tools.unitConverter')}
                                 </Link>
                             </nav>
                         </AccordionContent>

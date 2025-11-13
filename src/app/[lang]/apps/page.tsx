@@ -11,9 +11,9 @@ import {
   Recycle,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { AppCard } from "@/components/ui/app-card";
+import CategoryFilter from "@/components/organisms/CategoryFilter";
 
 const AppListPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -97,34 +97,20 @@ const AppListPage = () => {
 
           <div className="flex items-center gap-2">
             <Filter className="w-5 h-5 text-muted-foreground" />
-            <div className="flex flex-wrap gap-2">
-              {categories.map((category) => (
-                <Button
-                  key={category}
-                  variant={
-                    selectedCategory === category ? "default" : "outline"
-                  }
-                  size="sm"
-                  onClick={() => setSelectedCategory(category)}
-                  className={
-                    selectedCategory === category
-                      ? "bg-primary hover:bg-primary/90"
-                      : "bg-background/80 hover:bg-accent border-border text-muted-foreground"
-                  }
-                >
-                  {category === "all" ? "すべて" : category}
-                </Button>
-              ))}
-            </div>
+            <CategoryFilter
+              categories={categories}
+              selectedCategory={selectedCategory}
+              onSelectCategory={setSelectedCategory}
+            />
           </div>
         </div>
       </div>
 
       {/* Apps Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredApps.map((app, index) => (
+        {filteredApps.map((app) => (
           <AppCard
-            key={index}
+            key={app.name}
             name={app.name}
             description={app.description}
             icon={app.icon}
