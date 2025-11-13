@@ -1,15 +1,52 @@
 {
-  "sidebarTitle": "ツールボックス",
+  "title": "便利アプリ一覧",
+  "description": "日常で役立つ様々なツールを集めました。すべて無料でご利用いただけます。",
+  "searchPlaceholder": "アプリを検索...",
+  "noResults": {
+    "title": "アプリが見つかりませんでした",
+    "description": "検索条件を変更してもう一度お試しください"
+  },
+  "comingSoon": {
+    "title": "より多くのアプリを準備中",
+    "description": "現在、さらに便利なツールを開発中です。近日中に新しいアプリを追加予定です。",
+    "badge": "開発中"
+  },
   "categories": {
+    "all": "すべて",
     "health": "健康",
     "money": "お金",
-    "everydayLife": "日常生活"
+    "tool": "ツール"
   },
-  "tools": {
-    "bmiCalculator": "BMI計算機",
-    "bmrCalculator": "BMR計算機",
-    "loanSimulator": "ローン返済シミュレーション",
-    "unitConverter": "単位変換機"
-  },
-  "comingSoon": "近日公開..."
+  "appList": [
+    {
+      "name": "BMI計算機", "description": "あなたの肥満度をチェック", "category": "health", "href": "/bmi-calculator", "comingSoon": false
+    },
+    {
+      "name": "基礎代謝(BMR)計算機", "description": "生命維持に必要なエネルギー量を計算", "category": "health", "href": "/bmr-calculator", "comingSoon": false
+    },
+    {
+      "name": "ローン返済シミュレーション", "description": "元利均等・元金均等の返済額を比較", "category": "money", "href": "/loan-simulator", "comingSoon": false
+    },
+    {
+      "name": "単位変換機", "description": "長さ、重さ、温度など様々な単位を変換", "category": "tool", "href": "/unit-converter", "comingSoon": true
+    },
+    {
+      "name": "年齢計算機", "description": "生年月日からの年齢を計算", "category": "health", "href": "/age-calculator", "comingSoon": true
+    },
+    {
+      "name": "世界時計", "description": "世界各都市の現在時刻を表示", "category": "tool", "href": "/world-clock", "comingSoon": true
+    },
+    {
+      "name": "QRコード生成", "description": "テキストやURLからQRコードを生成", "category": "tool", "href": "/qr-code-generator", "comingSoon": true
+    },
+    {
+      "name": "パスワード生成", "description": "安全なパスワードを生成", "category": "tool", "href": "/password-generator", "comingSoon": true
+    },
+    {
+      "name": "アスペクト比計算機", "description": "画面や画像の比率を計算", "category": "tool", "href": "/aspect-ratio-calculator", "comingSoon": true
+    },
+    {
+      "name": "近日公開", "description": "新しいツールを準備中", "category": "tool", "href": "/coming-soon", "comingSoon": true
+    }
+  ]
 }

@@ -1,0 +1,10 @@
+{
+  "title": "アスペクト比計算機",
+  "description": "画像または動画のアスペクト比を計算します。",
+  "width": "幅",
+  "height": "高さ",
+  "result": {
+    "title": "結果",
+    "aspectRatio": "アスペクト比"
+  }
+}

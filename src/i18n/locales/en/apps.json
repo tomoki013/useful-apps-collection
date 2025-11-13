@@ -1,15 +1,52 @@
 {
-  "sidebarTitle": "Toolbox",
+  "title": "App List",
+  "description": "A collection of useful tools for everyday life. All are free to use.",
+  "searchPlaceholder": "Search for apps...",
+  "noResults": {
+    "title": "No apps found",
+    "description": "Please change your search criteria and try again."
+  },
+  "comingSoon": {
+    "title": "More apps are on the way",
+    "description": "We are currently developing more useful tools. New apps will be added soon.",
+    "badge": "In Development"
+  },
   "categories": {
+    "all": "All",
     "health": "Health",
     "money": "Money",
-    "everydayLife": "Everyday Life"
+    "tool": "Tool"
   },
-  "tools": {
-    "bmiCalculator": "BMI Calculator",
-    "bmrCalculator": "BMR Calculator",
-    "loanSimulator": "Loan Simulator",
-    "unitConverter": "Unit Converter"
-  },
-  "comingSoon": "Coming soon..."
+  "appList": [
+    {
+      "name": "BMI Calculator", "description": "Check your Body Mass Index", "category": "health", "href": "/bmi-calculator", "comingSoon": false
+    },
+    {
+      "name": "BMR Calculator", "description": "Calculate the energy required for life support", "category": "health", "href": "/bmr-calculator", "comingSoon": false
+    },
+    {
+      "name": "Loan Simulator", "description": "Compare equal-payment and equal-principal repayment amounts", "category": "money", "href": "/loan-simulator", "comingSoon": false
+    },
+    {
+      "name": "Unit Converter", "description": "Convert various units such as length, weight, and temperature", "category": "tool", "href": "/unit-converter", "comingSoon": true
+    },
+    {
+      "name": "Age Calculator", "description": "Calculate age from date of birth", "category": "health", "href": "/age-calculator", "comingSoon": true
+    },
+    {
+      "name": "World Clock", "description": "Display the current time in cities around the world", "category": "tool", "href": "/world-clock", "comingSoon": true
+    },
+    {
+      "name": "QR Code Generator", "description": "Generate QR codes from text or URLs", "category": "tool", "href": "/qr-code-generator", "comingSoon": true
+    },
+    {
+      "name": "Password Generator", "description": "Generate secure passwords", "category": "tool", "href": "/password-generator", "comingSoon": true
+    },
+    {
+      "name": "Aspect Ratio Calculator", "description": "Calculate the ratio of screens and images", "category": "tool", "href": "/aspect-ratio-calculator", "comingSoon": true
+    },
+    {
+      "name": "Coming Soon", "description": "Preparing new tools", "category": "tool", "href": "/coming-soon", "comingSoon": true
+    }
+  ]
 }

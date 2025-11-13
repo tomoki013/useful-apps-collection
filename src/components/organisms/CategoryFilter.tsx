@@ -2,8 +2,13 @@
 
 import { Button } from "@/components/ui/button";
 
+interface Category {
+  key: string;
+  value: string;
+}
+
 interface CategoryFilterProps {
-  categories: string[];
+  categories: Category[];
   selectedCategory: string;
   onSelectCategory: (category: string) => void;
 }
@@ -17,17 +22,17 @@ const CategoryFilter = ({
     <div className="flex flex-wrap gap-2">
       {categories.map((category) => (
         <Button
-          key={category}
-          variant={selectedCategory === category ? "default" : "outline"}
+          key={category.key}
+          variant={selectedCategory === category.key ? "default" : "outline"}
           size="sm"
-          onClick={() => onSelectCategory(category)}
+          onClick={() => onSelectCategory(category.key)}
           className={
-            selectedCategory === category
+            selectedCategory === category.key
               ? "bg-primary hover:bg-primary/90"
               : "bg-background/80 hover:bg-accent border-border text-muted-foreground"
           }
         >
-          {category === "all" ? "すべて" : category}
+          {category.value}
         </Button>
       ))}
     </div>
