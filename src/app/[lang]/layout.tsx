@@ -1,10 +1,11 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import * as Layouts from '@/app/components/layouts/index';
-import { Sidebar } from '@/components/organisms';
-import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import { useState } from "react";
+import { Sidebar } from "@/components/organisms";
+import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
+import Header from "@/components/layouts/header/Header";
+import Footer from "@/components/layouts/footer/Footer";
 
 export default function LangLayout({
   children,
@@ -19,7 +20,7 @@ export default function LangLayout({
 
   return (
     <>
-      <Layouts.Header />
+      <Header />
       <div className="flex">
         {/* Sidebar for desktop */}
         <aside className="hidden md:block w-64 p-4">
@@ -32,9 +33,18 @@ export default function LangLayout({
         </main>
 
         {/* Sidebar for mobile */}
-        <div className={`fixed top-0 left-0 h-full w-64 bg-white dark:bg-gray-800 z-50 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform md:hidden`}>
+        <div
+          className={`fixed top-0 left-0 h-full w-64 bg-white dark:bg-gray-800 z-50 transform ${
+            isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+          } transition-transform md:hidden`}
+        >
           <div className="p-4">
-            <Button variant="ghost" size="sm" onClick={toggleSidebar} className="absolute top-4 right-4">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleSidebar}
+              className="absolute top-4 right-4"
+            >
               <X className="w-4 h-4" />
             </Button>
             <Sidebar />
@@ -48,7 +58,7 @@ export default function LangLayout({
           </Button>
         </div>
       </div>
-      <Layouts.Footer />
+      <Footer />
     </>
   );
 }

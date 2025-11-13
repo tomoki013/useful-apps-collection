@@ -2,7 +2,13 @@
 
 import { useState, useEffect } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import useLocalStorage from "@/hooks/useLocalStorage";
@@ -38,7 +44,7 @@ const UnitConverter = () => {
         const result = convert(numValue, fromUnit, toUnit, category);
         setOutputValue(result.toLocaleString());
       } catch (error) {
-        if(error instanceof Error) {
+        if (error instanceof Error) {
           setOutputValue(error.message);
         }
       }
