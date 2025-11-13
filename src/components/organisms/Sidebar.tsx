@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import { useParams } from "next/navigation"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import {
     Accordion,
@@ -9,96 +8,66 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
-
-// TODO: i18n
-const translations = {
-    ja: {
-        sidebarTitle: 'ツールボックス',
-        health: '健康',
-        bmiCalculator: 'BMI計算機',
-        bmrCalculator: 'BMR計算機',
-        money: 'お金',
-        loanSimulator: 'ローン返済シミュレーション',
-        everydayLife: '日常生活',
-        unitConverter: '単位変換機',
-        calculators: '計算機',
-        converters: '変換機',
-        comingSoon: '近日公開...',
-    },
-    en: {
-        sidebarTitle: 'Toolbox',
-        health: 'Health',
-        bmiCalculator: 'BMI Calculator',
-        bmrCalculator: 'BMR Calculator',
-        money: 'Money',
-        loanSimulator: 'Loan Simulator',
-        everydayLife: 'Everyday Life',
-        unitConverter: 'Unit Converter',
-        calculators: 'Calculators',
-        converters: 'Converters',
-        comingSoon: 'Coming soon...',
-    },
-}
+import { useI18n, useCurrentLocale } from "@/app/i18n/client";
 
 const Sidebar = () => {
-    const params = useParams();
-    const lang = Array.isArray(params.lang) ? params.lang[0] : params.lang || 'en';
-    const t = lang === 'ja' ? translations.ja : translations.en;
+    const { t } = useI18n();
+    const lang = useCurrentLocale();
 
     return (
         <Card>
             <CardHeader>
-                <CardTitle>{t.sidebarTitle}</CardTitle>
+                <CardTitle>{t('common.sidebar.title')}</CardTitle>
             </CardHeader>
             <CardContent>
                 <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
                     <AccordionItem value="item-1">
-                        <AccordionTrigger>{t.health}</AccordionTrigger>
+                        <AccordionTrigger>{t('common.sidebar.health')}</AccordionTrigger>
                         <AccordionContent>
                             <nav className="grid gap-1 px-2">
                                 <Link
                                     href={`/${lang}/bmi-calculator`}
                                     className="block px-3 py-2 text-sm rounded-md hover:bg-muted transition-colors"
                                 >
-                                    {t.bmiCalculator}
+                                    {t('common.sidebar.health.bmi')}
                                 </Link>
                                 <Link
                                     href={`/${lang}/bmr-calculator`}
                                     className="block px-3 py-2 text-sm rounded-md hover:bg-muted transition-colors"
                                 >
-                                    {t.bmrCalculator}
+                                    {t('common.sidebar.health.bmr')}
                                 </Link>
                             </nav>
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-4">
-                        <AccordionTrigger>{t.money}</AccordionTrigger>
+                        <AccordionTrigger>{t('common.sidebar.money')}</AccordionTrigger>
                         <AccordionContent>
                             <nav className="grid gap-1 px-2">
                                 <Link
                                     href={`/${lang}/loan-simulator`}
                                     className="block px-3 py-2 text-sm rounded-md hover:bg-muted transition-colors"
                                 >
-                                    {t.loanSimulator}
+                                    {t('common.sidebar.money.loan')}
                                 </Link>
                             </nav>
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-2">
-                        <AccordionTrigger>{t.calculators}</AccordionTrigger>
+                        <AccordionTrigger>{t('common.sidebar.calculators')}</AccordionTrigger>
                         <AccordionContent>
-                            <p className="px-4 text-sm text-muted-foreground">{t.comingSoon}</p>
+                            <p className="px-4 text-sm text-muted-foreground">{t('common.sidebar.comingSoon')}</p>
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-3">
-                        <AccordionTrigger>{t.everydayLife}</AccordionTrigger>
+                        <AccordionTrigger>{t('common.sidebar.everyday')}</AccordionTrigger>
                         <AccordionContent>
                             <nav className="grid gap-1 px-2">
                                 <Link
                                     href={`/${lang}/unit-converter`}
                                     className="block px-3 py-2 text-sm rounded-md hover:bg-muted transition-colors"
                                 >
-                                    {t.unitConverter}
+                                    {t('common.sidebar.everyday.unit')}
                                 </Link>
                             </nav>
                         </AccordionContent>

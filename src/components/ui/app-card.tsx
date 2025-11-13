@@ -1,7 +1,10 @@
+'use client';
+
 import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { useI18n } from "@/app/i18n/client";
 
 export type AppCardProps = {
   name: string;
@@ -13,15 +16,16 @@ export type AppCardProps = {
   comingSoon?: boolean;
 };
 
-export const AppCard = ({ name, description, icon, category, href, color, comingSoon }: AppCardProps) => {
-  const CardContentInner = () => (
+const CardContentInner = ({ name, description, icon, category, color, comingSoon }: AppCardProps) => {
+  const { t } = useI18n();
+  return (
     <Card className="h-full">
       <CardHeader>
         <div className="flex items-center justify-between">
           <div className="text-3xl" style={{ color }}>
             {icon}
           </div>
-          {comingSoon && <Badge>Coming Soon</Badge>}
+          {comingSoon && <Badge>{t('common.appCard.comingSoon')}</Badge>}
         </div>
         <CardTitle>{name}</CardTitle>
         <CardDescription>{description}</CardDescription>
@@ -31,18 +35,20 @@ export const AppCard = ({ name, description, icon, category, href, color, coming
       </CardContent>
     </Card>
   );
+};
 
-  if (comingSoon) {
+export const AppCard = (props: AppCardProps) => {
+  if (props.comingSoon) {
     return (
       <div className={cn("opacity-50 cursor-not-allowed")}>
-        <CardContentInner />
+        <CardContentInner {...props} />
       </div>
     );
   }
 
   return (
-    <Link href={href} className="block">
-      <CardContentInner />
+    <Link href={props.href} className="block">
+      <CardContentInner {...props} />
     </Link>
   );
 };

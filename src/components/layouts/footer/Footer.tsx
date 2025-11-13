@@ -2,36 +2,39 @@
 
 import Link from 'next/link';
 import { Mail, Phone, MapPin, Github, Twitter, Linkedin, Zap } from 'lucide-react';
+import { useI18n, useCurrentLocale } from '@/app/i18n/client';
 
 const Footer = () => {
+    const { t } = useI18n();
+    const lang = useCurrentLocale();
     const currentYear = new Date().getFullYear();
 
     const footerSections = [
         {
-            title: 'サービス',
+            title: t('common.footer.sections.service'),
             links: [
-                { name: 'アプリ一覧', href: '/apps' },
-                { name: '計算機', href: '/apps/calculator' },
-                { name: 'タイマー', href: '/apps/timer' },
-                { name: 'テキスト変換', href: '/apps/text-converter' },
+                { name: t('common.footer.sections.service.apps'), href: `/${lang}/apps` },
+                { name: t('common.footer.sections.service.calculator'), href: `/${lang}/apps` },
+                { name: t('common.footer.sections.service.timer'), href: `/${lang}/apps` },
+                { name: t('common.footer.sections.service.textConverter'), href: `/${lang}/apps` },
             ]
         },
         {
-            title: '会社情報',
+            title: t('common.footer.sections.company'),
             links: [
-                { name: '会社概要', href: '/about' },
-                { name: 'プライバシーポリシー', href: '/privacy' },
-                { name: '利用規約', href: '/terms' },
-                { name: 'お問い合わせ', href: '/contact' },
+                { name: t('common.footer.sections.company.about'), href: `/${lang}/about` },
+                { name: t('common.footer.sections.company.privacy'), href: `/${lang}/privacy` },
+                { name: t('common.footer.sections.company.terms'), href: `/${lang}/terms` },
+                { name: t('common.footer.sections.company.contact'), href: `/${lang}/contact` },
             ]
         },
         {
-            title: 'サポート',
+            title: t('common.footer.sections.support'),
             links: [
-                { name: 'ヘルプセンター', href: '/help' },
-                { name: 'よくある質問', href: '/faq' },
-                { name: '使い方ガイド', href: '/guide' },
-                { name: 'フィードバック', href: '/feedback' },
+                { name: t('common.footer.sections.support.help'), href: `/${lang}/help` },
+                { name: t('common.footer.sections.support.faq'), href: `/${lang}/faq` },
+                { name: t('common.footer.sections.support.guide'), href: `/${lang}/guide` },
+                { name: t('common.footer.sections.support.feedback'), href: `/${lang}/feedback` },
             ]
         }
     ];
@@ -54,17 +57,16 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
                     {/* Company Info */}
                     <div className="lg:col-span-2 space-y-4">
-                        <Link href="/" className="flex items-center space-x-2">
+                        <Link href={`/${lang}`} className="flex items-center space-x-2">
                             <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
                                 <Zap className="w-5 h-5 text-white" />
                             </div>
                             <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                                便利アプリ集
+                                {t('common.header.logo.text')}
                             </span>
                         </Link>
                         <p className="text-muted-foreground max-w-md">
-                            日常生活や仕事で役立つ便利なツールを無料で提供しています。
-                            すべてのアプリはブラウザ上で動作し、インストール不要でご利用いただけます。
+                            {t('common.footer.description')}
                         </p>
 
                         {/* Contact Info */}
@@ -104,7 +106,7 @@ const Footer = () => {
                 {/* Bottom Section */}
                 <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                     <p className="text-sm text-muted-foreground">
-                        &copy; {currentYear} 便利アプリ集. All rights reserved.
+                        {t('common.footer.copyright', { year: currentYear })}
                     </p>
                     
                     {/* Social Links */}

@@ -11,36 +11,25 @@ import {
     SelectItem,
     SelectTrigger,
 } from "@/components/ui/select"
-import { useLanguage } from '@/contexts/LanguageProvider';
 import { cn } from '@/lib/utils';
-import { useParams, usePathname, useRouter } from 'next/navigation';
+import { useI18n, useChangeLocale, useCurrentLocale } from '@/app/i18n/client';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [mounted, setMounted] = useState(false);
     const { theme, setTheme } = useTheme();
-    const { lang, setLang } = useLanguage();
-    const router = useRouter();
-    const pathname = usePathname();
-    const params = useParams();
+    const { t } = useI18n();
+    const changeLocale = useChangeLocale();
+    const lang = useCurrentLocale();
 
     useEffect(() => {
         setMounted(true);
-        if (params.lang && typeof params.lang === 'string' && lang !== params.lang) {
-            setLang(params.lang);
-        }
-    }, [params.lang, lang, setLang]);
-
-    const handleLanguageChange = (newLang: string) => {
-        setLang(newLang);
-        const newPath = pathname.replace(`/${lang}`, `/${newLang}`);
-        router.push(newPath);
-    };
+    }, []);
 
     const navigation = [
-        { name: lang === 'ja' ? 'ホーム' : 'Home', href: `/${lang}` },
-        { name: lang === 'ja' ? 'アプリ一覧' : 'Apps', href: `/${lang}/apps` },
-        { name: lang === 'ja' ? 'お問い合わせ' : 'Contact', href: `/${lang}/contact` },
+        { name: t('common.header.navigation.home'), href: `/${lang}` },
+        { name: t('common.header.navigation.apps'), href: `/${lang}/apps` },
+        { name: t('common.header.navigation.contact'), href: `/${lang}/contact` },
     ];
 
     const toggleMenu = () => {
@@ -65,7 +54,7 @@ const Header = () => {
                             <Zap className="w-5 h-5 text-white" />
                         </div>
                         <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                            {lang === 'ja' ? '便利アプリ集' : 'Useful Apps'}
+                            {t('common.header.logo.text')}
                         </span>
                     </Link>
 
@@ -86,16 +75,16 @@ const Header = () => {
                     {/* Language & Theme Toggles & Mobile Menu Button */}
                     <div className="flex items-center space-x-2">
                         {/* Language Selector */}
-                        <Select onValueChange={handleLanguageChange} defaultValue={lang}>
+                        <Select onValueChange={(newLang) => changeLocale(newLang as 'ja' | 'en')} defaultValue={lang}>
                             <SelectTrigger className="w-auto h-9 p-0 border-none bg-transparent hover:bg-accent focus:ring-0">
                                 <Button variant="ghost" size="sm" className="w-9 h-9 p-0">
                                     <Globe className="w-4 h-4" />
-                                    <span className="sr-only">言語を切り替え</span>
+                                    <span className="sr-only">{t('common.header.language.toggle.tooltip')}</span>
                                 </Button>
                             </SelectTrigger>
                             <SelectContent>
-                                <SelectItem value="ja">日本語</SelectItem>
-                                <SelectItem value="en">English</SelectItem>
+                                <SelectItem value="ja">{t('common.header.language.japanese')}</SelectItem>
+                                <SelectItem value="en">{t('common.header.language.english')}</SelectItem>
                             </SelectContent>
                         </Select>
 
@@ -111,7 +100,7 @@ const Header = () => {
                             ) : (
                                 <Moon className="w-4 h-4" />
                             )}
-                            <span className="sr-only">テーマを切り替え</span>
+                            <span className="sr-only">{t('common.header.theme.toggle.tooltip')}</span>
                         </Button>
 
                         {/* Mobile Menu Button */}
@@ -126,7 +115,7 @@ const Header = () => {
                             ) : (
                                 <Menu className="w-4 h-4" />
                             )}
-                            <span className="sr-only">メニューを開く</span>
+                            <span className="sr-only">{t('common.header.menu.open.tooltip')}</span>
                         </Button>
                     </div>
                 </div>

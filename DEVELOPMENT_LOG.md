@@ -4,6 +4,41 @@
 
 ---
 
+## 2025-11-12
+
+### 担当者
+- Jules
+
+### 実装内容
+- **国際化 (i18n) 基盤の`next-international`への移行:**
+  - `next-international`ライブラリを導入し、i18n基盤を刷新。
+  - `init`コマンドが利用できなかったため、公式ドキュメントを参考に手動で`src/app/i18n`ディレクトリと設定ファイル (`client.ts`, `server.ts`) を作成。
+  - プロジェクトルートに`middleware.ts`を配置し、`ja`と`en`のロケールに対応したURLリライトを設定。
+- **翻訳ファイルの分離と型安全性向上:**
+  - 各コンポーネント (`BmiCalculator`, `BmrCalculator`, `Sidebar`, `Header`, `LoanSimulator`, `UnitConverter`, `ContactPage`, `AppListPage`, `HomePage`, `Footer`) に内蔵されていた翻訳オブジェクトを`src/app/i18n/locales`配下に集約・分割。
+  - `common`, `bmi-calculator`, `bmr-calculator`, `loan-simulator`, `unit-converter`, `contact`, `apps`, `home`といった名前空間で翻訳ファイルを管理。
+- **コンポーネントの書き換え:**
+  - `src/app/[lang]/layout.tsx`に`I18nProviderClient`をセットアップ。
+  - 全てのクライアントコンポーネントで、従来の`useLanguage`フックと`translations`オブジェクトを廃止し、`next-international`の`useI18n`フックに置き換え。
+  - サーバーコンポーネント (`page.tsx`) で`getI18n`を使用するように修正。
+  - `Header`コンポーネントの言語切り替え機能を`useChangeLocale`と`useCurrentLocale`フックを使って再実装。
+- **クリーンアップ:**
+  - 不要になった`src/contexts/LanguageProvider.tsx`を削除。
+  - `src/app/layout.tsx`から`LanguageProvider`の呼び出しを削除。
+
+### 発生した問題・課題
+- `next-international`の`init`コマンド (`pnpm next-international init`, `pnpm exec next-international init`, `npx next-international init`) が、パッケージがローカルにインストールされているにもかかわらず「command not found」エラーとなり実行できなかった。
+- おそらくライブラリのバージョンアップに伴い`init`コマンドが非推奨または廃止されたと推測される。
+
+### 解決策
+- 公式ドキュメントを検索し、App Router向けの最新のセットアップ手順を確認。`init`コマンドに頼らず、`client.ts`, `server.ts`, `middleware.ts`などの設定ファイルを手動で作成することで対応した。
+
+### 得られた知見・次のアクション
+- ライブラリのCLIツールが期待通りに動作しない場合、バージョン差異によるコマンドの変更・廃止を疑い、速やかに公式ドキュメントで最新の情報を確認することが重要である。
+- 手動でのセットアップ手順を理解することで、CLIツールがない、または動作しない状況でも柔軟に対応できる。
+
+---
+
 ## 2025-11-09
 
 ### 担当者
@@ -76,7 +111,7 @@
 - `ls` コマンドでNext.jsのルートグループ `(calculators)` を含むディレクトリをリストしようとした際に、シェルの特殊文字として解釈されエラーが複数回発生した。
 
 ### 解決策
-- `ls` コマンドのパス引数をシングルクォートで囲むことで、特殊文字のエラーを回避した。
+- `ls` コマンドのパス引数をシングルクォーテーションで囲むことで、特殊文字のエラーを回避した。
 
 ### 得られた知見・次のアクション
 - シェルで特殊文字（`()` など）を含むパスを扱う際は、クォーテーションで適切にエスケープすることの重要性を再認識した。コマンド実行前に入念な確認を行う。
@@ -114,7 +149,7 @@
 ### 解決策
 - shadcn/uiのドキュメントを参考に、`Select` と `Accordion` コンポーネントのソースコードを `src/components/ui` ディレクトリに手動で追加した。
 - レビューフィードバックに基づき、`framer-motion` のインストール、`useLocalStorage` フックの実装、サイドバーレイアウトの作成、開発ログの更新を完了させた。
-- `mkdir` コマンドのパス引数をシングルクォートで囲むことで、特殊文字のエラーを回避した。
+- `mkdir` コマンドのパス引数をシングルクォーテーションで囲むことで、特殊文字のエラーを回避した。
 
 ### 得られた知見・次のアクション
 - shadcn/uiのコンポーネントは、CLIで追加するのが基本だが、手動での追加方法も理解しておくことで、柔軟な対応が可能になる。

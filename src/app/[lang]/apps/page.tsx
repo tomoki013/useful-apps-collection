@@ -6,56 +6,58 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { AppCard } from '@/components/ui/app-card';
+import { useI18n } from '@/app/i18n/client';
 
 const AppListPage = () => {
+    const { t } = useI18n();
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('all');
 
     const apps = [
         {
-            name: 'BMI計算機',
-            description: 'あなたの肥満度をチェック',
+            name: t('apps.apps.bmiCalculator.name'),
+            description: t('apps.apps.bmiCalculator.description'),
             icon: <HeartPulse />,
-            category: '健康',
+            category: t('apps.categories.health'),
             href: '/bmi-calculator',
             color: '#10B981',
             comingSoon: false,
         },
         {
-            name: '基礎代謝(BMR)計算機',
-            description: '生命維持に必要なエネルギー量を計算',
+            name: t('apps.apps.bmrCalculator.name'),
+            description: t('apps.apps.bmrCalculator.description'),
             icon: <Dumbbell />,
-            category: '健康',
+            category: t('apps.categories.health'),
             href: '/bmr-calculator',
             color: '#3B82F6',
             comingSoon: false,
         },
         {
-            name: 'ローン返済シミュレーション',
-            description: '元利均等・元金均等の返済額を比較',
+            name: t('apps.apps.loanSimulator.name'),
+            description: t('apps.apps.loanSimulator.description'),
             icon: <Landmark />,
-            category: 'お金',
+            category: t('apps.categories.money'),
             href: '/loan-simulator',
             color: '#F97316',
             comingSoon: false,
         },
         {
-            name: '単位変換機',
-            description: '長さ、重さ、温度など様々な単位を変換',
+            name: t('apps.apps.unitConverter.name'),
+            description: t('apps.apps.unitConverter.description'),
             icon: <Recycle />,
-            category: 'ツール',
+            category: t('apps.categories.tools'),
             href: '/unit-converter',
             color: '#8B5CF6',
             comingSoon: true,
         },
     ];
 
-    const categories = ['all', '健康', 'お金', 'ツール'];
+    const categories = ['all', 'health', 'money', 'tools'];
 
     const filteredApps = apps.filter(app => {
         const matchesSearch = app.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                              app.description.toLowerCase().includes(searchTerm.toLowerCase());
-        const matchesCategory = selectedCategory === 'all' || app.category === selectedCategory;
+        const matchesCategory = selectedCategory === 'all' || app.category === t(`apps.categories.${selectedCategory}`);
         return matchesSearch && matchesCategory;
     });
 
@@ -64,10 +66,10 @@ const AppListPage = () => {
             {/* Header */}
             <div className="text-center space-y-4 mb-12">
                 <h1 className="text-3xl lg:text-4xl font-bold text-foreground">
-                    便利アプリ一覧
+                    {t('apps.title')}
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                    日常で役立つ様々なツールを集めました。すべて無料でご利用いただけます。
+                    {t('apps.description')}
                 </p>
             </div>
 
@@ -78,7 +80,7 @@ const AppListPage = () => {
                         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
                         <Input
                             type="text"
-                            placeholder="アプリを検索..."
+                            placeholder={t('apps.searchPlaceholder')}
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                             className="pl-10 bg-background/80 border-border focus:border-primary focus:ring-primary"
@@ -99,7 +101,7 @@ const AppListPage = () => {
                                         "bg-background/80 hover:bg-accent border-border text-muted-foreground"
                                     }
                                 >
-                                    {category === 'all' ? 'すべて' : category}
+                                    {t(`apps.categories.${category}`)}
                                 </Button>
                             ))}
                         </div>
@@ -128,10 +130,10 @@ const AppListPage = () => {
                 <div className="text-center py-16">
                     <Grid3X3 className="w-16 h-16 text-muted-foreground/50 mx-auto mb-4" />
                     <h3 className="text-xl font-semibold text-foreground mb-2">
-                        アプリが見つかりませんでした
+                        {t('apps.noResults.title')}
                     </h3>
                     <p className="text-muted-foreground">
-                        検索条件を変更してもう一度お試しください
+                        {t('apps.noResults.description')}
                     </p>
                 </div>
             )}
@@ -139,13 +141,13 @@ const AppListPage = () => {
             {/* Coming Soon Notice */}
             <div className="mt-16 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20 rounded-2xl p-8 text-center border border-border">
                 <h3 className="text-2xl font-bold text-foreground mb-4">
-                    より多くのアプリを準備中
+                    {t('apps.comingSoon.title')}
                 </h3>
                 <p className="text-muted-foreground mb-6">
-                    現在、さらに便利なツールを開発中です。近日中に新しいアプリを追加予定です。
+                    {t('apps.comingSoon.description')}
                 </p>
                 <Badge variant="outline" className="bg-background/50">
-                    開発中
+                    {t('apps.comingSoon.badge')}
                 </Badge>
             </div>
         </div>

@@ -1,0 +1,17 @@
+export default {
+  title: 'Loan Simulator',
+  amount: 'Amount',
+  annualRate: 'Annual Rate (%)',
+  period: 'Period (years)',
+  repaymentMethod: 'Repayment Method',
+  equalPayment: 'Equal Payment',
+  equalPrincipal: 'Equal Principal',
+  calculate: 'Calculate',
+  resultTitle: 'Calculation Result',
+  monthlyPayment: 'Monthly Payment',
+  firstMonthPayment: 'First Month Payment',
+  lastMonthPayment: 'Last Month Payment',
+  totalRepayment: 'Total Repayment',
+  totalInterest: 'Total Interest',
+  yen: 'yen',
+} as const;
