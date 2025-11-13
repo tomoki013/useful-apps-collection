@@ -19,7 +19,7 @@ const initI18next = async (lng: string, ns: string | string[]) => {
 };
 
 // サーバーコンポーネント用の useTranslation
-export async function useTranslation(
+export async function getTranslation(
   lng: string,
   ns?: string | string[],
   options: { keyPrefix?: string } = {}

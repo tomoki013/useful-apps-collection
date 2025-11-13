@@ -7,7 +7,7 @@ import {
 } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import resourcesToBackend from "i18next-resources-to-backend";
-import { getOptions, clientSideOptions, locales } from "./settings";
+import { clientSideOptions, locales } from "./settings";
 import { useParams } from "next/navigation";
 
 // クライアントでのi18next初期化
