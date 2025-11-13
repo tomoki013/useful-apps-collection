@@ -1,0 +1,10 @@
+{
+  "title": "Aspect Ratio Calculator",
+  "description": "Calculate the aspect ratio of an image or video.",
+  "width": "Width",
+  "height": "Height",
+  "result": {
+    "title": "Result",
+    "aspectRatio": "Aspect Ratio"
+  }
+}

@@ -9,56 +9,94 @@ import {
   Dumbbell,
   Landmark,
   Recycle,
+  Calculator,
+  Clock,
+  QrCode,
+  Lock,
+  Crop,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { AppCard } from "@/components/ui/app-card";
 import CategoryFilter from "@/components/organisms/CategoryFilter";
+import { useTranslation } from "@/i18n/client";
+
+interface App {
+  name: string;
+  description: string;
+  category: string;
+  href: string;
+  comingSoon: boolean;
+}
 
 const AppListPage = () => {
+  const { t } = useTranslation("apps");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  const apps = [
-    {
-      name: "BMI計算機",
-      description: "あなたの肥満度をチェック",
-      icon: <HeartPulse />,
-      category: "健康",
-      href: "/bmi-calculator",
-      color: "#10B981",
-      comingSoon: false,
-    },
-    {
-      name: "基礎代謝(BMR)計算機",
-      description: "生命維持に必要なエネルギー量を計算",
-      icon: <Dumbbell />,
-      category: "健康",
-      href: "/bmr-calculator",
-      color: "#3B82F6",
-      comingSoon: false,
-    },
-    {
-      name: "ローン返済シミュレーション",
-      description: "元利均等・元金均等の返済額を比較",
-      icon: <Landmark />,
-      category: "お金",
-      href: "/loan-simulator",
-      color: "#F97316",
-      comingSoon: false,
-    },
-    {
-      name: "単位変換機",
-      description: "長さ、重さ、温度など様々な単位を変換",
-      icon: <Recycle />,
-      category: "ツール",
-      href: "/unit-converter",
-      color: "#8B5CF6",
-      comingSoon: true,
-    },
+  const appList = t("appList", { returnObjects: true }) as App[];
+
+  const apps = appList.map((app) => {
+    let icon;
+    switch (app.href) {
+      case "/bmi-calculator":
+        icon = <HeartPulse />;
+        break;
+      case "/bmr-calculator":
+        icon = <Dumbbell />;
+        break;
+      case "/loan-simulator":
+        icon = <Landmark />;
+        break;
+      case "/unit-converter":
+        icon = <Recycle />;
+        break;
+      case "/age-calculator":
+        icon = <Calculator />;
+        break;
+      case "/world-clock":
+        icon = <Clock />;
+        break;
+      case "/qr-code-generator":
+        icon = <QrCode />;
+        break;
+      case "/password-generator":
+        icon = <Lock />;
+        break;
+      case "/aspect-ratio-calculator":
+        icon = <Crop />;
+        break;
+      default:
+        icon = <Calculator />;
+    }
+
+    let color;
+    switch (app.category) {
+      case "health":
+        color = "#10B981";
+        break;
+      case "money":
+        color = "#F97316";
+        break;
+      case "tool":
+        color = "#8B5CF6";
+        break;
+      default:
+        color = "#3B82F6";
+    }
+
+    return { ...app, icon, color };
+  });
+
+  const categories = [
+    "all",
+    ...Array.from(new Set(apps.map((app) => app.category))),
   ];
 
-  const categories = ["all", "健康", "お金", "ツール"];
+  const translatedCategories = categories.map((category) => ({
+    key: category,
+    value: t(`categories.${category}`),
+  }));
 
   const filteredApps = apps.filter((app) => {
     const matchesSearch =
@@ -74,10 +112,10 @@ const AppListPage = () => {
       {/* Header */}
       <div className="text-center space-y-4 mb-12">
         <h1 className="text-3xl lg:text-4xl font-bold text-foreground">
-          便利アプリ一覧
+          {t("title")}
         </h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          日常で役立つ様々なツールを集めました。すべて無料でご利用いただけます。
+          {t("description")}
         </p>
       </div>
 
@@ -88,7 +126,7 @@ const AppListPage = () => {
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
             <Input
               type="text"
-              placeholder="アプリを検索..."
+              placeholder={t("searchPlaceholder")}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-10 bg-background/80 border-border focus:border-primary focus:ring-primary"
@@ -98,7 +136,7 @@ const AppListPage = () => {
           <div className="flex items-center gap-2">
             <Filter className="w-5 h-5 text-muted-foreground" />
             <CategoryFilter
-              categories={categories}
+              categories={translatedCategories}
               selectedCategory={selectedCategory}
               onSelectCategory={setSelectedCategory}
             />
@@ -114,7 +152,7 @@ const AppListPage = () => {
             name={app.name}
             description={app.description}
             icon={app.icon}
-            category={app.category}
+            category={t(`categories.${app.category}`)}
             href={app.href}
             color={app.color}
             comingSoon={app.comingSoon}
@@ -127,24 +165,22 @@ const AppListPage = () => {
         <div className="text-center py-16">
           <Grid3X3 className="w-16 h-16 text-muted-foreground/50 mx-auto mb-4" />
           <h3 className="text-xl font-semibold text-foreground mb-2">
-            アプリが見つかりませんでした
+            {t("noResults.title")}
           </h3>
-          <p className="text-muted-foreground">
-            検索条件を変更してもう一度お試しください
-          </p>
+          <p className="text-muted-foreground">{t("noResults.description")}</p>
         </div>
       )}
 
       {/* Coming Soon Notice */}
       <div className="mt-16 bg-linear-to-r from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20 rounded-2xl p-8 text-center border border-border">
         <h3 className="text-2xl font-bold text-foreground mb-4">
-          より多くのアプリを準備中
+          {t("comingSoon.title")}
         </h3>
         <p className="text-muted-foreground mb-6">
-          現在、さらに便利なツールを開発中です。近日中に新しいアプリを追加予定です。
+          {t("comingSoon.description")}
         </p>
         <Badge variant="outline" className="bg-background/50">
-          開発中
+          {t("comingSoon.badge")}
         </Badge>
       </div>
     </div>

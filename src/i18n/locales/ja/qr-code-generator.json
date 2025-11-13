@@ -1,0 +1,9 @@
+{
+  "title": "QRコードジェネレーター",
+  "description": "URLまたはテキストからQRコードを生成します。",
+  "text": "テキストまたはURL",
+  "generate": "生成",
+  "result": {
+    "title": "結果"
+  }
+}

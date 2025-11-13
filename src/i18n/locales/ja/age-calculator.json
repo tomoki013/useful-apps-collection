@@ -1,0 +1,9 @@
+{
+  "title": "年齢計算機",
+  "description": "生年月日に基づいて年齢を計算します。",
+  "dateOfBirth": "生年月日",
+  "result": {
+    "title": "結果",
+    "age": "年齢"
+  }
+}

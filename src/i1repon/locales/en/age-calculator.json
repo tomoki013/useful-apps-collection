@@ -1,0 +1,9 @@
+{
+  "title": "Age Calculator",
+  "description": "Calculate your age based on your date of birth.",
+  "dateOfBirth": "Date of Birth",
+  "result": {
+    "title": "Result",
+    "age": "Age"
+  }
+}
