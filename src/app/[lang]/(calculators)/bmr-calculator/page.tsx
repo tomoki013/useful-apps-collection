@@ -1,6 +1,6 @@
 // src/app/[lang]/(calculators)/bmr-calculator/page.tsx
 
-import { BmrCalculator } from '@/components/organisms/calculators/BmrCalculator';
+import { BmrCalculator } from "@/components/organisms/calculators/BmrCalculator";
 
 const BmrCalculatorPage = () => {
   return (

@@ -1,0 +1,74 @@
+{
+  "appName": "Useful Apps",
+  "nav": {
+    "home": "Home",
+    "apps": "Apps",
+    "contact": "Contact"
+  },
+  "sidebarTitle": "Toolbox",
+  "health": "Health",
+  "bmiCalculator": "BMI Calculator",
+  "bmrCalculator": "BMR Calculator",
+  "money": "Money",
+  "loanSimulator": "Loan Simulator",
+  "everydayLife": "Everyday Life",
+  "unitConverter": "Unit Converter",
+  "comingSoon": "Coming soon...",
+  "bmiTitle": "BMI Calculator",
+  "unitSystem": "Unit System",
+  "metric": "Metric (cm, kg)",
+  "imperial": "Imperial (ft, in, lbs)",
+  "height": "Height",
+  "weight": "Weight",
+  "calculate": "Calculate",
+  "resultTitle": "Result",
+  "yourBmi": "Your BMI",
+  "category": "Category",
+  "idealWeight": "Ideal Weight",
+  "categories": {
+    "Underweight": "Underweight",
+    "Normal": "Normal",
+    "Overweight": "Overweight",
+    "Obese": "Obese"
+  },
+  "bmrTitle": "Basal Metabolic Rate (BMR) Calculator",
+  "gender": "Gender",
+  "male": "Male",
+  "female": "Female",
+  "age": "Age",
+  "yourBmr": "Your Basal Metabolic Rate",
+  "bmrUnit": "kcal/day",
+  "bmrFormula": "Formula: Based on the Mifflin-St Jeor equation.",
+  "features": {
+    "fast": {
+      "title": "Fast & Lightweight",
+      "description": "A fast and lightweight application built with modern technology."
+    },
+    "secure": {
+      "title": "Safe & Secure",
+      "description": "Designed with security in mind, so you can use it with confidence."
+    },
+    "responsive": {
+      "title": "Responsive",
+      "description": "Optimized for all devices: PC, tablet, and smartphone."
+    },
+    "title": "Why Choose Us?",
+    "description": "We provide simple, easy-to-use, high-quality utility tools."
+  },
+  "hero": {
+    "title": {
+      "line1": "Tools to Make Your",
+      "line2": "Daily Life Convenient"
+    },
+    "description": "Calculators, timers, text converters, and other useful applications for daily life and work are available for free. All tools run in your browser and require no installation.",
+    "cta": {
+      "viewApps": "View Apps",
+      "howToUse": "How to Use"
+    }
+  },
+  "cta": {
+    "title": "Why not try our useful tools right now?",
+    "description": "All tools are free and require no account registration.",
+    "button": "View App List"
+  }
+}
