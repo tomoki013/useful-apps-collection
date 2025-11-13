@@ -1,0 +1,74 @@
+{
+"appName": "便利アプリ集",
+"nav": {
+"home": "ホーム",
+"apps": "アプリ一覧",
+"contact": "お問い合わせ"
+},
+"sidebarTitle": "ツールボックス",
+"health": "健康",
+"bmiCalculator": "BMI計算機",
+"bmrCalculator": "BMR計算機",
+"money": "お金",
+"loanSimulator": "ローン返済シミュレーション",
+"everydayLife": "日常生活",
+"unitConverter": "単位変換機",
+"comingSoon": "近日公開...",
+"bmiTitle": "BMI計算機",
+"unitSystem": "単位系",
+"metric": "メートル法 (cm, kg)",
+"imperial": "ヤード・ポンド法 (ft, in, lbs)",
+"height": "身長",
+"weight": "体重",
+"calculate": "計算する",
+"resultTitle": "計算結果",
+"yourBmi": "あなたのBMI",
+"category": "判定",
+"idealWeight": "適正体重",
+"categories": {
+"Underweight": "低体重",
+"Normal": "普通体重",
+"Overweight": "過体重",
+"Obese": "肥満"
+},
+"bmrTitle": "基礎代謝量 (BMR) 計算機",
+"gender": "性別",
+"male": "男性",
+"female": "女性",
+"age": "年齢",
+"yourBmr": "あなたの基礎代謝量",
+"bmrUnit": "kcal/日",
+"bmrFormula": "計算式: ミフリン・セントジョー方程式を採用",
+"features": {
+    "fast": {
+        "title": "高速・軽量",
+        "description": "モダンな技術で構築された高速で軽量なアプリケーション"
+    },
+    "secure": {
+        "title": "安全・安心",
+        "description": "セキュリティを重視した設計で、安心してご利用いただけます"
+    },
+    "responsive": {
+        "title": "レスポンシブ対応",
+        "description": "PC、タブレット、スマートフォンすべてのデバイスで最適化"
+    },
+    "title": "なぜ選ばれるのか",
+    "description": "シンプルで使いやすい、高品質な便利ツールを提供します"
+},
+"hero": {
+    "title": {
+        "line1": "日常を便利にする",
+        "line2": "ツール集"
+    },
+    "description": "計算機、タイマー、テキスト変換など、日常生活や仕事で役立つ便利なアプリケーションを無料でご利用いただけます。すべてのツールはブラウザ上で動作し、インストール不要です。",
+    "cta": {
+        "viewApps": "アプリを見る",
+        "howToUse": "使い方を見る"
+    }
+},
+"cta": {
+    "title": "今すぐ便利ツールを使ってみませんか？",
+    "description": "すべて無料で、アカウント登録も不要です",
+    "button": "アプリ一覧を見る"
+}
+}

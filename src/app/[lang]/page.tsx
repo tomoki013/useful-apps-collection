@@ -2,23 +2,26 @@ import Link from 'next/link';
 import { ArrowRight, Zap, Shield, Smartphone, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { getTranslation } from '@/i18n/server';
 
-export default function Home() {
+export default async function Home({ params: { lang } }: { params: { lang: string } }) {
+	const { t } = await getTranslation(lang, 'common');
+
   	const features = [
   	  	{
   	  	  	icon: Zap,
-  	  	  	title: '高速・軽量',
-  	  	  	description: 'モダンな技術で構築された高速で軽量なアプリケーション'
+			title: t('features.fast.title'),
+			description: t('features.fast.description')
   	  	},
   	  	{
   	  	  	icon: Shield,
-  	  	  	title: '安全・安心',
-  	  	  	description: 'セキュリティを重視した設計で、安心してご利用いただけます'
+			title: t('features.secure.title'),
+			description: t('features.secure.description')
   	  	},
   	  	{
   	  	  	icon: Smartphone,
-  	  	  	title: 'レスポンシブ対応',
-  	  	  	description: 'PC、タブレット、スマートフォンすべてのデバイスで最適化'
+			title: t('features.responsive.title'),
+			description: t('features.responsive.description')
   	  	}
   	];
 
@@ -37,26 +40,25 @@ export default function Home() {
   	  	  	  	  	<div className="text-center space-y-8">
   	  	  	  	  	  	<div className="space-y-4">
   	  	  	  	  	  	  	<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-  	  	  	  	  	  	  	  	日常を便利にする
+								{t('hero.title.line1')}
   	  	  	  	  	  	  	  	<span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent block">
-  	  	  	  	  	  	  	  	  	ツール集
+								{t('hero.title.line2')}
   	  	  	  	  	  	  	  	</span>
   	  	  	  	  	  	  	</h1>
   	  	  	  	  	  	  	<p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-  	  	  	  	  	  	  	  	計算機、タイマー、テキスト変換など、日常生活や仕事で役立つ便利なアプリケーションを無料でご利用いただけます。
-  	  	  	  	  	  	  	  	すべてのツールはブラウザ上で動作し、インストール不要です。
+								{t('hero.description')}
   	  	  	  	  	  	  	</p>
   	  	  	  	  	  	</div>
 
   	  	  	  	  	  	<div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
   	  	  	  	  	  	  	<Link href="/apps">
   	  	  	  	  	  	  	  	<Button size="lg" className="text-lg px-8 py-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 group">
-  	  	  	  	  	  	  	  	  	アプリを見る
+								{t('hero.cta.viewApps')}
   	  	  	  	  	  	  	  	  	<ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
   	  	  	  	  	  	  	  	</Button>
   	  	  	  	  	  	  	</Link>
   	  	  	  	  	  	  	<Button variant="outline" size="lg" className="text-lg px-8 py-6">
-  	  	  	  	  	  	  	  	使い方を見る
+							{t('hero.cta.howToUse')}
   	  	  	  	  	  	  	</Button>
   	  	  	  	  	  	</div>
 
@@ -78,10 +80,10 @@ export default function Home() {
   	  	  	  	<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
   	  	  	  	  	<div className="text-center space-y-4 mb-16">
   	  	  	  	  	  	<h2 className="text-3xl lg:text-4xl font-bold text-foreground">
-  	  	  	  	  	  	  	なぜ選ばれるのか
+							{t('features.title')}
   	  	  	  	  	  	</h2>
   	  	  	  	  	  	<p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-  	  	  	  	  	  	  	シンプルで使いやすい、高品質な便利ツールを提供します
+							{t('features.description')}
   	  	  	  	  	  	</p>
   	  	  	  	  	</div>
 
@@ -116,14 +118,14 @@ export default function Home() {
   	  	  	  	  	  	<CardContent className="relative py-16 px-8">
   	  	  	  	  	  	  	<Star className="w-12 h-12 mx-auto mb-6 text-yellow-300" />
   	  	  	  	  	  	  	<h2 className="text-3xl lg:text-4xl font-bold mb-4">
-  	  	  	  	  	  	  	  	今すぐ便利ツールを使ってみませんか？
+								{t('cta.title')}
   	  	  	  	  	  	  	</h2>
   	  	  	  	  	  	  	<p className="text-xl mb-8 text-blue-100">
-  	  	  	  	  	  	  	  	すべて無料で、アカウント登録も不要です
+								{t('cta.description')}
   	  	  	  	  	  	  	</p>
   	  	  	  	  	  	  	<Link href="/apps">
   	  	  	  	  	  	  	  	<Button size="lg" variant="secondary" className="text-lg px-8 py-6 bg-white text-gray-900 hover:bg-gray-100">
-  	  	  	  	  	  	  	  	  	アプリ一覧を見る
+									{t('cta.button')}
   	  	  	  	  	  	  	  	  	<ArrowRight className="ml-2 w-5 h-5" />
   	  	  	  	  	  	  	  	</Button>
   	  	  	  	  	  	  	</Link>

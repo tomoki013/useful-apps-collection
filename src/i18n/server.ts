@@ -1,0 +1,26 @@
+import { createInstance } from 'i18next';
+import { initReactI18next } from 'react-i18next/initReactI18next';
+import resourcesToBackend from 'i18next-resources-to-backend';
+import { serverSideOptions } from './settings';
+
+// サーバーサイド用のi18nextインスタンスを作成
+const initI18next = async (lng: string, ns: string | string[]) => {
+const i18nInstance = createInstance();
+await i18nInstance
+.use(initReactI18next)
+.use(resourcesToBackend((language: string, namespace: string) =>
+// サーバーのファイルシステムから直接読み込む
+import(`../../public/locales/${language}/${namespace}.json`)
+))
+.init(serverSideOptions(lng, ns));
+return i18nInstance;
+};
+
+// サーバーコンポーネント用の getTranslation
+export async function getTranslation(lng: string, ns?: string | string[], options: { keyPrefix?: string } = {}) {
+const i18nextInstance = await initI18next(lng, ns || 'common');
+return {
+t: i18nextInstance.getFixedT(lng, Array.isArray(ns) ? ns[0] : ns, options.keyPrefix),
+i18n: i18nextInstance,
+};
+}

@@ -11,7 +11,7 @@ import {
     SelectItem,
     SelectTrigger,
 } from "@/components/ui/select"
-import { useLanguage } from '@/contexts/LanguageProvider';
+import { useTranslation } from '@/i18n/client';
 import { cn } from '@/lib/utils';
 import { useParams, usePathname, useRouter } from 'next/navigation';
 
@@ -19,28 +19,30 @@ const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [mounted, setMounted] = useState(false);
     const { theme, setTheme } = useTheme();
-    const { lang, setLang } = useLanguage();
+    const { t, i18n } = useTranslation('common');
+    const lang = i18n.language;
     const router = useRouter();
     const pathname = usePathname();
     const params = useParams();
 
     useEffect(() => {
         setMounted(true);
-        if (params.lang && typeof params.lang === 'string' && lang !== params.lang) {
-            setLang(params.lang);
+        // パラメータの言語をi18nextに同期
+        const currentLang = params.lang as string;
+        if (currentLang && i18n.language !== currentLang) {
+            i18n.changeLanguage(currentLang);
         }
-    }, [params.lang, lang, setLang]);
+    }, [params.lang, i18n]);
 
     const handleLanguageChange = (newLang: string) => {
-        setLang(newLang);
         const newPath = pathname.replace(`/${lang}`, `/${newLang}`);
         router.push(newPath);
     };
 
     const navigation = [
-        { name: lang === 'ja' ? 'ホーム' : 'Home', href: `/${lang}` },
-        { name: lang === 'ja' ? 'アプリ一覧' : 'Apps', href: `/${lang}/apps` },
-        { name: lang === 'ja' ? 'お問い合わせ' : 'Contact', href: `/${lang}/contact` },
+        { name: t('nav.home'), href: `/${lang}` },
+        { name: t('nav.apps'), href: `/${lang}/apps` },
+        { name: t('nav.contact'), href: `/${lang}/contact` },
     ];
 
     const toggleMenu = () => {
@@ -65,7 +67,7 @@ const Header = () => {
                             <Zap className="w-5 h-5 text-white" />
                         </div>
                         <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                            {lang === 'ja' ? '便利アプリ集' : 'Useful Apps'}
+                            {t('appName')}
                         </span>
                     </Link>
 
