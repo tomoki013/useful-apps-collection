@@ -19,7 +19,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
-  const { t, i18n } = useTranslation("common");
+  const { t, i18n } = useTranslation(["header", "common"]);
   const lang = i18n.language;
   const router = useRouter();
   const pathname = usePathname();

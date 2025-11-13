@@ -1,0 +1,20 @@
+{
+  "title": "BMI計算機",
+  "unitSystem": "単位系",
+  "metric": "メートル法 (cm, kg)",
+  "imperial": "ヤード・ポンド法 (ft, in, lbs)",
+  "height": "身長",
+  "weight": "体重",
+  "result": {
+    "title": "計算結果",
+    "yourBmi": "あなたのBMI",
+    "category": "判定",
+    "idealWeight": "適正体重"
+  },
+  "categories": {
+    "Underweight": "低体重",
+    "Normal": "普通体重",
+    "Overweight": "過体重",
+    "Obese": "肥満"
+  }
+}

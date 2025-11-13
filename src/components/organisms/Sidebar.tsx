@@ -5,7 +5,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, } from "@
 import { useTranslation } from "@/i18n/client";
 
 const Sidebar = () => {
-    const { t, i18n } = useTranslation('common');
+    const { t, i18n } = useTranslation('apps');
     const lang = i18n.language;
 
     return (

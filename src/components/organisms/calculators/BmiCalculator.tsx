@@ -27,7 +27,7 @@ interface BmiFormState {
 }
 
 export const BmiCalculator = () => {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation(["bmi-calculator", "common"]);
 
   const [formState, setFormState] = useLocalStorage<BmiFormState>("bmi-form", {
     unit: "metric",
@@ -69,7 +69,7 @@ export const BmiCalculator = () => {
   return (
     <Card className="w-full max-w-md mx-auto">
       <CardHeader>
-        <CardTitle>{t("bmiTitle")}</CardTitle>
+        <CardTitle>{t("title")}</CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
         {/* Unit System Selection */}
@@ -161,20 +161,22 @@ export const BmiCalculator = () => {
               transition={{ duration: 0.5 }}
               className="mt-6 p-4 border rounded-lg bg-muted/40"
             >
-              <h3 className="text-lg font-semibold mb-2">{t("resultTitle")}</h3>
+              <h3 className="text-lg font-semibold mb-2">
+                {t("result.title")}
+              </h3>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span>{t("yourBmi")}:</span>
+                  <span>{t("result.yourBmi")}:</span>
                   <span className="font-bold">{result.bmi}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>{t("category")}:</span>
+                  <span>{t("result.category")}:</span>
                   <span className="font-bold">
                     {t(`categories.${result.category}`)}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span>{t("idealWeight")}:</span>
+                  <span>{t("result.idealWeight")}:</span>
                   <span className="font-bold">{result.idealWeight} kg</span>
                 </div>
               </div>

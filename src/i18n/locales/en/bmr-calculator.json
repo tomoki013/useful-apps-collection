@@ -1,0 +1,14 @@
+{
+  "title": "Basal Metabolic Rate (BMR) Calculator",
+  "gender": "Gender",
+  "male": "Male",
+  "female": "Female",
+  "age": "Age",
+  "height": "Height",
+  "weight": "Weight",
+  "result": {
+    "yourBmr": "Your Basal Metabolic Rate",
+    "unit": "kcal/day"
+  },
+  "formula": "Formula: Based on the Mifflin-St Jeor equation."
+}

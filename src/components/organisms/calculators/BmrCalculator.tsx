@@ -25,7 +25,7 @@ interface BmrFormState {
 }
 
 export const BmrCalculator = () => {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation(["bmr-calculator", "common"]);
 
   const [formState, setFormState] = useLocalStorage<BmrFormState>("bmr-form", {
     gender: "male",
@@ -60,7 +60,7 @@ export const BmrCalculator = () => {
   return (
     <Card className="w-full max-w-md mx-auto">
       <CardHeader>
-        <CardTitle>{t("bmrTitle")}</CardTitle>
+        <CardTitle>{t("title")}</CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
         {/* Gender Selection */}
@@ -128,12 +128,16 @@ export const BmrCalculator = () => {
               transition={{ duration: 0.5 }}
               className="mt-6 p-4 border rounded-lg bg-muted/40"
             >
-              <h3 className="text-lg font-semibold mb-2">{t("resultTitle")}</h3>
+              <h3 className="text-lg font-semibold mb-2">
+                {t("result.title")}
+              </h3>
               <div className="flex justify-between items-baseline text-2xl font-bold">
-                <span>{t("yourBmr")}:</span>
+                <span>{t("result.yourBmr")}:</span>
                 <span>
                   {result}{" "}
-                  <span className="text-sm font-normal">{t("bmrUnit")}</span>
+                  <span className="text-sm font-normal">
+                    {t("result.unit")}
+                  </span>
                 </span>
               </div>
             </motion.div>
@@ -141,7 +145,7 @@ export const BmrCalculator = () => {
         </AnimatePresence>
 
         <p className="mt-4 text-xs text-center text-muted-foreground">
-          {t("bmrFormula")}
+          {t("formula")}
         </p>
       </CardFooter>
     </Card>
