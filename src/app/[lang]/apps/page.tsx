@@ -150,7 +150,7 @@ const AppListPage = () => {
       )}
 
       {/* Coming Soon Notice */}
-      <div className="mt-16 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20 rounded-2xl p-8 text-center border border-border">
+      <div className="mt-16 bg-linear-to-r from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20 rounded-2xl p-8 text-center border border-border">
         <h3 className="text-2xl font-bold text-foreground mb-4">
           より多くのアプリを準備中
         </h3>
