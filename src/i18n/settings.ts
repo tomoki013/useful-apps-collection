@@ -28,11 +28,7 @@ export const serverSideOptions = (
 ): InitOptions => {
   return {
     ...getOptions(lng, ns),
-    backend: {
-      // 翻訳JSONファイルのパス（サーバーのローカルパス）
-      // 【修正】src/locales を指すように変更
-      loadPath: `${process.cwd()}/src/i18n/locales/{{lng}}/{{ns}}.json`,
-    },
+    // `resourcesToBackend` を使うため preload のみ設定
     preload: [fallbackLng, ...locales.filter((l) => l !== fallbackLng)],
   };
 };
@@ -45,11 +41,4 @@ export const clientSideOptions: InitOptions = {
     order: ["path", "cookie", "htmlTag", "localStorage", "navigator"],
     caches: ["cookie"],
   },
-  // 【削除】`resourcesToBackend` で import() を使うため、
-  // `backend.loadPath` の設定は不要
-  /*
-  backend: {
-    loadPath: '/locales/{{lng}}/{{ns}}.json',
-  },
-  */
 };

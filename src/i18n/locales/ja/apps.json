@@ -1,0 +1,15 @@
+{
+  "sidebarTitle": "ツールボックス",
+  "categories": {
+    "health": "健康",
+    "money": "お金",
+    "everydayLife": "日常生活"
+  },
+  "tools": {
+    "bmiCalculator": "BMI計算機",
+    "bmrCalculator": "BMR計算機",
+    "loanSimulator": "ローン返済シミュレーション",
+    "unitConverter": "単位変換機"
+  },
+  "comingSoon": "近日公開..."
+}

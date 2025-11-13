@@ -1,0 +1,20 @@
+{
+  "title": "BMI Calculator",
+  "unitSystem": "Unit System",
+  "metric": "Metric (cm, kg)",
+  "imperial": "Imperial (ft, in, lbs)",
+  "height": "Height",
+  "weight": "Weight",
+  "result": {
+    "title": "Result",
+    "yourBmi": "Your BMI",
+    "category": "Category",
+    "idealWeight": "Ideal Weight"
+  },
+  "categories": {
+    "Underweight": "Underweight",
+    "Normal": "Normal",
+    "Overweight": "Overweight",
+    "Obese": "Obese"
+  }
+}

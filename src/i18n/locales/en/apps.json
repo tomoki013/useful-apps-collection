@@ -1,0 +1,15 @@
+{
+  "sidebarTitle": "Toolbox",
+  "categories": {
+    "health": "Health",
+    "money": "Money",
+    "everydayLife": "Everyday Life"
+  },
+  "tools": {
+    "bmiCalculator": "BMI Calculator",
+    "bmrCalculator": "BMR Calculator",
+    "loanSimulator": "Loan Simulator",
+    "unitConverter": "Unit Converter"
+  },
+  "comingSoon": "Coming soon..."
+}

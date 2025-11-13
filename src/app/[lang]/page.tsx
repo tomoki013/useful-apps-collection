@@ -16,7 +16,7 @@ export default async function Home({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
-  const { t } = await getTranslation(lang, "common");
+  const { t } = await getTranslation(lang, "top");
 
   const features = [
     {
@@ -37,9 +37,9 @@ export default async function Home({
   ];
 
   const stats = [
-    { number: "20+", label: "便利ツール" },
-    { number: "100%", label: "無料" },
-    { number: "24/7", label: "利用可能" },
+    { number: "20+", label: t("stats.0.label") },
+    { number: "100%", label: t("stats.1.label") },
+    { number: "24/7", label: t("stats.2.label") },
   ];
 
   return (

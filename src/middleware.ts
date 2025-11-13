@@ -17,7 +17,7 @@ function getLocale(request: NextRequest): string {
   }
 }
 
-export function proxy(request: NextRequest) {
+export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // publicファイルやAPI、Next.js内部パスをスキップ
