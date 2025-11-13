@@ -17,7 +17,7 @@ import { useParams, usePathname, useRouter } from "next/navigation";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [isClient, setIsClient] = useState(false);
   const { theme, setTheme } = useTheme();
   const { t, i18n } = useTranslation(["header", "common"]);
   const lang = i18n.language;
@@ -26,7 +26,10 @@ const Header = () => {
   const params = useParams();
 
   useEffect(() => {
-    setMounted(true);
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
     // パラメータの言語をi18nextに同期
     const currentLang = params.lang as string;
     if (currentLang && i18n.language !== currentLang) {
@@ -53,7 +56,7 @@ const Header = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
-  if (!mounted) {
+  if (!isClient) {
     return null;
   }
 

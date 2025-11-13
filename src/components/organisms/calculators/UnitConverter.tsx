@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import {
   Select,
@@ -20,7 +20,6 @@ const UnitConverter = () => {
   const [fromUnit, setFromUnit] = useLocalStorage("unit-from", "m");
   const [toUnit, setToUnit] = useLocalStorage("unit-to", "ft");
   const [inputValue, setInputValue] = useLocalStorage("unit-input", "1");
-  const [outputValue, setOutputValue] = useState("");
 
   const categories = Object.keys(unitConverterConfig);
   const units = unitConverterConfig[category]?.units || {};
@@ -37,20 +36,19 @@ const UnitConverter = () => {
     }
   }, [category, fromUnit, toUnit, setFromUnit, setToUnit]);
 
-  useEffect(() => {
+  const outputValue = useMemo(() => {
     const numValue = parseFloat(inputValue);
     if (!isNaN(numValue)) {
       try {
         const result = convert(numValue, fromUnit, toUnit, category);
-        setOutputValue(result.toLocaleString());
+        return result.toLocaleString();
       } catch (error) {
         if (error instanceof Error) {
-          setOutputValue(error.message);
+          return error.message;
         }
       }
-    } else {
-      setOutputValue("");
     }
+    return "";
   }, [inputValue, fromUnit, toUnit, category]);
 
   return (
