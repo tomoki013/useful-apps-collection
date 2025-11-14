@@ -1,4 +1,3 @@
-import { CharacterCounter } from "@/components/organisms/calculators/CharacterCounter";
 import { getTranslation } from "@/i18n/server";
 import { Metadata } from "next";
 
@@ -7,19 +6,24 @@ export async function generateMetadata({
 }: {
   params: { lang: string };
 }): Promise<Metadata> {
-  const { t } = await getTranslation(lang, "character-counter");
+  const { t } = await getTranslation(lang, "discount-calculator");
   return {
     title: t("title"),
     description: t("description"),
   };
 }
 
-const CharacterCounterPage = ({
+const DiscountCalculatorPage = async ({
   params: { lang },
 }: {
   params: { lang: string };
 }) => {
-  return <CharacterCounter lang={lang} />;
+  const { t } = await getTranslation(lang, "coming-soon");
+  return (
+    <div className="py-8">
+      <p>{t("title")}</p>
+    </div>
+  );
 };
 
-export default CharacterCounterPage;
+export default DiscountCalculatorPage;
