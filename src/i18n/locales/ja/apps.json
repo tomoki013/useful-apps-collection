@@ -28,6 +28,9 @@
       "name": "ローン返済シミュレーション", "description": "元利均等・元金均等の返済額を比較", "category": "money", "href": "/loan-simulator", "comingSoon": false
     },
     {
+      "name": "割引計算機", "description": "割引後の価格を簡単に計算", "category": "money", "href": "/discount-calculator", "comingSoon": true
+    },
+    {
       "name": "単位変換機", "description": "長さ、重さ、温度など様々な単位を変換", "category": "tool", "href": "/unit-converter", "comingSoon": false
     },
     {
@@ -46,7 +49,7 @@
       "name": "アスペクト比計算機", "description": "画面や画像の比率を計算", "category": "tool", "href": "/aspect-ratio-calculator", "comingSoon": true
     },
     {
-      "name": "文字数カウンター", "description": "入力されたテキストの文字数を数えます", "category": "tool", "href": "/character-counter", "comingSoon": true
+      "name": "文字数カウンター", "description": "入力されたテキストの文字数を数えます", "category": "tool", "href": "/character-counter", "comingSoon": false
     },
     {
       "name": "近日公開", "description": "新しいツールを準備中", "category": "tool", "href": "/coming-soon", "comingSoon": true

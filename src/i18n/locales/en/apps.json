@@ -28,6 +28,9 @@
       "name": "Loan Simulator", "description": "Compare equal-payment and equal-principal repayment amounts", "category": "money", "href": "/loan-simulator", "comingSoon": false
     },
     {
+      "name": "Discount Calculator", "description": "Easily calculate the price after discount", "category": "money", "href": "/discount-calculator", "comingSoon": true
+    },
+    {
       "name": "Unit Converter", "description": "Convert various units such as length, weight, and temperature", "category": "tool", "href": "/unit-converter", "comingSoon": false
     },
     {
@@ -46,7 +49,7 @@
       "name": "Aspect Ratio Calculator", "description": "Calculate the ratio of screens and images", "category": "tool", "href": "/aspect-ratio-calculator", "comingSoon": true
     },
     {
-      "name": "Character Counter", "description": "Count the number of characters in the entered text", "category": "tool", "href": "/character-counter", "comingSoon": true
+      "name": "Character Counter", "description": "Count the number of characters in the entered text", "category": "tool", "href": "/character-counter", "comingSoon": false
     },
     {
       "name": "Coming Soon", "description": "Preparing new tools", "category": "tool", "href": "/coming-soon", "comingSoon": true

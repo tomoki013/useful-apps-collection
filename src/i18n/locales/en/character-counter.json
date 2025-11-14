@@ -1,0 +1,7 @@
+{
+  "title": "Character Counter",
+  "description": "Counts the number of characters in the entered text in real time.",
+  "placeholder": "Enter your text here...",
+  "characterCount": "Character Count",
+  "clear": "Clear"
+}
