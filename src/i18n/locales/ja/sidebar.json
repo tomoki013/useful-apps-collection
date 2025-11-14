@@ -1,0 +1,17 @@
+{
+  "title": "サイドバー",
+  "health": "健康",
+  "money": "お金",
+  "everydayLife": "日常生活",
+  "tools": {
+    "bmiCalculator": "BMI計算機",
+    "bmrCalculator": "基礎代謝(BMR)計算機",
+    "loanSimulator": "ローン返済シミュレーション",
+    "unitConverter": "単位変換機",
+    "ageCalculator": "年齢計算機",
+    "worldClock": "世界時計",
+    "qrCodeGenerator": "QRコード生成",
+    "passwordGenerator": "パスワード生成",
+    "aspectRatioCalculator": "アスペクト比計算機"
+  }
+}

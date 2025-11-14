@@ -1,59 +1,63 @@
 "use client";
 
 import Link from "next/link";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Github,
-  Twitter,
-  Linkedin,
-  Zap,
-} from "lucide-react";
+import { Mail, Phone, MapPin, Zap } from "lucide-react";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { useTranslation } from "@/i18n/client";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  const { t, i18n } = useTranslation(["footer", "common"]);
+  const lang = i18n.language;
 
   const footerSections = [
     {
       title: "サービス",
-      links: [
-        { name: "アプリ一覧", href: "/apps" },
-        { name: "計算機", href: "/apps/calculator" },
-        { name: "タイマー", href: "/apps/timer" },
-        { name: "テキスト変換", href: "/apps/text-converter" },
-      ],
+      links: [{ name: "アプリ一覧", href: `/${lang}/apps` }],
     },
     {
-      title: "会社情報",
+      title: "サイト情報",
       links: [
-        { name: "会社概要", href: "/about" },
-        { name: "プライバシーポリシー", href: "/privacy" },
-        { name: "利用規約", href: "/terms" },
-        { name: "お問い合わせ", href: "/contact" },
+        { name: "サイトについて", href: `/${lang}/about` },
+        { name: "プライバシーポリシー", href: `/${lang}/privacy-policy` },
+        { name: "利用規約", href: `/${lang}/terms-of-service` },
+        { name: "お問い合わせ", href: `/${lang}/contact` },
       ],
     },
     {
       title: "サポート",
       links: [
-        { name: "ヘルプセンター", href: "/help" },
-        { name: "よくある質問", href: "/faq" },
-        { name: "使い方ガイド", href: "/guide" },
-        { name: "フィードバック", href: "/feedback" },
+        { name: "ヘルプセンター", href: `/${lang}/help` },
+        { name: "よくある質問", href: `/${lang}/faq` },
+        { name: "使い方ガイド", href: `/${lang}/guide` },
+        { name: "フィードバック", href: `/${lang}/feedback` },
       ],
     },
   ];
 
-  const contactInfo = [
-    { icon: Mail, text: "contact@example.com" },
-    { icon: Phone, text: "03-1234-5678" },
-    { icon: MapPin, text: "東京都渋谷区" },
-  ];
+  const contactInfo = [{ icon: Mail, text: "gaomuyouxi81@gmail.com" }];
 
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    {
+      icon: (
+        <FaGithub className="w-4 h-4 text-muted-foreground group-hover:text-foreground" />
+      ),
+      href: "https://github.com/tomoki013/useful-apps-collection/",
+      label: "GitHub",
+    },
+    // {
+    //   icon: (
+    //     <FaTwitter className="w-4 h-4 text-muted-foreground group-hover:text-foreground" />
+    //   ),
+    //   href: "#",
+    //   label: "Twitter",
+    // },
+    {
+      icon: (
+        <FaLinkedin className="w-4 h-4 text-muted-foreground group-hover:text-foreground" />
+      ),
+      href: "https://www.linkedin.com/in/tomoki-takagi-5b08a738b/",
+      label: "LinkedIn",
+    },
   ];
 
   return (
@@ -117,13 +121,16 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-sm text-muted-foreground">
-            &copy; {currentYear} 便利アプリ集. All rights reserved.
+            &copy; 2025{" "}
+            {new Date().getFullYear() > 2025
+              ? `-${new Date().getFullYear()} `
+              : " "}{" "}
+            便利アプリ集. All rights reserved.
           </p>
 
           {/* Social Links */}
           <div className="flex items-center space-x-4">
             {socialLinks.map((social, index) => {
-              const Icon = social.icon;
               return (
                 <Link
                   key={index}
@@ -131,7 +138,7 @@ const Footer = () => {
                   className="w-9 h-9 bg-muted hover:bg-accent rounded-lg flex items-center justify-center transition-colors group"
                   aria-label={social.label}
                 >
-                  <Icon className="w-4 h-4 text-muted-foreground group-hover:text-foreground" />
+                  {social.icon}
                 </Link>
               );
             })}
