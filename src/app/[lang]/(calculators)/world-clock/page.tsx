@@ -6,8 +6,7 @@ import { Metadata } from "next";
 // TODO: i18n
 export const metadata: Metadata = {
   title: "World Clock | Convenient Calculation Toolbox",
-  description:
-    "Check the current time in different cities around the world.",
+  description: "Check the current time in different cities around the world.",
 };
 
 const WorldClockPage = () => {

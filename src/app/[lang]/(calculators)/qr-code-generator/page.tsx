@@ -6,8 +6,7 @@ import { Metadata } from "next";
 // TODO: i18n
 export const metadata: Metadata = {
   title: "QR Code Generator | Convenient Calculation Toolbox",
-  description:
-    "Generate a QR code from a URL or text.",
+  description: "Generate a QR code from a URL or text.",
 };
 
 const QrCodeGeneratorPage = () => {
