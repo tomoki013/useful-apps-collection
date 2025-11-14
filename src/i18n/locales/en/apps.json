@@ -53,6 +53,26 @@
     },
     {
       "name": "Coming Soon", "description": "Preparing new tools", "category": "tool", "href": "/coming-soon", "comingSoon": true
-    }
+    },
+    { "name": "Sales Tax Calculator", "description": "Quickly calculate prices with and without tax", "category": "money", "href": "/sales-tax-calculator", "comingSoon": true },
+    { "name": "Percentage Calculator", "description": "Easily calculate ratios and rates of change", "category": "money", "href": "/percentage-calculator", "comingSoon": true },
+    { "name": "Date Calculator", "description": "Calculate the number of days between two dates", "category": "tool", "href": "/date-calculator", "comingSoon": true },
+    { "name": "Color Code Converter", "description": "Convert between HEX, RGB, HSL, and more", "category": "tool", "href": "/color-code-converter", "comingSoon": true },
+    { "name": "Random Number Generator", "description": "Generate a random number within a specified range", "category": "tool", "href": "/random-number-generator", "comingSoon": true },
+    { "name": "Timer & Stopwatch", "description": "A tool for measuring time", "category": "tool", "href": "/timer-stopwatch", "comingSoon": true },
+    { "name": "Time Zone Converter", "description": "Calculate the time difference between cities worldwide", "category": "tool", "href": "/time-zone-converter", "comingSoon": true },
+    { "name": "Data Storage Converter", "description": "Convert units like KB, MB, GB, etc.", "category": "tool", "href": "/data-storage-converter", "comingSoon": true },
+    { "name": "Speed Converter", "description": "Convert speed units like km/h, m/s, etc.", "category": "tool", "href": "/speed-converter", "comingSoon": true },
+    { "name": "Fuel Efficiency Calculator", "description": "Calculate fuel efficiency from distance and fuel amount", "category": "money", "href": "/fuel-efficiency-calculator", "comingSoon": true },
+    { "name": "Sunrise & Sunset Calculator", "description": "Calculate sunrise and sunset times by location and date", "category": "tool", "href": "/sunrise-sunset-calculator", "comingSoon": true },
+    { "name": "Horoscope", "description": "Find out your fortune for the day", "category": "tool", "href": "/horoscope", "comingSoon": true },
+    { "name": "Font Size Comparator", "description": "Compare font sizes in px, rem, em, etc.", "category": "tool", "href": "/font-size-comparator", "comingSoon": true },
+    { "name": "Image Resizer", "description": "Easily change the size of images", "category": "tool", "href": "/image-resizer", "comingSoon": true },
+    { "name": "URL Encoder/Decoder", "description": "Encode/decode URLs for safe transmission", "category": "tool", "href": "/url-encoder-decoder", "comingSoon": true },
+    { "name": "Number Base Converter", "description": "Convert between binary, decimal, and hexadecimal", "category": "tool", "href": "/number-base-converter", "comingSoon": true },
+    { "name": "Lorem Ipsum Generator", "description": "Generate dummy text such as Lorem Ipsum", "category": "tool", "href": "/lorem-ipsum-generator", "comingSoon": true },
+    { "name": "Calendar", "description": "A calendar to check holidays and anniversaries", "category": "tool", "href": "/calendar", "comingSoon": true },
+    { "name": "Online Notepad", "description": "Save simple notes online", "category": "tool", "href": "/notepad", "comingSoon": true },
+    { "name": "Translator", "description": "Translate text between multiple languages", "category": "tool", "href": "/translator", "comingSoon": true }
   ]
 }
