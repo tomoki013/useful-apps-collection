@@ -13,5 +13,16 @@
     "qrCodeGenerator": "QRコード生成",
     "passwordGenerator": "パスワード生成",
     "aspectRatioCalculator": "アスペクト比計算機"
+  },
+  "siteInfo": "サイト情報",
+  "pages": {
+    "about": "サイトについて",
+    "privacy-policy": "プライバシーポリシー",
+    "terms-of-service": "利用規約",
+    "contact": "お問い合わせ",
+    "help": "ヘルプセンター",
+    "faq": "よくある質問",
+    "guide": "使い方ガイド",
+    "feedback": "フィードバック"
   }
 }
