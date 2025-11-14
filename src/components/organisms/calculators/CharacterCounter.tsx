@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { useTranslation } from "@/i18n/client";
 
 export const CharacterCounter = ({ lang }: { lang: string }) => {
-  const { t } = useTranslation(lang, "character-counter");
+  const { t } = useTranslation("character-counter");
   const [text, setText] = useState("");
 
   const count = text.length;

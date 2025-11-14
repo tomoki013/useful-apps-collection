@@ -6,8 +6,7 @@ import { Metadata } from "next";
 // TODO: i18n
 export const metadata: Metadata = {
   title: "Password Generator | Convenient Calculation Toolbox",
-  description:
-    "Generate a secure password with customizable options.",
+  description: "Generate a secure password with customizable options.",
 };
 
 const PasswordGeneratorPage = () => {

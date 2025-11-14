@@ -10,10 +10,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 // メタデータを動的に生成
 export async function generateMetadata({
-  params: { lang },
+  params,
 }: {
-  params: { lang: string };
+  params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
+  const { lang } = await params;
   const { t } = await getTranslation(lang, "common");
   return {
     title: t("appName"),
@@ -21,13 +22,14 @@ export async function generateMetadata({
   };
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-  params: { lang },
+  params,
 }: {
   children: React.ReactNode;
-  params: { lang: string };
+  params: Promise<{ lang: string }>;
 }) {
+  const { lang } = await params;
   return (
     <html lang={lang} dir={dir(lang)} suppressHydrationWarning>
       <body className={inter.className}>

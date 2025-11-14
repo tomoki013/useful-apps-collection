@@ -13,8 +13,13 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useTranslation } from "@/i18n/client";
+import { useParams } from "next/navigation";
+import Link from "next/link";
 
 const ContactPage = () => {
+  const { lang } = useParams();
+  const { t } = useTranslation("contact");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -284,6 +289,14 @@ const ContactPage = () => {
                   <p className="text-muted-foreground text-sm">{item.answer}</p>
                 </div>
               ))}
+              <div className="text-center mt-4">
+                <Link
+                  href={`/${lang}/faq`}
+                  className="text-sm text-blue-500 hover:underline"
+                >
+                  {t("see_details")}
+                </Link>
+              </div>
             </CardContent>
           </Card>
         </div>

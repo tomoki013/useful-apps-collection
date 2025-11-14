@@ -1,17 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Sidebar } from "@/components/organisms";
+import Sidebar from "@/components/organisms/Sidebar";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import Header from "@/components/layouts/Header";
 import Footer from "@/components/layouts/Footer";
 
-export default function AppLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function AppLayout({ children }: { children: React.ReactNode }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
