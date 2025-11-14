@@ -46,13 +46,13 @@ export default async function Home({
     <div className="relative">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 dark:from-primary/5 dark:via-secondary/5 dark:to-accent/5" />
+        <div className="absolute inset-0 bg-linear-to-r from-blue-600/10 via-purple-600/10 to-pink-600/10 dark:from-blue-600/5 dark:via-purple-600/5 dark:to-pink-600/5" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
           <div className="text-center space-y-8">
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
                 {t("hero.title.line1")}
-                <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent block">
+                <span className="bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent block">
                   {t("hero.title.line2")}
                 </span>
               </h1>
@@ -68,7 +68,7 @@ export default async function Home({
               <Link href={`/${lang}/apps`}>
                 <Button
                   size="lg"
-                  className="text-lg px-8 py-6 bg-gradient-to-r from-primary to-secondary hover:from-primary-dark hover:to-secondary-dark group"
+                  className="text-lg px-8 py-6 bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 group"
                 >
                   {t("hero.cta.viewApps")}
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -117,7 +117,7 @@ export default async function Home({
                   className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-card"
                 >
                   <CardHeader className="text-center pb-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <div className="w-16 h-16 bg-linear-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                       <Icon className="w-8 h-8 text-white" />
                     </div>
                     <CardTitle className="text-xl font-semibold">
@@ -139,14 +139,14 @@ export default async function Home({
       {/* CTA Section */}
       <section className="py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Card className="border-0 shadow-2xl bg-gradient-to-r from-primary to-secondary text-white overflow-hidden relative">
+          <Card className="border-0 shadow-2xl bg-linear-to-r from-blue-600 to-purple-600 text-white overflow-hidden relative">
             <div className="absolute inset-0 bg-black/10" />
             <CardContent className="relative py-16 px-8">
-              <Star className="w-12 h-12 mx-auto mb-6 text-accent" />
+              <Star className="w-12 h-12 mx-auto mb-6 text-yellow-300" />
               <h2 className="text-3xl lg:text-4xl font-bold mb-4">
                 {t("cta.title")}
               </h2>
-              <p className="text-xl mb-8 text-primary-light">
+              <p className="text-xl mb-8 text-blue-100">
                 {t("cta.description")}
               </p>
               <Link href={`/${lang}/apps`}>
