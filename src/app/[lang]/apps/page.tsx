@@ -36,57 +36,59 @@ const AppListPage = () => {
 
   const appList = t("appList", { returnObjects: true }) as App[];
 
-  const apps = appList.map((app) => {
-    let icon;
-    switch (app.href) {
-      case "/bmi-calculator":
-        icon = <HeartPulse />;
-        break;
-      case "/bmr-calculator":
-        icon = <Dumbbell />;
-        break;
-      case "/loan-simulator":
-        icon = <Landmark />;
-        break;
-      case "/unit-converter":
-        icon = <Recycle />;
-        break;
-      case "/age-calculator":
-        icon = <Calculator />;
-        break;
-      case "/world-clock":
-        icon = <Clock />;
-        break;
-      case "/qr-code-generator":
-        icon = <QrCode />;
-        break;
-      case "/password-generator":
-        icon = <Lock />;
-        break;
-      case "/aspect-ratio-calculator":
-        icon = <Crop />;
-        break;
-      default:
-        icon = <Calculator />;
-    }
+  const apps = appList
+    .sort((a, b) => (a.comingSoon ? 1 : -1) - (b.comingSoon ? 1 : -1) || a.name.localeCompare(b.name))
+    .map((app) => {
+      let icon;
+      switch (app.href) {
+        case "/bmi-calculator":
+          icon = <HeartPulse />;
+          break;
+        case "/bmr-calculator":
+          icon = <Dumbbell />;
+          break;
+        case "/loan-simulator":
+          icon = <Landmark />;
+          break;
+        case "/unit-converter":
+          icon = <Recycle />;
+          break;
+        case "/age-calculator":
+          icon = <Calculator />;
+          break;
+        case "/world-clock":
+          icon = <Clock />;
+          break;
+        case "/qr-code-generator":
+          icon = <QrCode />;
+          break;
+        case "/password-generator":
+          icon = <Lock />;
+          break;
+        case "/aspect-ratio-calculator":
+          icon = <Crop />;
+          break;
+        default:
+          icon = <Calculator />;
+      }
 
-    let color;
-    switch (app.category) {
-      case "health":
-        color = "#10B981";
-        break;
-      case "money":
-        color = "#F97316";
-        break;
-      case "tool":
-        color = "#8B5CF6";
-        break;
-      default:
-        color = "#3B82F6";
-    }
+      let color;
+      switch (app.category) {
+        case "health":
+          color = "#10B981";
+          break;
+        case "money":
+          color = "#F97316";
+          break;
+        case "tool":
+          color = "#8B5CF6";
+          break;
+        default:
+          color = "#3B82F6";
+      }
 
-    return { ...app, icon, color };
-  });
+      return { ...app, icon, color };
+    });
 
   const categories = [
     "all",

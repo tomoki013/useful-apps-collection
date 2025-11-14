@@ -53,6 +53,26 @@
     },
     {
       "name": "近日公開", "description": "新しいツールを準備中", "category": "tool", "href": "/coming-soon", "comingSoon": true
-    }
+    },
+    { "name": "消費税計算機", "description": "税込・税抜価格を素早く計算", "category": "money", "href": "/sales-tax-calculator", "comingSoon": true },
+    { "name": "パーセント計算機", "description": "割合や増減率を簡単に計算", "category": "money", "href": "/percentage-calculator", "comingSoon": true },
+    { "name": "日付計算機", "description": "二つの日付の間の日数などを計算", "category": "tool", "href": "/date-calculator", "comingSoon": true },
+    { "name": "カラーコード変換", "description": "HEX, RGB, HSLなどを相互に変換", "category": "tool", "href": "/color-code-converter", "comingSoon": true },
+    { "name": "乱数生成", "description": "指定した範囲の乱数を生成", "category": "tool", "href": "/random-number-generator", "comingSoon": true },
+    { "name": "タイマー＆ストップウォッチ", "description": "時間を計測するためのツール", "category": "tool", "href": "/timer-stopwatch", "comingSoon": true },
+    { "name": "時差計算機", "description": "世界の都市間の時差を計算", "category": "tool", "href": "/time-zone-converter", "comingSoon": true },
+    { "name": "データ容量変換", "description": "KB, MB, GBなどの単位を変換", "category": "tool", "href": "/data-storage-converter", "comingSoon": true },
+    { "name": "速度変換", "description": "km/h, m/sなどの速度単位を変換", "category": "tool", "href": "/speed-converter", "comingSoon": true },
+    { "name": "燃費計算機", "description": "走行距離と給油量から燃費を計算", "category": "money", "href": "/fuel-efficiency-calculator", "comingSoon": true },
+    { "name": "日の出・日の入り計算", "description": "場所と日付から日の出・日の入り時刻を計算", "category": "tool", "href": "/sunrise-sunset-calculator", "comingSoon": true },
+    { "name": "星座占い", "description": "あなたの今日の運勢を占います", "category": "tool", "href": "/horoscope", "comingSoon": true },
+    { "name": "文字サイズ比較", "description": "px, rem, emなどの文字サイズを比較", "category": "tool", "href": "/font-size-comparator", "comingSoon": true },
+    { "name": "画像リサイザー", "description": "画像のサイズを簡単に変更", "category": "tool", "href": "/image-resizer", "comingSoon": true },
+    { "name": "URLエンコーダー/デコーダー", "description": "URLを安全に送受信するためにエンコード/デコード", "category": "tool", "href": "/url-encoder-decoder", "comingSoon": true },
+    { "name": "進数変換", "description": "2進数、10進数、16進数を相互に変換", "category": "tool", "href": "/number-base-converter", "comingSoon": true },
+    { "name": "ダミーテキスト生成", "description": "Lorem Ipsumなどのダミーテキストを生成", "category": "tool", "href": "/lorem-ipsum-generator", "comingSoon": true },
+    { "name": "カレンダー", "description": "祝日や記念日を確認できるカレンダー", "category": "tool", "href": "/calendar", "comingSoon": true },
+    { "name": "オンラインメモ帳", "description": "簡単なメモをオンラインで保存", "category": "tool", "href": "/notepad", "comingSoon": true },
+    { "name": "翻訳ツール", "description": "多言語間のテキストを翻訳", "category": "tool", "href": "/translator", "comingSoon": true }
   ]
 }
