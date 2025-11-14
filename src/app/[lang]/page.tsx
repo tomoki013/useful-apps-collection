@@ -59,6 +59,9 @@ export default async function Home({
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                 {t("hero.description")}
               </p>
+              <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
+                {t("hero.multilingual")}
+              </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

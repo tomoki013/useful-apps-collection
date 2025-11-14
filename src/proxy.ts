@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import Negotiator from "negotiator";
 import { match as localeMatcher } from "@formatjs/intl-localematcher";
-import { locales, fallbackLng } from "./src/i18n/settings";
+import { locales, fallbackLng } from "./i18n/settings";
 
 // ヘッダーから最適なロケールを取得
 function getLocale(request: NextRequest): string {
