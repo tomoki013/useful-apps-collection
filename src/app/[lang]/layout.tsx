@@ -1,64 +1,48 @@
-"use client";
+import "../globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
+import { dir } from "i18next";
+import { getTranslation } from "@/i18n/server";
+import AppLayout from "@/components/layouts/AppLayout";
 
-import { useState } from "react";
-import { Sidebar } from "@/components/organisms";
-import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
-import Header from "@/components/layouts/Header";
-import Footer from "@/components/layouts/Footer";
+const inter = Inter({ subsets: ["latin"] });
 
-export default function LangLayout({
+// メタデータを動的に生成
+export async function generateMetadata({
+  params: { lang },
+}: {
+  params: { lang: string };
+}): Promise<Metadata> {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { t } = await getTranslation(lang, "common");
+  return {
+    title: t("site.title"),
+    description: t("site.description"),
+  };
+}
+
+export default function RootLayout({
   children,
+  params: { lang },
 }: {
   children: React.ReactNode;
-}) {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
+  params: {
+    lang: string;
   };
-
+}) {
   return (
-    <>
-      <Header />
-      <div className="flex">
-        {/* Sidebar for desktop */}
-        <aside className="hidden md:block w-64 p-4">
-          <Sidebar />
-        </aside>
-
-        {/* Main content */}
-        <main className="flex-1 min-h-screen bg-linear-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 p-4">
-          {children}
-        </main>
-
-        {/* Sidebar for mobile */}
-        <div
-          className={`fixed top-0 left-0 h-full w-64 bg-white dark:bg-gray-800 z-50 transform ${
-            isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-          } transition-transform md:hidden`}
+    <html lang={lang} dir={dir(lang)} suppressHydrationWarning>
+      <body className={inter.className}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
         >
-          <div className="p-4">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleSidebar}
-              className="absolute top-4 right-4"
-            >
-              <X className="w-4 h-4" />
-            </Button>
-            <Sidebar />
-          </div>
-        </div>
-
-        {/* Hamburger menu for mobile */}
-        <div className="fixed top-4 left-4 md:hidden z-50">
-          <Button variant="ghost" size="sm" onClick={toggleSidebar}>
-            <Menu className="w-4 h-4" />
-          </Button>
-        </div>
-      </div>
-      <Footer />
-    </>
+          <AppLayout>{children}</AppLayout>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }
