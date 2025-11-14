@@ -1,4 +1,16 @@
 {
   "title": "About This Site",
-  "content": "'Useful Apps Collection' is a website that provides tools to streamline small daily calculations and tasks. It was developed as part of a programming study using a modern technology stack such as Next.js (App Router), TypeScript, and Tailwind CSS. We aim for a simple and intuitive UI/UX. All the tools listed are free to use and run directly in your browser, so no installation is required."
+  "introduction": "'Convenient Calculation Toolbox' is a website that provides tools to streamline small daily calculations and tasks.",
+  "missionTitle": "Our Mission",
+  "missionContent": "Our mission is to make complex calculations and data processing easy and intuitive for everyone. We aim to provide simple, highly functional tools that free users from time-consuming tasks, allowing them to focus on more creative activities.",
+  "featuresTitle": "Key Features",
+  "featureSimple": "Simple and Intuitive UI/UX: Anyone can operate it easily without specialized knowledge.",
+  "featureFree": "Completely Free: All tools are available completely free of charge, with no registration required.",
+  "featureNoInstall": "No Installation Required: It runs directly in your web browser, so there is no need to install any software.",
+  "featureModernStack": "Modern Technology: We leverage the latest technologies like Next.js and TypeScript to provide a fast and comfortable user experience.",
+  "techStackTitle": "Technology Stack",
+  "techStackContent": "This site was developed as part of a programming study, using a modern technology stack including Next.js (App Router), TypeScript, Tailwind CSS, and Shadcn/ui.",
+  "contactTitle": "Contact Us",
+  "contactContent": "If you have any opinions, requests, or bug reports, please feel free to use the",
+  "contactLink": "Contact Form"
 }
