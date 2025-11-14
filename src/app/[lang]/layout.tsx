@@ -4,8 +4,8 @@ import { useState } from "react";
 import { Sidebar } from "@/components/organisms";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import Header from "@/components/layouts/header/Header";
-import Footer from "@/components/layouts/footer/Footer";
+import Header from "@/components/layouts/Header";
+import Footer from "@/components/layouts/Footer";
 
 export default function LangLayout({
   children,

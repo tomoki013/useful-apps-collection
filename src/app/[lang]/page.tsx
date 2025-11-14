@@ -62,7 +62,7 @@ export default async function Home({
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link href="/apps">
+              <Link href={`/${lang}/apps`}>
                 <Button
                   size="lg"
                   className="text-lg px-8 py-6 bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 group"
@@ -146,7 +146,7 @@ export default async function Home({
               <p className="text-xl mb-8 text-blue-100">
                 {t("cta.description")}
               </p>
-              <Link href="/apps">
+              <Link href={`/${lang}/apps`}>
                 <Button
                   size="lg"
                   variant="secondary"
