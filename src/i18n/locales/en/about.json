@@ -1,1 +1,4 @@
-{}
+{
+  "title": "About This Site",
+  "content": "'Useful Apps Collection' is a website that provides tools to streamline small daily calculations and tasks. It was developed as part of a programming study using a modern technology stack such as Next.js (App Router), TypeScript, and Tailwind CSS. We aim for a simple and intuitive UI/UX. All the tools listed are free to use and run directly in your browser, so no installation is required."
+}

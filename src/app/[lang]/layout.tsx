@@ -21,14 +21,13 @@ export async function generateMetadata({
   };
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
-  params,
+  params: { lang },
 }: {
   children: React.ReactNode;
-  params: Promise<{ lang: string }>;
+  params: { lang: string };
 }) {
-  const { lang } = await params;
   return (
     <html lang={lang} dir={dir(lang)} suppressHydrationWarning>
       <body className={inter.className}>

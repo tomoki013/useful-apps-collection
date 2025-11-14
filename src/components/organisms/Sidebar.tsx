@@ -71,61 +71,6 @@ const Sidebar = () => {
               </nav>
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem value="item-2">
-            <AccordionTrigger>{t("siteInfo")}</AccordionTrigger>
-            <AccordionContent>
-              <nav className="grid gap-1 px-2">
-                <Link
-                  href={`/${lang}/about`}
-                  className="block px-3 py-2 text-sm rounded-md hover:bg-muted transition-colors"
-                >
-                  {t("pages.about")}
-                </Link>
-                <Link
-                  href={`/${lang}/privacy-policy`}
-                  className="block px-3 py-2 text-sm rounded-md hover:bg-muted transition-colors"
-                >
-                  {t("pages.privacy-policy")}
-                </Link>
-                <Link
-                  href={`/${lang}/terms-of-service`}
-                  className="block px-3 py-2 text-sm rounded-md hover:bg-muted transition-colors"
-                >
-                  {t("pages.terms-of-service")}
-                </Link>
-                <Link
-                  href={`/${lang}/contact`}
-                  className="block px-3 py-2 text-sm rounded-md hover:bg-muted transition-colors"
-                >
-                  {t("pages.contact")}
-                </Link>
-                <Link
-                  href={`/${lang}/help`}
-                  className="block px-3 py-2 text-sm rounded-md hover:bg-muted transition-colors"
-                >
-                  {t("pages.help")}
-                </Link>
-                <Link
-                  href={`/${lang}/faq`}
-                  className="block px-3 py-2 text-sm rounded-md hover:bg-muted transition-colors"
-                >
-                  {t("pages.faq")}
-                </Link>
-                <Link
-                  href={`/${lang}/guide`}
-                  className="block px-3 py-2 text-sm rounded-md hover:bg-muted transition-colors"
-                >
-                  {t("pages.guide")}
-                </Link>
-                <Link
-                  href={`/${lang}/feedback`}
-                  className="block px-3 py-2 text-sm rounded-md hover:bg-muted transition-colors"
-                >
-                  {t("pages.feedback")}
-                </Link>
-              </nav>
-            </AccordionContent>
-          </AccordionItem>
         </Accordion>
       </CardContent>
     </Card>
