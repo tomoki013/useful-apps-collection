@@ -1,4 +1,25 @@
 {
-  "title": "User Guide",
-  "content": "1. Select the tool you want to use from the top page or the app list page.\n2. Go to the page for each tool and enter or select the necessary information.\n3. Click the calculate button, etc., to display the results.\n4. In many cases, the input content is automatically saved in your browser and restored on your next visit."
+  "title": "How to Use",
+  "sections": [
+    {
+      "title": "1. Find a Tool",
+      "content": "Select the calculation tool you want to use from the top page or the app list page. You can quickly find the tool you need by category or through search."
+    },
+    {
+      "title": "2. Input and Calculation",
+      "content": "On the tool's page, enter the required values or make selections. The tool will automatically perform the calculation and display the result. For some tools, you may need to click a 'Calculate' button."
+    },
+    {
+      "title": "3. Save and Restore",
+      "content": "Your input values are automatically saved in your browser's local storage. The next time you visit the page, the last used values will be automatically restored, so you can pick up where you left off."
+    },
+    {
+      "title": "4. Dark Mode",
+      "content": "You can switch between light and dark modes from the theme switcher in the header. Choose the theme that is easiest on your eyes."
+    },
+    {
+      "title": "5. Supported Languages",
+      "content": "This app supports multiple languages. You can switch the display language from the language switcher in the header."
+    }
+  ]
 }
