@@ -28,10 +28,10 @@
       "name": "Loan Simulator", "description": "Compare equal-payment and equal-principal repayment amounts", "category": "money", "href": "/loan-simulator", "comingSoon": false
     },
     {
-      "name": "Unit Converter", "description": "Convert various units such as length, weight, and temperature", "category": "tool", "href": "/unit-converter", "comingSoon": true
+      "name": "Unit Converter", "description": "Convert various units such as length, weight, and temperature", "category": "tool", "href": "/unit-converter", "comingSoon": false
     },
     {
-      "name": "Age Calculator", "description": "Calculate age from date of birth", "category": "health", "href": "/age-calculator", "comingSoon": true
+      "name": "Age Calculator", "description": "Calculate age from date of birth", "category": "health", "href": "/age-calculator", "comingSoon": false
     },
     {
       "name": "World Clock", "description": "Display the current time in cities around the world", "category": "tool", "href": "/world-clock", "comingSoon": true
@@ -44,6 +44,9 @@
     },
     {
       "name": "Aspect Ratio Calculator", "description": "Calculate the ratio of screens and images", "category": "tool", "href": "/aspect-ratio-calculator", "comingSoon": true
+    },
+    {
+      "name": "Character Counter", "description": "Count the number of characters in the entered text", "category": "tool", "href": "/character-counter", "comingSoon": true
     },
     {
       "name": "Coming Soon", "description": "Preparing new tools", "category": "tool", "href": "/coming-soon", "comingSoon": true

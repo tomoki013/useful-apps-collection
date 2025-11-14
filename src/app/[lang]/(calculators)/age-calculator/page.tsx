@@ -13,8 +13,7 @@ export const metadata: Metadata = {
 const AgeCalculatorPage = () => {
   return (
     <div className="py-8">
-      {/* <AgeCalculator /> */}
-      <p>Age Calculator coming soon!</p>
+      <AgeCalculator />
     </div>
   );
 };
