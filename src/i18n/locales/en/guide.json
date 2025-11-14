@@ -2,24 +2,28 @@
   "title": "How to Use",
   "sections": [
     {
-      "title": "1. Find a Tool",
-      "content": "Select the calculation tool you want to use from the top page or the app list page. You can quickly find the tool you need by category or through search."
+      "title": "1. Find the Tool You Need",
+      "content": "Welcome to 'Useful Apps Collection'! We offer a variety of calculation and conversion tools to help with your daily life and work. Start by finding the tool you need on the homepage or the apps list page. Tools are categorized for easy browsing, and you can use the search function to find what you're looking for quickly."
     },
     {
-      "title": "2. Input and Calculation",
-      "content": "On the tool's page, enter the required values or make selections. The tool will automatically perform the calculation and display the result. For some tools, you may need to click a 'Calculate' button."
+      "title": "2. Easy Input and Real-Time Calculations",
+      "content": "Once you've found the tool you want, simply input the necessary information. For many tools, the results are displayed automatically in real-time as you enter numbers or select options. The design is intuitive, requiring no complex operations."
     },
     {
-      "title": "3. Save and Restore",
-      "content": "Your input values are automatically saved in your browser's local storage. The next time you visit the page, the last used values will be automatically restored, so you can pick up where you left off."
+      "title": "3. Utilize the Calculation Results",
+      "content": "You can easily copy the calculation results to your clipboard with a single click of the copy button. This is convenient for sharing results with friends and colleagues or for pasting them into other applications. Some tools may offer additional features for sharing results."
     },
     {
-      "title": "4. Dark Mode",
-      "content": "You can switch between light and dark modes from the theme switcher in the header. Choose the theme that is easiest on your eyes."
+      "title": "4. Convenient Auto-Save Feature",
+      "content": "The values you last entered are automatically saved in your browser. This allows your previous inputs to be restored when you use the same tool next time, enabling you to resume your work smoothly. Your privacy is protected, and this data is never sent externally."
     },
     {
-      "title": "5. Supported Languages",
-      "content": "This app supports multiple languages. You can switch the display language from the language switcher in the header."
+      "title": "5. Eye-Friendly Dark Mode",
+      "content": "We offer a dark mode to reduce eye strain during prolonged use. You can switch between light and dark modes at any time by clicking the switch in the top-right corner of the site. Enjoy using the site with your preferred display theme."
+    },
+    {
+      "title": "6. Global-Ready Multilingual Support",
+      "content": "Our site supports multiple languages to be accessible to users worldwide. Please select your preferred language from the language switcher in the header. We plan to add more supported languages in the future."
     }
   ]
 }

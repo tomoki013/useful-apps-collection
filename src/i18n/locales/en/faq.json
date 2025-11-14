@@ -12,6 +12,78 @@
     {
       "question": "Do I need to provide personal information?",
       "answer": "Most tools can be used anonymously. Some input data is saved in your browser, but it is not sent externally. For details, please check our Privacy Policy."
+    },
+    {
+      "question": "Are the calculation results accurate?",
+      "answer": "Yes, we do our best to provide accurate information. However, due to the nature of the tools, please use the calculation results as a reference."
+    },
+    {
+      "question": "Which browsers are supported?",
+      "answer": "We support the latest versions of Google Chrome, Firefox, Safari, and Microsoft Edge."
+    },
+    {
+      "question": "Can I use it on my smartphone or tablet?",
+      "answer": "Yes, this site is responsive and can be used comfortably on various devices."
+    },
+    {
+      "question": "Is my calculation history saved?",
+      "answer": "Some tools save your calculation history in your browser for your convenience. This data is not sent externally."
+    },
+    {
+      "question": "Are there ads?",
+      "answer": "We may display some ads to maintain the operation of the site. We appreciate your understanding."
+    },
+    {
+      "question": "Are you planning to add new tools?",
+      "answer": "Yes, we are always considering adding new tools to meet the needs of our users. If you have any requests, please let us know using the feedback form."
+    },
+    {
+      "question": "I don't know how to use the tools.",
+      "answer": "We have a user guide on each tool's page, so please refer to that. If you still have problems, please contact us using the inquiry form."
+    },
+    {
+      "question": "The site is not displayed correctly.",
+      "answer": "First, please check if your browser is the latest version. If the problem persists, please contact us."
+    },
+    {
+      "question": "Can I use it offline?",
+      "answer": "No, our tools are only available online."
+    },
+    {
+      "question": "Is there a dark mode?",
+      "answer": "Yes, you can switch between dark and light mode with the switch in the upper right corner of the screen."
+    },
+    {
+      "question": "How can I share my calculation results?",
+      "answer": "Some tools have a button to share the calculation results. Please use that."
+    },
+    {
+      "question": "Can I switch the language?",
+      "answer": "Yes, you can switch between supported languages from the language switcher in the header."
+    },
+    {
+      "question": "Who runs this site?",
+      "answer": "Please see the 'About' page for information about the operator."
+    },
+    {
+      "question": "I found a bug. How can I report it?",
+      "answer": "We would appreciate it if you could report it using the feedback form. Thank you for your cooperation."
+    },
+    {
+      "question": "Is the data I enter safe?",
+      "answer": "Yes, we respect your privacy and strive to protect the data you enter. Please see our Privacy Policy for details."
+    },
+    {
+      "question": "Please tell me about the tool's calculation logic.",
+      "answer": "The basic calculation logic of each tool may be explained on the help page."
+    },
+    {
+      "question": "Is membership registration required?",
+      "answer": "No, you can use all the tools immediately without registering as a member."
+    },
+    {
+      "question": "How long does it take to get a reply to my inquiry?",
+      "answer": "We usually reply within a few business days, but it may take longer depending on the content of your inquiry."
     }
   ]
 }
