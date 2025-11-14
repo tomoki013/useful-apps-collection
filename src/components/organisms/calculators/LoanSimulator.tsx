@@ -13,6 +13,7 @@ import {
   calculateEqualPrincipalPayment,
   LoanCalculationResult,
 } from "@/lib/calculators/loan";
+import { useTranslation } from "@/i18n/client";
 
 type RepaymentMethod = "equal-payment" | "equal-principal";
 
@@ -28,6 +29,7 @@ const LoanSimulator = () => {
   const [repaymentMethod, setRepaymentMethod] =
     useLocalStorage<RepaymentMethod>("loan-method", "equal-payment");
   const [result, setResult] = useState<LoanResult | null>(null);
+  const { t } = useTranslation(["loan-simulator", "common"]);
 
   const handleCalculate = () => {
     const numAmount = Number(amount);
@@ -62,12 +64,12 @@ const LoanSimulator = () => {
   return (
     <Card>
       <CardHeader>
-        <h2 className="text-2xl font-bold">Loan Simulator</h2>
+        <h2 className="text-2xl font-bold">{t("title")}</h2>
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <div>
-            <Label htmlFor="amount">Amount</Label>
+            <Label htmlFor="amount">{t("amount")}</Label>
             <Input
               id="amount"
               value={amount}
@@ -75,7 +77,7 @@ const LoanSimulator = () => {
             />
           </div>
           <div>
-            <Label htmlFor="annualRate">Annual Rate (%)</Label>
+            <Label htmlFor="annualRate">{t("annualRate")}</Label>
             <Input
               id="annualRate"
               value={annualRate}
@@ -83,7 +85,7 @@ const LoanSimulator = () => {
             />
           </div>
           <div>
-            <Label htmlFor="period">Period (years)</Label>
+            <Label htmlFor="period">{t("period")}</Label>
             <Input
               id="period"
               value={period}
@@ -91,7 +93,7 @@ const LoanSimulator = () => {
             />
           </div>
           <div>
-            <Label>Repayment Method</Label>
+            <Label>{t("repaymentMethod")}</Label>
             <RadioGroup
               value={repaymentMethod}
               onValueChange={(value) =>
@@ -100,17 +102,17 @@ const LoanSimulator = () => {
             >
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="equal-payment" id="equal-payment" />
-                <Label htmlFor="equal-payment">Equal Payment</Label>
+                <Label htmlFor="equal-payment">{t("equalPayment")}</Label>
               </div>
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="equal-principal" id="equal-principal" />
-                <Label htmlFor="equal-principal">Equal Principal</Label>
+                <Label htmlFor="equal-principal">{t("equalPrincipal")}</Label>
               </div>
             </RadioGroup>
           </div>
         </div>
         <Button onClick={handleCalculate} className="mt-6">
-          Calculate
+          {t("calculate")}
         </Button>
 
         {result && (
@@ -120,37 +122,38 @@ const LoanSimulator = () => {
             transition={{ duration: 0.5 }}
             className="mt-6"
           >
-            <h3 className="text-xl font-bold">Calculation Result</h3>
+            <h3 className="text-xl font-bold">{t("result.title")}</h3>
             <div className="grid grid-cols-1 gap-4 mt-4 md:grid-cols-3">
               <div>
                 <Label>
                   {repaymentMethod === "equal-payment"
-                    ? "Monthly Payment"
-                    : "First Month Payment"}
+                    ? t("result.monthlyPayment")
+                    : t("result.firstMonthPayment")}
                 </Label>
                 <p className="text-2xl font-bold">
-                  {result.monthlyPayment.toLocaleString()} yen
+                  {result.monthlyPayment.toLocaleString()} {t("result.unit")}
                 </p>
               </div>
               {repaymentMethod === "equal-principal" &&
                 result.lastMonthPayment && (
                   <div>
-                    <Label>Last Month Payment</Label>
+                    <Label>{t("result.lastMonthPayment")}</Label>
                     <p className="text-2xl font-bold">
-                      {result.lastMonthPayment.toLocaleString()} yen
+                      {result.lastMonthPayment.toLocaleString()}{" "}
+                      {t("result.unit")}
                     </p>
                   </div>
                 )}
               <div>
-                <Label>Total Repayment</Label>
+                <Label>{t("result.totalRepayment")}</Label>
                 <p className="text-2xl font-bold">
-                  {result.totalRepayment.toLocaleString()} yen
+                  {result.totalRepayment.toLocaleString()} {t("result.unit")}
                 </p>
               </div>
               <div>
-                <Label>Total Interest</Label>
+                <Label>{t("result.totalInterest")}</Label>
                 <p className="text-2xl font-bold">
-                  {result.totalInterest.toLocaleString()} yen
+                  {result.totalInterest.toLocaleString()} {t("result.unit")}
                 </p>
               </div>
             </div>

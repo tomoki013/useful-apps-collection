@@ -91,7 +91,7 @@ export const BmrCalculator = () => {
               type="number"
               value={formState.age}
               onChange={handleInputChange}
-              placeholder="例: 30"
+              placeholder={t("placeholders.age")}
             />
           </div>
           <div className="space-y-2">
@@ -101,7 +101,7 @@ export const BmrCalculator = () => {
               type="number"
               value={formState.height}
               onChange={handleInputChange}
-              placeholder="例: 170"
+              placeholder={t("placeholders.height")}
             />
           </div>
           <div className="space-y-2">
@@ -111,7 +111,7 @@ export const BmrCalculator = () => {
               type="number"
               value={formState.weight}
               onChange={handleInputChange}
-              placeholder="例: 65"
+              placeholder={t("placeholders.weight")}
             />
           </div>
         </div>

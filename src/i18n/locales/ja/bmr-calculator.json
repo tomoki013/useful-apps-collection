@@ -6,7 +6,14 @@
   "age": "年齢",
   "height": "身長",
   "weight": "体重",
+  "placeholders": {
+    "age": "例: 30",
+    "height": "例: 170",
+    "weight": "例: 65"
+  },
+  "calculate": "計算する",
   "result": {
+    "title": "計算結果",
     "yourBmr": "あなたの基礎代謝量",
     "unit": "kcal/日"
   },
