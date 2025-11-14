@@ -1,1 +1,31 @@
-{}
+{
+  "title": "Useful Apps Collection",
+  "description": "We provide useful tools for daily life and work for free. All apps run on your browser and require no installation.",
+  "sections": {
+    "services": {
+      "title": "Services",
+      "links": {
+        "apps": "Apps"
+      }
+    },
+    "siteInfo": {
+      "title": "Site Info",
+      "links": {
+        "about": "About",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service",
+        "contact": "Contact"
+      }
+    },
+    "support": {
+      "title": "Support",
+      "links": {
+        "help": "Help Center",
+        "faq": "FAQ",
+        "guide": "User Guide",
+        "feedback": "Feedback"
+      }
+    }
+  },
+  "copyright": "Useful Apps Collection. All rights reserved."
+}

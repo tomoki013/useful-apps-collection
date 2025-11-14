@@ -1,1 +1,31 @@
-{}
+{
+  "title": "便利アプリ集",
+  "description": "日常生活や仕事で役立つ便利なツールを無料で提供しています。すべてのアプリはブラウザ上で動作し、インストール不要でご利用いただけます。",
+  "sections": {
+    "services": {
+      "title": "サービス",
+      "links": {
+        "apps": "アプリ一覧"
+      }
+    },
+    "siteInfo": {
+      "title": "サイト情報",
+      "links": {
+        "about": "サイトについて",
+        "privacy": "プライバシーポリシー",
+        "terms": "利用規約",
+        "contact": "お問い合わせ"
+      }
+    },
+    "support": {
+      "title": "サポート",
+      "links": {
+        "help": "ヘルプセンター",
+        "faq": "よくある質問",
+        "guide": "使い方ガイド",
+        "feedback": "フィードバック"
+      }
+    }
+  },
+  "copyright": "便利アプリ集. All rights reserved."
+}

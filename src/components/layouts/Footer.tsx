@@ -11,25 +11,42 @@ const Footer = () => {
 
   const footerSections = [
     {
-      title: "サービス",
-      links: [{ name: "アプリ一覧", href: `/${lang}/apps` }],
-    },
-    {
-      title: "サイト情報",
+      title: t("sections.services.title"),
       links: [
-        { name: "サイトについて", href: `/${lang}/about` },
-        { name: "プライバシーポリシー", href: `/${lang}/privacy-policy` },
-        { name: "利用規約", href: `/${lang}/terms-of-service` },
-        { name: "お問い合わせ", href: `/${lang}/contact` },
+        { name: t("sections.services.links.apps"), href: `/${lang}/apps` },
       ],
     },
     {
-      title: "サポート",
+      title: t("sections.siteInfo.title"),
       links: [
-        { name: "ヘルプセンター", href: `/${lang}/help` },
-        { name: "よくある質問", href: `/${lang}/faq` },
-        { name: "使い方ガイド", href: `/${lang}/guide` },
-        { name: "フィードバック", href: `/${lang}/feedback` },
+        {
+          name: t("sections.siteInfo.links.about"),
+          href: `/${lang}/about`,
+        },
+        {
+          name: t("sections.siteInfo.links.privacy"),
+          href: `/${lang}/privacy-policy`,
+        },
+        {
+          name: t("sections.siteInfo.links.terms"),
+          href: `/${lang}/terms-of-service`,
+        },
+        {
+          name: t("sections.siteInfo.links.contact"),
+          href: `/${lang}/contact`,
+        },
+      ],
+    },
+    {
+      title: t("sections.support.title"),
+      links: [
+        { name: t("sections.support.links.help"), href: `/${lang}/help` },
+        { name: t("sections.support.links.faq"), href: `/${lang}/faq` },
+        { name: t("sections.support.links.guide"), href: `/${lang}/guide` },
+        {
+          name: t("sections.support.links.feedback"),
+          href: `/${lang}/feedback`,
+        },
       ],
     },
   ];
@@ -71,13 +88,10 @@ const Footer = () => {
                 <Zap className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                便利アプリ集
+                {t("title")}
               </span>
             </Link>
-            <p className="text-muted-foreground max-w-md">
-              日常生活や仕事で役立つ便利なツールを無料で提供しています。
-              すべてのアプリはブラウザ上で動作し、インストール不要でご利用いただけます。
-            </p>
+            <p className="text-muted-foreground max-w-md">{t("description")}</p>
 
             {/* Contact Info */}
             <div className="space-y-2">
@@ -121,11 +135,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-sm text-muted-foreground">
-            &copy; 2025{" "}
-            {new Date().getFullYear() > 2025
-              ? `-${new Date().getFullYear()} `
-              : " "}{" "}
-            便利アプリ集. All rights reserved.
+            &copy; {new Date().getFullYear()} {t("copyright")}
           </p>
 
           {/* Social Links */}

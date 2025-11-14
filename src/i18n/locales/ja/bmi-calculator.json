@@ -5,6 +5,12 @@
   "imperial": "ヤード・ポンド法 (ft, in, lbs)",
   "height": "身長",
   "weight": "体重",
+  "placeholders": {
+    "heightCm": "例: 170",
+    "weightKg": "例: 65",
+    "weightLbs": "例: 143"
+  },
+  "calculate": "計算する",
   "result": {
     "title": "計算結果",
     "yourBmi": "あなたのBMI",

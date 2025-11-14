@@ -101,7 +101,7 @@ export const BmiCalculator = () => {
                 type="number"
                 value={formState.heightCm}
                 onChange={handleInputChange}
-                placeholder="例: 170"
+                placeholder={t("placeholders.heightCm")}
               />
             </div>
             <div className="space-y-2">
@@ -111,7 +111,7 @@ export const BmiCalculator = () => {
                 type="number"
                 value={formState.weightKg}
                 onChange={handleInputChange}
-                placeholder="例: 65"
+                placeholder={t("placeholders.weightKg")}
               />
             </div>
           </div>
@@ -143,7 +143,7 @@ export const BmiCalculator = () => {
                 type="number"
                 value={formState.weightLbs}
                 onChange={handleInputChange}
-                placeholder="例: 143"
+                placeholder={t("placeholders.weightLbs")}
               />
             </div>
           </div>

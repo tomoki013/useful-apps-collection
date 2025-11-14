@@ -5,6 +5,12 @@
   "imperial": "Imperial (ft, in, lbs)",
   "height": "Height",
   "weight": "Weight",
+  "placeholders": {
+    "heightCm": "e.g. 170",
+    "weightKg": "e.g. 65",
+    "weightLbs": "e.g. 143"
+  },
+  "calculate": "Calculate",
   "result": {
     "title": "Result",
     "yourBmi": "Your BMI",

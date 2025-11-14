@@ -1,1 +1,19 @@
-{}
+{
+  "title": "ローンシミュレーター",
+  "amount": "借入額",
+  "annualRate": "年利率 (%)",
+  "period": "期間 (年)",
+  "repaymentMethod": "返済方法",
+  "equalPayment": "元利均等返済",
+  "equalPrincipal": "元金均等返済",
+  "calculate": "計算する",
+  "result": {
+    "title": "計算結果",
+    "monthlyPayment": "月々の返済額",
+    "firstMonthPayment": "初回返済額",
+    "lastMonthPayment": "最終回返済額",
+    "totalRepayment": "総返済額",
+    "totalInterest": "総利息額",
+    "unit": "円"
+  }
+}
