@@ -1,4 +1,17 @@
 {
-  "title": "FAQ",
-  "content": "Q1. Is it really free to use the site?\n\nA1. Yes, all tools are completely free to use. There are no additional charges or hidden costs.\n\nQ2. Do I need to install any apps?\n\nA2. No, all tools run directly in your web browser. No software download or installation is required.\n\nQ3. Do I need to provide any personal information?\n\nA3. Most tools can be used anonymously. Some input data is saved in your browser, but it is not sent externally. Please check the privacy policy for details."
+  "title": "Frequently Asked Questions",
+  "faqs": [
+    {
+      "question": "Is it really free to use?",
+      "answer": "Yes, all tools are completely free. There are no additional fees or hidden costs."
+    },
+    {
+      "question": "Do I need to install any application?",
+      "answer": "No, all tools run in your web browser. No software download or installation is required."
+    },
+    {
+      "question": "Do I need to provide personal information?",
+      "answer": "Most tools can be used anonymously. Some input data is saved in your browser, but it is not sent externally. For details, please check our Privacy Policy."
+    }
+  ]
 }
