@@ -14,23 +14,21 @@ export async function generateMetadata({
 }: {
   params: { lang: string };
 }): Promise<Metadata> {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await getTranslation(lang, "common");
   return {
-    title: t("site.title"),
-    description: t("site.description"),
+    title: t("appName"),
+    description: t("description"),
   };
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-  params: { lang },
+  params,
 }: {
   children: React.ReactNode;
-  params: {
-    lang: string;
-  };
+  params: Promise<{ lang: string }>;
 }) {
+  const { lang } = await params;
   return (
     <html lang={lang} dir={dir(lang)} suppressHydrationWarning>
       <body className={inter.className}>
